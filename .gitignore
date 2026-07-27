@@ -1,0 +1,16 @@
+# benchmark matrices are not redistributed here; see README for how to obtain them
+code/data/*
+!code/data/README.md
+*.pyc
+__pycache__/
+.DS_Store
+
+# LaTeX build products
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
