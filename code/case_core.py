@@ -155,11 +155,11 @@ def policy_regret(V, Ef, supp=None):
 
 
 # ----------------------------------------------------------------------------
-# Value-model roster: the paper's published *correction* baselines (Table tab:roster).
+# Value-model roster: the correction baselines reported in the appendix tables.
 # Each takes the confounded log M, the revealed readout cells (reads/R from a uniform
 # budget), and returns a deployed surface V. They differ in HOW they turn the log + a
 # small unbiased sample into an estimate of Ef -- the paper's R1 (value-model) axis --
-# and are scored at their native *uniform* allocation, exactly as in tab:roster. CASE
+# and are scored at their native *uniform* allocation, as in those tables. CASE
 # (per-action correction + active corrected-margin allocation) is scored separately.
 # ----------------------------------------------------------------------------
 def _place_reads(V, reads):
@@ -175,7 +175,7 @@ def vm_log(M, reads, R):
 
 def vm_peraction(M, reads, R):
     """CASE's value model in isolation: per-action (row-constant) working correction.
-    Rank-1 bias b_k 1^T; the paper's per-action candidate (Prop. peraction)."""
+    Rank-1 bias b_k 1^T; the per-action (action-level) candidate of the paper."""
     b = bias_rows(M, R, reads)
     return corrected(M, R, reads, b)
 
@@ -293,7 +293,7 @@ def uniform_reveal(Ef, M, cellq, supp, B, seed, n_read):
 
 
 def allocate_roster(vm, Ef, M, cellq, supp, B, seed, n_read):
-    """Native uniform allocation (as tab:roster gives the published baselines) + a value
+    """Native uniform allocation (how the correction baselines are scored) + a value
     model. Returns the deployed surface V. Same seeding/budget as CASE's uniform arm."""
     reads, R = uniform_reveal(Ef, M, cellq, supp, B, seed, n_read)
     return VALUE_MODELS[vm](M, reads, R)
