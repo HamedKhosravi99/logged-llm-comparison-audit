@@ -36,7 +36,7 @@ BUDGETS = [0.15, 0.25, 0.35]
 # discharges the low-contrast relief rule on the aqua and yellow slots. Slots are assigned once, by
 # entity, never cycled. Series order below IS the adjacency order the palette was validated in.
 STYLE = {
-    "trust":      dict(label="Trust operational eval.", color="#2a78d6", marker="o", ls="-"),
+    "trust":      dict(label="Trust the log", color="#2a78d6", marker="o", ls="-"),
     "uniform":    dict(label="Uniform randomized audit", color="#eb6834", marker="s", ls="--"),
     "epig_obs":   dict(label="R-EPIG, observed surface", color="#4a3aa7", marker="^", ls="-."),
     "case":       dict(label="CASE, deconfounded surface", color="#1baf7a", marker="D", ls="-"),
@@ -154,7 +154,7 @@ def figure1(F, out):
         a.spines["bottom"].set_visible(False)
         a.plot([0, 1], [0, 0], transform=a.transAxes, color="#8a8a86", lw=0.6,
                clip_on=False, dashes=(3, 3), zorder=1)   # broken baseline: axis is truncated
-    ax[0].set_ylabel("reference-channel\ndeployment regret", labelpad=3, fontsize=8.0)
+    ax[0].set_ylabel("deployment regret\n(target outcome)", labelpad=3, fontsize=8.0)
     ax[1].set_yticklabels([])
     h, l = ax[0].get_legend_handles_labels()
     # the two oracle lines are drawn only inside the inset, so they need their own legend entries
@@ -182,7 +182,7 @@ def figure3(F, out):
               error_kw=dict(elinewidth=0.7, ecolor="#52514e"), label=st["label"], zorder=3)
     a.set_xticks(xs, [SLICE_LABEL[s] for s in SLICES], fontsize=7.6)
     a.tick_params(axis="x", pad=1.5)
-    a.set_ylabel("reference regret", labelpad=3, fontsize=7.8)
+    a.set_ylabel("deployment regret (target)", labelpad=3, fontsize=7.8)
     a.grid(axis="y", zorder=0)
     h, l = a.get_legend_handles_labels()
     fig.legend(h, l, loc="lower center", ncol=3, frameon=False, bbox_to_anchor=(0.5, -0.30),
@@ -198,7 +198,7 @@ def figure2(F, out):
     xs = np.arange(len(cells))
     w = 0.24
     for a, field, ylab, top in [(ax[0], "reference_regret",
-                                 "reference-channel\ndeployment regret", 0.062),
+                                 "deployment regret\n(target outcome)", 0.062),
                                 (ax[1], "top1_error", "top-1\nidentification error", 0.80)]:
         for i, m in enumerate(ms):
             st = STYLE[m]
