@@ -9,6 +9,7 @@ fixed before the results were inspected:
   D. baseline definition       log-derived deployment policy (main) vs the incumbent router policy
   F. evaluator-bias shape      context-invariant model favouritism C_kj = C_k
   G. context granularity       J in {6, 8, 12, 16} embedding clusters (KMeans seed varies by partition)
+  H. routing aggressiveness    incumbent exploration rate eps in {0.05, 0.15, 0.30, 0.50}
   E. appendix acquisition rules raw-margin and observed-surface R-EPIG (already in the main file)
 
     python run_tae_appendix.py [--partitions 20] [--acq-seeds 6]
@@ -77,6 +78,12 @@ def main():
         ("baseline_router", dict(baseline="router", factorial_conds=(), gate_conds=("E1", "E2"))),
         # F. context-invariant model favouritism C_kj = C_k -- the cleanest case of Prop. 1(b)
         ("favoritism_Ck", dict(factorial_conds=("E1k",), gate_conds=("E1k",))),
+        # H. routing aggressiveness: the assignment factor's whole magnitude is set by how sharply
+        #    the incumbent router selects, so the exploration rate is swept end to end. eps -> 1 is
+        #    uniform routing, which is A0 by construction; eps = 0.15 is the main setting.
+        ("router_eps0.05", dict(eps=0.05, factorial_conds=("E0", "E1"), gate_conds=("E1",))),
+        ("router_eps0.30", dict(eps=0.30, factorial_conds=("E0", "E1"), gate_conds=("E1",))),
+        ("router_eps0.50", dict(eps=0.50, factorial_conds=("E0", "E1"), gate_conds=("E1",))),
         # G. context granularity: the whole design is defined over J embedding clusters, so J is a
         #    design choice that could drive the margins, the reversals and the acquisition order
         ("contexts_J6", dict(n_clusters=6, factorial_conds=("E0", "E1"), gate_conds=("E1",))),

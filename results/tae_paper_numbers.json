@@ -2337,12 +2337,12 @@
   "mean": 0.10640835,
   "se": 0.0038915261147071042
  },
- "diagx.D1_reversal_is_predicted_by_margins.observed": 0.1845238095238095,
- "diagx.D1_reversal_is_predicted_by_margins.observed_se": 0.02654632121828581,
- "diagx.D1_reversal_is_predicted_by_margins.predicted_from_margins": 0.29047619047619044,
- "diagx.D1_reversal_is_predicted_by_margins.predicted_se": 0.026719723490829426,
+ "diagx.D1_reversal_is_predicted_by_margins.observed": 0.18333333333333332,
+ "diagx.D1_reversal_is_predicted_by_margins.observed_se": 0.026623528326207974,
+ "diagx.D1_reversal_is_predicted_by_margins.predicted_from_margins": 0.2875,
+ "diagx.D1_reversal_is_predicted_by_margins.predicted_se": 0.026903136167223778,
  "diagx.D1_reversal_is_predicted_by_margins.agreement": 0.36666666666666664,
- "diagx.D1_reversal_is_predicted_by_margins.mean_abs_gap": 0.10595238095238095,
+ "diagx.D1_reversal_is_predicted_by_margins.mean_abs_gap": 0.10416666666666667,
  "diagx.D2_assignment_invalidity_test.stat_A0": 1.0587660522770739,
  "diagx.D2_assignment_invalidity_test.stat_A0_se": 0.03295440592178466,
  "diagx.D2_assignment_invalidity_test.stat_A1": 1.2847921228108343,
@@ -3838,6 +3838,762 @@
   "se": 0.05461186812727502
  },
  "appx.favoritism_Ck.gate.E1k.reference_channel.channel_verdict_inversion": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.05.reg.A0.E0.trust": {
+  "mean": 0.01941535,
+  "se": 0.002836758747394824
+ },
+ "appx.router_eps0.05.top1.A0.E0.trust": {
+  "mean": 0.4,
+  "se": 0.023297277907402332
+ },
+ "appx.router_eps0.05.reg.A0.E0.uniform": {
+  "mean": 0.028323533333333335,
+  "se": 0.0017956634005812828
+ },
+ "appx.router_eps0.05.top1.A0.E0.uniform": {
+  "mean": 0.4687499999999999,
+  "se": 0.021024343659572096
+ },
+ "appx.router_eps0.05.reg.A0.E0.case": {
+  "mean": 0.024740116666666666,
+  "se": 0.0018639468824041034
+ },
+ "appx.router_eps0.05.top1.A0.E0.case": {
+  "mean": 0.4489583333333333,
+  "se": 0.020304415282661064
+ },
+ "appx.router_eps0.05.reg.A0.E0.epig_corr": {
+  "mean": 0.023342633333333335,
+  "se": 0.001927813532748119
+ },
+ "appx.router_eps0.05.top1.A0.E0.epig_corr": {
+  "mean": 0.43229166666666663,
+  "se": 0.0209358770209759
+ },
+ "appx.router_eps0.05.reg.A0.E0.oracle_sel": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.05.top1.A0.E0.oracle_sel": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.05.reg.A0.E0.oracle_ref": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.05.top1.A0.E0.oracle_ref": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.05.reg.A1.E0.trust": {
+  "mean": 0.04757575,
+  "se": 0.0033118486695301185
+ },
+ "appx.router_eps0.05.top1.A1.E0.trust": {
+  "mean": 0.63125,
+  "se": 0.02121901766167123
+ },
+ "appx.router_eps0.05.reg.A1.E0.uniform": {
+  "mean": 0.03314106666666667,
+  "se": 0.0018038518509985453
+ },
+ "appx.router_eps0.05.top1.A1.E0.uniform": {
+  "mean": 0.5072916666666667,
+  "se": 0.021707272594214413
+ },
+ "appx.router_eps0.05.reg.A1.E0.case": {
+  "mean": 0.029237350000000002,
+  "se": 0.0022540613907024707
+ },
+ "appx.router_eps0.05.top1.A1.E0.case": {
+  "mean": 0.4791666666666667,
+  "se": 0.018510902429971637
+ },
+ "appx.router_eps0.05.reg.A1.E0.epig_corr": {
+  "mean": 0.028159333333333335,
+  "se": 0.0020405493016909877
+ },
+ "appx.router_eps0.05.top1.A1.E0.epig_corr": {
+  "mean": 0.4843750000000001,
+  "se": 0.01850318794644011
+ },
+ "appx.router_eps0.05.reg.A1.E0.oracle_sel": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.05.top1.A1.E0.oracle_sel": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.05.reg.A1.E0.oracle_ref": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.05.top1.A1.E0.oracle_ref": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.05.reg.A0.E1.trust": {
+  "mean": 0.017171650000000004,
+  "se": 0.001816389117937882
+ },
+ "appx.router_eps0.05.top1.A0.E1.trust": {
+  "mean": 0.38125,
+  "se": 0.02479355550817272
+ },
+ "appx.router_eps0.05.reg.A0.E1.uniform": {
+  "mean": 0.027878791666666663,
+  "se": 0.0018617012314353569
+ },
+ "appx.router_eps0.05.top1.A0.E1.uniform": {
+  "mean": 0.4729166666666666,
+  "se": 0.02039562109005565
+ },
+ "appx.router_eps0.05.reg.A0.E1.case": {
+  "mean": 0.024211991666666665,
+  "se": 0.0013674351949361791
+ },
+ "appx.router_eps0.05.top1.A0.E1.case": {
+  "mean": 0.4375,
+  "se": 0.01976423537605237
+ },
+ "appx.router_eps0.05.reg.A0.E1.epig_corr": {
+  "mean": 0.023737699999999997,
+  "se": 0.0014967903983453886
+ },
+ "appx.router_eps0.05.top1.A0.E1.epig_corr": {
+  "mean": 0.4395833333333333,
+  "se": 0.020882617145137946
+ },
+ "appx.router_eps0.05.reg.A0.E1.oracle_sel": {
+  "mean": 0.0017206000000000003,
+  "se": 0.0005937933026868772
+ },
+ "appx.router_eps0.05.top1.A0.E1.oracle_sel": {
+  "mean": 0.1,
+  "se": 0.021459876881973806
+ },
+ "appx.router_eps0.05.reg.A0.E1.oracle_ref": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.05.top1.A0.E1.oracle_ref": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.05.reg.A1.E1.trust": {
+  "mean": 0.0388381,
+  "se": 0.0034042910166126325
+ },
+ "appx.router_eps0.05.top1.A1.E1.trust": {
+  "mean": 0.5875,
+  "se": 0.03282228864017479
+ },
+ "appx.router_eps0.05.reg.A1.E1.uniform": {
+  "mean": 0.03307395,
+  "se": 0.0019051759795810242
+ },
+ "appx.router_eps0.05.top1.A1.E1.uniform": {
+  "mean": 0.5104166666666666,
+  "se": 0.02249411066523598
+ },
+ "appx.router_eps0.05.reg.A1.E1.case": {
+  "mean": 0.028012366666666667,
+  "se": 0.0017527326502814321
+ },
+ "appx.router_eps0.05.top1.A1.E1.case": {
+  "mean": 0.4833333333333333,
+  "se": 0.020701336228307263
+ },
+ "appx.router_eps0.05.reg.A1.E1.epig_corr": {
+  "mean": 0.027697108333333338,
+  "se": 0.0017613300087569639
+ },
+ "appx.router_eps0.05.top1.A1.E1.epig_corr": {
+  "mean": 0.4958333333333334,
+  "se": 0.017469689707591607
+ },
+ "appx.router_eps0.05.reg.A1.E1.oracle_sel": {
+  "mean": 0.0017206000000000003,
+  "se": 0.0005937933026868772
+ },
+ "appx.router_eps0.05.top1.A1.E1.oracle_sel": {
+  "mean": 0.1,
+  "se": 0.021459876881973806
+ },
+ "appx.router_eps0.05.reg.A1.E1.oracle_ref": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.05.top1.A1.E1.oracle_ref": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.05.gate.E1.ungated.reference_regret": {
+  "mean": 0.028012366666666667,
+  "se": 0.0017527326502814321
+ },
+ "appx.router_eps0.05.gate.E1.ungated.false_switch": {
+  "mean": 0.2583333333333333,
+  "se": 0.05981819434142931
+ },
+ "appx.router_eps0.05.gate.E1.ungated.false_retention": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.05.gate.E1.ungated.switch_rate": {
+  "mean": 0.9666666666666668,
+  "se": 0.019496588395520056
+ },
+ "appx.router_eps0.05.gate.E1.ungated.channel_verdict_inversion": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.05.gate.E1.same_evaluator.reference_regret": {
+  "mean": 0.032789458333333334,
+  "se": 0.0020316407844830015
+ },
+ "appx.router_eps0.05.gate.E1.same_evaluator.false_switch": {
+  "mean": 0.14166666666666666,
+  "se": 0.032612827096528595
+ },
+ "appx.router_eps0.05.gate.E1.same_evaluator.false_retention": {
+  "mean": 0.1833333333333333,
+  "se": 0.03804429551263411
+ },
+ "appx.router_eps0.05.gate.E1.same_evaluator.switch_rate": {
+  "mean": 0.5916666666666667,
+  "se": 0.03913352461174449
+ },
+ "appx.router_eps0.05.gate.E1.same_evaluator.channel_verdict_inversion": {
+  "mean": 0.0629861,
+  "se": 0.022619857079386498
+ },
+ "appx.router_eps0.05.gate.E1.reference_channel.reference_regret": {
+  "mean": 0.03239626666666666,
+  "se": 0.0019304534245045348
+ },
+ "appx.router_eps0.05.gate.E1.reference_channel.false_switch": {
+  "mean": 0.14166666666666666,
+  "se": 0.032612827096528595
+ },
+ "appx.router_eps0.05.gate.E1.reference_channel.false_retention": {
+  "mean": 0.1583333333333333,
+  "se": 0.037218730743117164
+ },
+ "appx.router_eps0.05.gate.E1.reference_channel.switch_rate": {
+  "mean": 0.6166666666666667,
+  "se": 0.043763051520233055
+ },
+ "appx.router_eps0.05.gate.E1.reference_channel.channel_verdict_inversion": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.30.reg.A0.E0.trust": {
+  "mean": 0.028455149999999995,
+  "se": 0.004620608379443578
+ },
+ "appx.router_eps0.30.top1.A0.E0.trust": {
+  "mean": 0.43125,
+  "se": 0.0420242332971171
+ },
+ "appx.router_eps0.30.reg.A0.E0.uniform": {
+  "mean": 0.038099366666666676,
+  "se": 0.002813608370624031
+ },
+ "appx.router_eps0.30.top1.A0.E0.uniform": {
+  "mean": 0.5270833333333333,
+  "se": 0.027418639613328997
+ },
+ "appx.router_eps0.30.reg.A0.E0.case": {
+  "mean": 0.033715791666666675,
+  "se": 0.0026854370089841044
+ },
+ "appx.router_eps0.30.top1.A0.E0.case": {
+  "mean": 0.4979166666666667,
+  "se": 0.028069104625957058
+ },
+ "appx.router_eps0.30.reg.A0.E0.epig_corr": {
+  "mean": 0.03571204166666667,
+  "se": 0.003055564955320138
+ },
+ "appx.router_eps0.30.top1.A0.E0.epig_corr": {
+  "mean": 0.5145833333333333,
+  "se": 0.031125482922109062
+ },
+ "appx.router_eps0.30.reg.A0.E0.oracle_sel": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.30.top1.A0.E0.oracle_sel": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.30.reg.A0.E0.oracle_ref": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.30.top1.A0.E0.oracle_ref": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.30.reg.A1.E0.trust": {
+  "mean": 0.041201999999999996,
+  "se": 0.00429328723707138
+ },
+ "appx.router_eps0.30.top1.A1.E0.trust": {
+  "mean": 0.6125,
+  "se": 0.02548864556290857
+ },
+ "appx.router_eps0.30.reg.A1.E0.uniform": {
+  "mean": 0.04356623333333333,
+  "se": 0.0024172382863713324
+ },
+ "appx.router_eps0.30.top1.A1.E0.uniform": {
+  "mean": 0.5760416666666667,
+  "se": 0.021707272594214413
+ },
+ "appx.router_eps0.30.reg.A1.E0.case": {
+  "mean": 0.03439990833333333,
+  "se": 0.0025550635833825985
+ },
+ "appx.router_eps0.30.top1.A1.E0.case": {
+  "mean": 0.5395833333333333,
+  "se": 0.02147583811652103
+ },
+ "appx.router_eps0.30.reg.A1.E0.epig_corr": {
+  "mean": 0.033020558333333325,
+  "se": 0.002207085882400516
+ },
+ "appx.router_eps0.30.top1.A1.E0.epig_corr": {
+  "mean": 0.515625,
+  "se": 0.02412934769780645
+ },
+ "appx.router_eps0.30.reg.A1.E0.oracle_sel": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.30.top1.A1.E0.oracle_sel": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.30.reg.A1.E0.oracle_ref": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.30.top1.A1.E0.oracle_ref": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.30.reg.A0.E1.trust": {
+  "mean": 0.028743400000000002,
+  "se": 0.005092303317339755
+ },
+ "appx.router_eps0.30.top1.A0.E1.trust": {
+  "mean": 0.44375,
+  "se": 0.04299154598657495
+ },
+ "appx.router_eps0.30.reg.A0.E1.uniform": {
+  "mean": 0.03986689166666667,
+  "se": 0.002938222841716412
+ },
+ "appx.router_eps0.30.top1.A0.E1.uniform": {
+  "mean": 0.5447916666666667,
+  "se": 0.02683655280620944
+ },
+ "appx.router_eps0.30.reg.A0.E1.case": {
+  "mean": 0.035524574999999996,
+  "se": 0.0031837876740039715
+ },
+ "appx.router_eps0.30.top1.A0.E1.case": {
+  "mean": 0.5072916666666668,
+  "se": 0.029473441496624897
+ },
+ "appx.router_eps0.30.reg.A0.E1.epig_corr": {
+  "mean": 0.033532799999999995,
+  "se": 0.002715677675690842
+ },
+ "appx.router_eps0.30.top1.A0.E1.epig_corr": {
+  "mean": 0.5,
+  "se": 0.02843698789783746
+ },
+ "appx.router_eps0.30.reg.A0.E1.oracle_sel": {
+  "mean": 0.0034092999999999997,
+  "se": 0.000820336385110914
+ },
+ "appx.router_eps0.30.top1.A0.E1.oracle_sel": {
+  "mean": 0.20625,
+  "se": 0.03177195676759783
+ },
+ "appx.router_eps0.30.reg.A0.E1.oracle_ref": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.30.top1.A0.E1.oracle_ref": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.30.reg.A1.E1.trust": {
+  "mean": 0.0451019,
+  "se": 0.004891079934512365
+ },
+ "appx.router_eps0.30.top1.A1.E1.trust": {
+  "mean": 0.61875,
+  "se": 0.030719175821592195
+ },
+ "appx.router_eps0.30.reg.A1.E1.uniform": {
+  "mean": 0.045407825000000006,
+  "se": 0.0020103236493698327
+ },
+ "appx.router_eps0.30.top1.A1.E1.uniform": {
+  "mean": 0.5927083333333333,
+  "se": 0.01810381399430382
+ },
+ "appx.router_eps0.30.reg.A1.E1.case": {
+  "mean": 0.035739466666666664,
+  "se": 0.00226912774739675
+ },
+ "appx.router_eps0.30.top1.A1.E1.case": {
+  "mean": 0.5416666666666667,
+  "se": 0.023070654887953748
+ },
+ "appx.router_eps0.30.reg.A1.E1.epig_corr": {
+  "mean": 0.03444748333333333,
+  "se": 0.0021047598829552175
+ },
+ "appx.router_eps0.30.top1.A1.E1.epig_corr": {
+  "mean": 0.5385416666666667,
+  "se": 0.022380847189202482
+ },
+ "appx.router_eps0.30.reg.A1.E1.oracle_sel": {
+  "mean": 0.0034092999999999997,
+  "se": 0.000820336385110914
+ },
+ "appx.router_eps0.30.top1.A1.E1.oracle_sel": {
+  "mean": 0.20625,
+  "se": 0.03177195676759783
+ },
+ "appx.router_eps0.30.reg.A1.E1.oracle_ref": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.30.top1.A1.E1.oracle_ref": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.30.gate.E1.ungated.reference_regret": {
+  "mean": 0.035739466666666664,
+  "se": 0.00226912774739675
+ },
+ "appx.router_eps0.30.gate.E1.ungated.false_switch": {
+  "mean": 0.29166666666666663,
+  "se": 0.07635233043315114
+ },
+ "appx.router_eps0.30.gate.E1.ungated.false_retention": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.30.gate.E1.ungated.switch_rate": {
+  "mean": 0.9916666666666668,
+  "se": 0.00833333333333333
+ },
+ "appx.router_eps0.30.gate.E1.ungated.channel_verdict_inversion": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.30.gate.E1.same_evaluator.reference_regret": {
+  "mean": 0.038474249999999995,
+  "se": 0.0030411996562293812
+ },
+ "appx.router_eps0.30.gate.E1.same_evaluator.false_switch": {
+  "mean": 0.1,
+  "se": 0.03707113440195691
+ },
+ "appx.router_eps0.30.gate.E1.same_evaluator.false_retention": {
+  "mean": 0.2833333333333333,
+  "se": 0.04540268173546503
+ },
+ "appx.router_eps0.30.gate.E1.same_evaluator.switch_rate": {
+  "mean": 0.475,
+  "se": 0.045683567112185616
+ },
+ "appx.router_eps0.30.gate.E1.same_evaluator.channel_verdict_inversion": {
+  "mean": 0.06398809166666666,
+  "se": 0.014827288311010139
+ },
+ "appx.router_eps0.30.gate.E1.reference_channel.reference_regret": {
+  "mean": 0.038107600000000005,
+  "se": 0.0029790095820787415
+ },
+ "appx.router_eps0.30.gate.E1.reference_channel.false_switch": {
+  "mean": 0.10833333333333332,
+  "se": 0.036823825874653264
+ },
+ "appx.router_eps0.30.gate.E1.reference_channel.false_retention": {
+  "mean": 0.2666666666666667,
+  "se": 0.0408248290463863
+ },
+ "appx.router_eps0.30.gate.E1.reference_channel.switch_rate": {
+  "mean": 0.5,
+  "se": 0.04524139283588641
+ },
+ "appx.router_eps0.30.gate.E1.reference_channel.channel_verdict_inversion": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.50.reg.A0.E0.trust": {
+  "mean": 0.02018645,
+  "se": 0.003419510587076984
+ },
+ "appx.router_eps0.50.top1.A0.E0.trust": {
+  "mean": 0.3875,
+  "se": 0.035004698932692174
+ },
+ "appx.router_eps0.50.reg.A0.E0.uniform": {
+  "mean": 0.03438690833333334,
+  "se": 0.0027674111423706812
+ },
+ "appx.router_eps0.50.top1.A0.E0.uniform": {
+  "mean": 0.5,
+  "se": 0.02790995598840768
+ },
+ "appx.router_eps0.50.reg.A0.E0.case": {
+  "mean": 0.03138509166666666,
+  "se": 0.0027275063077010432
+ },
+ "appx.router_eps0.50.top1.A0.E0.case": {
+  "mean": 0.4781250000000001,
+  "se": 0.027558873383957162
+ },
+ "appx.router_eps0.50.reg.A0.E0.epig_corr": {
+  "mean": 0.031539108333333336,
+  "se": 0.0017025664783061776
+ },
+ "appx.router_eps0.50.top1.A0.E0.epig_corr": {
+  "mean": 0.5010416666666666,
+  "se": 0.02429915851489849
+ },
+ "appx.router_eps0.50.reg.A0.E0.oracle_sel": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.50.top1.A0.E0.oracle_sel": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.50.reg.A0.E0.oracle_ref": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.50.top1.A0.E0.oracle_ref": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.50.reg.A1.E0.trust": {
+  "mean": 0.03679534999999999,
+  "se": 0.0037328582087604828
+ },
+ "appx.router_eps0.50.top1.A1.E0.trust": {
+  "mean": 0.56875,
+  "se": 0.029350143458808365
+ },
+ "appx.router_eps0.50.reg.A1.E0.uniform": {
+  "mean": 0.038477,
+  "se": 0.002538667333631555
+ },
+ "appx.router_eps0.50.top1.A1.E0.uniform": {
+  "mean": 0.5322916666666666,
+  "se": 0.02406298653339673
+ },
+ "appx.router_eps0.50.reg.A1.E0.case": {
+  "mean": 0.03329140833333332,
+  "se": 0.0027089481592950065
+ },
+ "appx.router_eps0.50.top1.A1.E0.case": {
+  "mean": 0.5041666666666667,
+  "se": 0.031290178848924155
+ },
+ "appx.router_eps0.50.reg.A1.E0.epig_corr": {
+  "mean": 0.033391550000000006,
+  "se": 0.002454266891621002
+ },
+ "appx.router_eps0.50.top1.A1.E0.epig_corr": {
+  "mean": 0.5020833333333333,
+  "se": 0.026863139977926706
+ },
+ "appx.router_eps0.50.reg.A1.E0.oracle_sel": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.50.top1.A1.E0.oracle_sel": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.50.reg.A1.E0.oracle_ref": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.50.top1.A1.E0.oracle_ref": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.50.reg.A0.E1.trust": {
+  "mean": 0.023469800000000002,
+  "se": 0.004072175605380081
+ },
+ "appx.router_eps0.50.top1.A0.E1.trust": {
+  "mean": 0.4375,
+  "se": 0.037936061166680246
+ },
+ "appx.router_eps0.50.reg.A0.E1.uniform": {
+  "mean": 0.035529116666666666,
+  "se": 0.0031412627930197026
+ },
+ "appx.router_eps0.50.top1.A0.E1.uniform": {
+  "mean": 0.5104166666666667,
+  "se": 0.0270157726834568
+ },
+ "appx.router_eps0.50.reg.A0.E1.case": {
+  "mean": 0.03279323333333333,
+  "se": 0.0023702879365704627
+ },
+ "appx.router_eps0.50.top1.A0.E1.case": {
+  "mean": 0.5031249999999999,
+  "se": 0.025030819818565142
+ },
+ "appx.router_eps0.50.reg.A0.E1.epig_corr": {
+  "mean": 0.03180855,
+  "se": 0.002142263770578664
+ },
+ "appx.router_eps0.50.top1.A0.E1.epig_corr": {
+  "mean": 0.5052083333333333,
+  "se": 0.023310756229563894
+ },
+ "appx.router_eps0.50.reg.A0.E1.oracle_sel": {
+  "mean": 0.0034092999999999997,
+  "se": 0.000820336385110914
+ },
+ "appx.router_eps0.50.top1.A0.E1.oracle_sel": {
+  "mean": 0.20625,
+  "se": 0.03177195676759783
+ },
+ "appx.router_eps0.50.reg.A0.E1.oracle_ref": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.50.top1.A0.E1.oracle_ref": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.50.reg.A1.E1.trust": {
+  "mean": 0.03905335,
+  "se": 0.0036235716643541805
+ },
+ "appx.router_eps0.50.top1.A1.E1.trust": {
+  "mean": 0.58125,
+  "se": 0.029068600802783378
+ },
+ "appx.router_eps0.50.reg.A1.E1.uniform": {
+  "mean": 0.03951830833333333,
+  "se": 0.002507184058453663
+ },
+ "appx.router_eps0.50.top1.A1.E1.uniform": {
+  "mean": 0.54375,
+  "se": 0.020384417781827705
+ },
+ "appx.router_eps0.50.reg.A1.E1.case": {
+  "mean": 0.03424406666666667,
+  "se": 0.0027091741943373005
+ },
+ "appx.router_eps0.50.top1.A1.E1.case": {
+  "mean": 0.51875,
+  "se": 0.024225012749017456
+ },
+ "appx.router_eps0.50.reg.A1.E1.epig_corr": {
+  "mean": 0.03397544166666667,
+  "se": 0.002515352146596025
+ },
+ "appx.router_eps0.50.top1.A1.E1.epig_corr": {
+  "mean": 0.5187499999999998,
+  "se": 0.024738212681328996
+ },
+ "appx.router_eps0.50.reg.A1.E1.oracle_sel": {
+  "mean": 0.0034092999999999997,
+  "se": 0.000820336385110914
+ },
+ "appx.router_eps0.50.top1.A1.E1.oracle_sel": {
+  "mean": 0.20625,
+  "se": 0.03177195676759783
+ },
+ "appx.router_eps0.50.reg.A1.E1.oracle_ref": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.50.top1.A1.E1.oracle_ref": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.50.gate.E1.ungated.reference_regret": {
+  "mean": 0.03424406666666667,
+  "se": 0.0027091741943373005
+ },
+ "appx.router_eps0.50.gate.E1.ungated.false_switch": {
+  "mean": 0.41666666666666663,
+  "se": 0.07204206048921813
+ },
+ "appx.router_eps0.50.gate.E1.ungated.false_retention": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.50.gate.E1.ungated.switch_rate": {
+  "mean": 1.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.50.gate.E1.ungated.channel_verdict_inversion": {
+  "mean": 0.0,
+  "se": 0.0
+ },
+ "appx.router_eps0.50.gate.E1.same_evaluator.reference_regret": {
+  "mean": 0.035621316666666666,
+  "se": 0.0025317115443598682
+ },
+ "appx.router_eps0.50.gate.E1.same_evaluator.false_switch": {
+  "mean": 0.175,
+  "se": 0.035199930223216325
+ },
+ "appx.router_eps0.50.gate.E1.same_evaluator.false_retention": {
+  "mean": 0.2333333333333333,
+  "se": 0.04588314677411235
+ },
+ "appx.router_eps0.50.gate.E1.same_evaluator.switch_rate": {
+  "mean": 0.5083333333333333,
+  "se": 0.04907775189425604
+ },
+ "appx.router_eps0.50.gate.E1.same_evaluator.channel_verdict_inversion": {
+  "mean": 0.096301575,
+  "se": 0.01630398858647765
+ },
+ "appx.router_eps0.50.gate.E1.reference_channel.reference_regret": {
+  "mean": 0.035455466666666664,
+  "se": 0.0025475734698528806
+ },
+ "appx.router_eps0.50.gate.E1.reference_channel.false_switch": {
+  "mean": 0.175,
+  "se": 0.035199930223216325
+ },
+ "appx.router_eps0.50.gate.E1.reference_channel.false_retention": {
+  "mean": 0.2333333333333333,
+  "se": 0.04257775824390034
+ },
+ "appx.router_eps0.50.gate.E1.reference_channel.switch_rate": {
+  "mean": 0.5083333333333333,
+  "se": 0.04907775189425604
+ },
+ "appx.router_eps0.50.gate.E1.reference_channel.channel_verdict_inversion": {
   "mean": 0.0,
   "se": 0.0
  },

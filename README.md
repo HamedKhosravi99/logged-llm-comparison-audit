@@ -47,7 +47,8 @@ code/
   load_llmrouterbench.py   builds the primary corpus cache from the released tree
   run_tae_validity.py      mandatory package: the 2x2, three budgets, the deployment gates
   run_tae_replication.py   the same design on the second corpus
-  run_tae_appendix.py      pre-specified sensitivity sweeps
+  run_tae_appendix.py      pre-specified sensitivity sweeps: distortion size and shape, context
+                           count, readout size, baseline, and router aggressiveness
   run_tae_correction.py    correction-family ceiling and richer correctors
   run_tae_overlap.py       which cells each acquisition rule and surface actually buys
   run_tae_intervals.py     95% intervals under partition, request and slice resampling
@@ -76,7 +77,7 @@ pip install -r requirements.txt
 cd code
 python run_tae_validity.py --partitions 30 --acq-seeds 6   # ~70 s, runs the tests first
 python run_tae_replication.py                              # ~60 s, second corpus
-python run_tae_appendix.py                                 # ~3 min, sensitivity sweeps
+python run_tae_appendix.py                                 # ~8 min, sensitivity sweeps
 python run_tae_correction.py                               # ~2 min
 python run_tae_overlap.py                                  # ~1 min
 python run_tae_diagnostics.py                              # ~5 min

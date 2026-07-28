@@ -1,11 +1,11 @@
 {
  "D1_reversal_is_predicted_by_margins": {
-  "observed": 0.1845238095238095,
-  "observed_se": 0.02654632121828581,
-  "predicted_from_margins": 0.29047619047619044,
-  "predicted_se": 0.026719723490829426,
+  "observed": 0.18333333333333332,
+  "observed_se": 0.026623528326207974,
+  "predicted_from_margins": 0.2875,
+  "predicted_se": 0.026903136167223778,
   "agreement": 0.36666666666666664,
-  "mean_abs_gap": 0.10595238095238095
+  "mean_abs_gap": 0.10416666666666667
  },
  "D2_assignment_invalidity_test": {
   "stat_A0": 1.0587660522770739,

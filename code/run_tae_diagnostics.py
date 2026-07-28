@@ -58,9 +58,12 @@ def d1_reversal(n_parts=30, n_read=30, eps=0.15):
         n = 0
         for j in range(base["J"]):
             ks = np.where(supp[:, j])[0]
-            if len(ks) < 2:
+            if len(ks) < 1:
                 continue
             n += 1
+            if len(ks) < 2:
+                continue                      # a context with one supported model cannot reverse,
+                                              # and counts in the denominator of both rates
             best = ks[int(np.argmax(ref[ks, j]))]
             srt = np.sort(ref[ks, j])[::-1]
             margin = srt[0] - srt[1]

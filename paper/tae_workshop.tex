@@ -28,7 +28,9 @@
 \usepackage{booktabs}
 \usepackage{amsmath,amssymb,amsfonts,amsthm}
 \usepackage{nicefrac}
-\usepackage{microtype}
+% expansion=false: pdftex (TeX Live 2026) aborts in pdfvlistout when hyperref link annotations
+% coexist with font expansion in this document. Protrusion is kept.
+\usepackage[expansion=false]{microtype}
 \usepackage{xcolor}
 \usepackage{graphicx}
 \usepackage{enumitem}
@@ -73,7 +75,8 @@ selection decisions from routed logs. We show that a randomized audit isolates r
 the grader makes the same average errors on routed and randomly selected requests. Even then, grader
 bias remains. We test both failures on two public routing benchmarks. Auditing reduces assignment
 bias on both, but not measurement bias. Under a prespecified scoring bias stress test, even perfect
-routing correction selects the wrong model in between $14$ and $18\%$ of request types. We also find
+routing correction selects the wrong model in $14$ to $18\%$ of request types on the two corpora, and
+in $10$ to $31\%$ across our sensitivity analyses. We also find
 that corrected scores matter more than the exact audit allocation rule, although the rule matters
 more as the number of models grows. Finally, the first few randomized measurements can indicate
 whether a larger audit is worthwhile.
@@ -118,13 +121,13 @@ sharpened both halves, with cross-validated fusion of experimental and observati
 \citep{yang2025crossvalidated}, confounding-robust offline learning that buys online interventions
 \citep{li2025confounding}, and decision-oriented active designs
 \citep{cha2025abc3,gao2025causalepig,gao2026observationally,gao2026budgeted}. All of it targets the
-first failure, and all of it reports gains against a benchmark score treated as valid. The evaluation
-literature documents the second failure, mostly by measuring judges against human labels, without
-connecting it to a model-selection decision taken from a routed log. Missing is the joint statement a
-practitioner needs, which is \emph{which} failure an audit repairs, what it leaves behind, and how
-the leftover shows up in the decision they actually make. Answering that requires switching one
-failure on and off while holding the other fixed. No observational study of a production log can do
-that. A controlled replay of a released benchmark matrix can.
+first failure and reports gains against a benchmark score treated as valid. The evaluation literature
+documents the second, mostly by measuring judges against human labels, without connecting it to a
+model-selection decision taken from a routed log. Missing is the joint statement a practitioner
+needs, namely \emph{which} failure an audit repairs, what it leaves behind, and how the leftover
+shows up in the decision they make. Answering that requires switching one failure on and off while
+holding the other fixed, which no observational study of a production log can do and a controlled
+replay of a released benchmark matrix can.
 
 \paragraph{Contributions.}
 \begin{enumerate}[leftmargin=1.4em,itemsep=1pt,topsep=2pt]
@@ -135,10 +138,10 @@ population. Using the same judge on both is \emph{not} sufficient.
 \item A crossed experiment that switches each failure on and off independently on the same data,
 holding model roster, requests, contexts and log volume fixed, replicated end to end on a second
 released matrix with a different roster.
-\item Findings a practitioner can act on. We report what an audit repairs and what it cannot, why
+\item Findings a practitioner can act on, covering what an audit repairs and what it cannot, why
 deconfounding the surface the budget is spent on matters more than the acquisition rule but not
-without limit, a usable test for whether an audit is worth buying at all, and the loss asymmetry at
-which a deployment gate starts to pay.
+without limit, a usable test for whether an audit is worth buying, and the loss asymmetry at which a
+deployment gate starts to pay.
 \end{enumerate}
 
 % =============================================================================
@@ -152,20 +155,19 @@ compares $K$ candidate models, numbered $k=1,\dots,K$. For each logged request $
 $A_i\in\{1,\dots,K\}$ records which model answered it. Pairing model $k$ with context $j$ gives a
 model and context cell, written as $(k,j)$, so there are $K\times J$ cells in total. A deployment
 policy $\pi$ chooses one model for each context. Thus $\pi(j)=k$ means that the policy sends requests
-in context $j$ to model $k$. For example, if the team compares three models across four request
-types, there are twelve cells.
+in context $j$ to model $k$, so three models across four request types give twelve cells.
 
 \paragraph{The outcome the decision is about.} Suppose the team wants to choose the model that
 provides the greatest value for each type of request. We call this value the target outcome. For
 request $i$ and model $k$, $\Yref_i(k)$ is the target outcome that model $k$ would receive if it
-answered request $i$. In our experiments, this is a released benchmark score. In a real deployment,
-it could be any measure chosen in advance, such as correctness, user satisfaction, or task success.
-For each model $k$ and context $j$, $\muref_{kj}=\mathbb E[\Yref_i(k)\mid Z_i=j]$ is the model's
+answered request $i$. In our experiments this is a released benchmark score, and in a deployment it
+could be any measure fixed in advance, such as correctness or user satisfaction.
+For model $k$ and context $j$, $\muref_{kj}=\mathbb E[\Yref_i(k)\mid Z_i=j]$ is the model's
 average target outcome on requests in that context. The target policy, written $\piref$, assigns each
 context to the model with the highest average target outcome. Thus
 $\piref(j)=\arg\max_k \muref_{kj}$. We call this a designated target rather than ground truth because
-it represents the objective the team has chosen. All results below ask whether the logged evaluation
-recovers decisions that are best according to that declared objective.
+it is the objective the team has chosen, and all results below ask whether the logged evaluation
+recovers the decisions that objective implies.
 
 \begin{table}[t]\centering\footnotesize\setlength{\tabcolsep}{5pt}
 \caption{Notation. The three surfaces differ only in \emph{who was measured} and \emph{what the
@@ -188,10 +190,10 @@ $\Rref(\pi)$ & deployment regret & target value lost by deploying $\pi$ instead 
 \end{table}
 
 \paragraph{Three streams, one evaluator.} The same evaluator scores requests in three data sources.
-The observational log, indexed by $s=o$, contains requests after the router has chosen which model
-answers them. The randomized audit, indexed by $s=i$, scores models on randomly selected requests.
-The held-out verification set, indexed by $s=v$, is kept separate and used only to check a final
-deployment decision. For request $i$, model $k$, and data source $s$, $\widetilde Y^s_i(k)$ is the
+The observational log ($s=o$) contains requests after the router has chosen which model answers them,
+the randomized audit ($s=i$) scores models on randomly selected requests, and the held-out
+verification set ($s=v$) is kept apart and used only to check a final deployment decision. For
+request $i$, model $k$, and data source $s$, $\widetilde Y^s_i(k)$ is the
 score reported by the evaluator. Its error is the difference between this score and the target
 outcome, $\widetilde Y^s_i(k)-\Yref_i(k)$. Even when the same evaluator is used, its average error may
 differ between the log and the audit because the router chooses which requests each model receives in
@@ -205,20 +207,20 @@ C^{o,\mathrm{sel}}_{kj}=\mathbb E\!\left[\widetilde Y^o_i(k)-\Yref_i(k)\mid A_i{
 C^{i,\mathrm{pop}}_{kj}=\mathbb E\!\left[\widetilde Y^i_i(k)-\Yref_i(k)\mid Z_i{=}j\right].
 \]
 Finally, $\Bsel_{kj}=\mathbb E[\Yref_i(k)\mid A_i{=}k,Z_i{=}j]-\muref_{kj}$ measures the selection
-bias created by the router. It compares how well model $k$ would perform on the requests the router
-assigned to it with how well it would perform on all requests in context $j$. A positive value means
-the router gave the model more favorable requests, while a negative value means it gave the model
-harder ones. Table~\ref{tab:notation} summarizes the notation.
+bias created by the router, comparing how well model $k$ would perform on the requests it was
+assigned with how well it would perform on all requests in context $j$. A positive value means the
+router gave it more favorable requests and a negative value harder ones.
+Table~\ref{tab:notation} summarizes the notation.
 
 % =============================================================================
 \section{What a randomized audit can and cannot repair}\label{sec:model}
 % =============================================================================
 A randomized audit gives each model a fairer sample of requests, so it can help separate model
-quality from the router's assignment choices. However, this correction is valid only under a specific
-condition. Proposition~\ref{prop:decomp} shows that the difference between the logged score and the
-audit score contains two parts. One is the selection bias created by the router. The other is any
-change in the evaluator's average error between the routed requests and the randomly sampled
-requests. The audit recovers selection bias only when this second part is zero.
+quality from the router's assignment choices, but the correction is valid only under a specific
+condition. Proposition~\ref{prop:decomp} splits the difference between the logged score and the audit
+score into two parts, the selection bias created by the router and any change in the evaluator's
+average error between the routed and the randomly sampled requests. The audit recovers selection
+bias only when the second part is zero.
 
 \begin{proposition}[Validity decomposition]\label{prop:decomp}
 Up to sampling noise,
@@ -236,14 +238,11 @@ particular a context-invariant model preference $C_{kj}=C_k$ cancels from the di
 therefore \emph{survives} in the corrected surface.
 \end{proposition}
 
-Remark~\ref{rem:samejudge} explains why using the same evaluator for both the log and the audit is
-not enough.
-
 \begin{remark}[Why using the same evaluator is not enough]\label{rem:samejudge}
 If the evaluator makes different kinds of errors on easy and difficult requests, and the router sends
 these requests to models at different rates, then its average error can still differ across the two
-samples. Even when this condition does hold, the audit removes only assignment bias.
-Any systematic error in what the evaluator rewards remains in the corrected comparison. Our simulated
+samples. Even when it does hold, the audit removes only assignment bias, and any systematic error in
+what the evaluator rewards remains in the corrected comparison. Our simulated
 distortion is cell-constant by construction, so part (b) applies. Clipping to a bounded score range
 makes the \emph{realised} error slightly request-dependent, so we measure that residual rather than
 assume it away (\S\ref{sec:design}, App.~\ref{app:tests}).
@@ -257,9 +256,8 @@ $\piref(j)$ whenever $\max_k(\varepsilon_{kj}-\varepsilon_{\piref(j),j})<\Delta_
 condition is $\max_k|\varepsilon_{kj}|<\Delta_j/2$.
 \end{corollary}
 
-Corollary~\ref{cor:margin} gives a simple condition for when these remaining errors change the
-selected model. They matter most when the best models have very similar target scores. Proofs are in
-App.~\ref{app:proof}.
+These errors change the selected model only where the best two are close in target value. Proofs are
+in App.~\ref{app:proof}.
 
 \paragraph{The four experimental conditions.} We study the two failures separately and together. The
 first condition has neither failure. Models receive comparable requests and the evaluator measures
@@ -267,11 +265,10 @@ the declared target. The second has assignment failure only. The router sends di
 requests to different models, but the evaluator remains faithful. The third has measurement failure
 only. Models receive comparable requests, but the evaluator systematically distorts their scores. The
 fourth contains both failures. We refer to these conditions as neither, assignment only, measurement
-only, and both. For compact labels in figures and tables, A0 and A1 indicate the absence or presence
-of assignment failure, while D0 and D1 indicate the absence or presence of evaluator distortion. We
-also include A1--D2, where the evaluator behaves differently in the log and the audit, as a
-diagnostic condition. Every condition can still contain ranking errors caused by limited sample
-sizes, including the condition with neither validity failure.
+only, and both. In figures and tables, A0 and A1 mark the absence or presence of assignment failure
+and D0 and D1 the absence or presence of evaluator distortion. We also include A1--D2, where the
+evaluator behaves differently in the log and the audit, as a diagnostic. Every condition can still
+contain ranking errors from limited sample sizes, including the one with neither validity failure.
 
 % =============================================================================
 \section{The audit protocol}\label{sec:protocol}
@@ -295,30 +292,29 @@ Steps 1 to 3 form a deliberately simple reference protocol, which we call CASE. 
 that combines a confounded log with a small unbiased sample
 \citep{athey2020combining,kallus2018removing,rosenman2018combining,agarwal2023causalmc} and in
 budgeted causal experimental design \citep{gao2026budgeted,gao2025causalepig}. We make no claim for
-the margin heuristic, and \S\ref{sec:results} shows where it is adequate and where it is not, so we
-also run a decision-information rule (R-EPIG, \citealp{gao2026observationally}) on both the observed
-and the deconfounded surface. Step 4 is a conditional gate rather than a safe-deployment certificate,
-because it bounds harm relative to the status quo only on the cells it checks, under the evaluator
-that checks them.
+the margin heuristic, so we also run a decision-information rule (R-EPIG,
+\citealp{gao2026observationally}) on both surfaces, and \S\ref{sec:results} shows where each is
+adequate. Step 4 is a conditional gate rather than a safe-deployment certificate, because it bounds
+harm relative to the status quo only on the cells it checks, under the evaluator that checks them.
 
 % =============================================================================
 \section{Experimental design}\label{sec:design}
 % =============================================================================
 \paragraph{Two corpora.} The primary study replays the LLMRouterBench performance--cost track
 \citep{li2026llmrouterbench}, which holds $11{,}289$ requests aligned across five benchmark slices and
-five models spanning the cost--capability range. Every conclusion is then re-derived by running the
+five models spanning the cost--capability range. Every conclusion is re-derived by running the
 identical pipeline on RouterBench \citep{hu2024routerbench}, which holds $36{,}497$ requests, $11$
 models and five benchmark families, and shares no requests, models or scoring convention with the
-first. Both are offline replays of released matrices rather than production traces, so neither
-carries temporal drift, dynamic router updates, retries or missing counterfactual outputs
-(\S\ref{sec:scope}). Contexts are $J{=}8$ frozen KMeans clusters of request embeddings.
+first. Both are offline replays rather than production traces, so neither carries temporal drift,
+dynamic router updates, retries or missing counterfactual outputs (\S\ref{sec:scope}). Contexts are
+$J{=}8$ frozen KMeans clusters of request embeddings.
 
 \paragraph{Cohorts.} Each request has exactly one role, either router-train ($20\%$), observational
 log ($50\%$), audit ($12\%$), verification ($8\%$) or scoring ($10\%$), stratified by slice. Contexts,
 the router and every evaluator-design constant are fit on router-train only. Nothing except final
 scoring and the two labelled oracles reads the scoring cohort, and a leakage test
 (App.~\ref{app:tests}) confirms that replacing its outcomes with random values leaves the acquired
-cells, the fitted correction, the candidate policy and the gate decision bit-identical.
+cells, the fitted correction, the policy and the gate decision bit-identical.
 
 \paragraph{Factor A (assignment).} \textbf{A1} routes with a FrugalGPT-style cost cascade
 \citep{chen2023frugalgpt} fit on router-train, with exploration rate $0.15$. \textbf{A0} takes the
@@ -331,36 +327,35 @@ stable model-by-context distortion shared by all three streams, $C_{kj}=\lambda 
 is the standardized model capability rank and $s_j\in\{\pm1\}$ splits harder from easier contexts,
 both computed on router-train only, and $\lambda=0.5\times\mathrm{median}_j\Delta_{j,\mathrm{train}}$
 is fixed by formula before any run. Scores are clipped to $[0,1]$, which attenuates the distortion to
-an effective shift of $0.0100\se{0.0007}$ against a median target margin of $0.041$. Clipping also
-makes the realised error slightly request-dependent, so assignment invariance holds only
-approximately. The measured residual is $0.0018\se{0.0001}$, twice which is $0.0036$, an order of
-magnitude inside the $0.041$ margin Cor.~\ref{cor:margin} requires, so it cannot flip a typical
-context. \textbf{D2} keeps A1 and halves the distortion on the audit stream.
+an effective shift of $0.0100\se{0.0007}$ against a median target margin of $0.041$, and also makes
+the realised error slightly request-dependent, so assignment invariance holds only approximately. The
+measured residual is $0.0018\se{0.0001}$, twice which is an order of magnitude inside the $0.041$
+margin Cor.~\ref{cor:margin} requires, so it cannot flip a typical context. \textbf{D2} keeps A1 and
+halves the distortion on the audit stream.
 
 \paragraph{Methods, outcomes, replication.} The arms are trusting the log, a uniform audit, CASE,
 R-EPIG on the observed and on the deconfounded surface, and two labelled oracles. The
 \emph{population-operational oracle} $\muop$ removes selection exactly while keeping evaluator error,
 so it is the ceiling for a perfect assignment repair, and the \emph{reference-outcome oracle} is
 $\muref$. The confirmatory primary outcome is deployment regret $\Rref$ on the untouched scoring
-cohort, and the second is the false-switch rate (\S\ref{sec:results}). Budgets are $15$, $25$ and
-$35\%$ of supported cells, which is $B{=}13$ cells or $390$ audited requests at $35\%$ on the primary
-corpus. We run $30$ prompt-cohort partitions crossed with $6$ acquisition seeds, average seeds
-\emph{within} a partition first, and report $\pm$ as a paired standard error over partitions. A
-partition resamples cohorts, contexts and the router within one fixed corpus, so it is not an
-independent draw of new requests. App.~\ref{app:ci} therefore gives $95\%$ intervals under partition,
-request and benchmark-slice resampling, and we quote the last wherever it changes a conclusion.
+cohort, and the second is the false-switch rate. Budgets are $15$, $25$ and $35\%$ of supported
+cells, which is $B{=}13$ cells or $390$ audited requests at $35\%$ on the primary corpus. We run $30$
+prompt-cohort partitions crossed with $6$ acquisition seeds, average seeds \emph{within} a partition
+first, and report $\pm$ as a paired standard error over partitions. A partition resamples cohorts,
+contexts and the router within one fixed corpus, so it is not an independent draw of new requests.
+App.~\ref{app:ci} therefore gives $95\%$ intervals under partition, request and slice resampling, and
+we quote the last wherever it changes a conclusion.
 
 % =============================================================================
 \section{Results}\label{sec:results}
 % =============================================================================
 We first test the paper's central claims. We ask whether a router-generated log identifies the best
 model, how much a randomized audit repairs the resulting assignment bias, what determines how
-effectively the audit budget is used, and whether assignment correction also repairs measurement
-error. We then turn to two practical extensions. We examine whether a held-out check can prevent
-harmful deployment changes and whether the first few randomized measurements can reveal when a larger
-audit is worth conducting. Throughout, we report both deployment regret, which measures the value
-lost by selecting the wrong model, and identification error, which measures how often the selected
-model differs from the target-best model.
+effectively the budget is used, and whether assignment correction also repairs measurement error. We
+then ask whether a held-out check can prevent harmful deployment changes and whether the first few
+randomized measurements reveal when a larger audit is worth conducting. Throughout we report
+deployment regret, the value lost by selecting the wrong model, and
+identification error, how often the selected model differs from the target-best one.
 
 \begin{figure}[t]\centering
 \includegraphics[width=\textwidth]{figs/tae_fig1.pdf}
@@ -368,10 +363,11 @@ model differs from the target-best model.
 budget.} Deployment regret (lower is better) under the selective-router log, with error bars giving
 paired standard errors over $30$ partitions. The two deconfounded-surface arms track each other and
 sit below the surface-agnostic uniform rule and the observed-surface rule, and they buy $86\%$ of the
-same cells (Q3). \textbf{The vertical axis is truncated} so that the methods, which span $0.033$ to
-$0.051$, are legible. Both oracles lie an order of magnitude lower, at $0$ under a faithful evaluator
-and $0.0030$ under a distorted one, and Fig.~\ref{fig:fig2} shows that gap on a full axis. Per-slice
-values appear in Fig.~\ref{fig:fig3} and Table~\ref{tab:slices}.}
+same cells (Q3). \textbf{The main axis is truncated} so that the methods, which span $0.033$
+to $0.051$, are legible, and the inset in each panel repeats trust and CASE on the full axis with
+both oracles, so the spread between the methods can be read against the much larger gap that
+separates all of them from a perfect repair. Per-slice values appear in Fig.~\ref{fig:fig3} and
+Table~\ref{tab:slices}.}
 \label{fig:fig1}
 \end{figure}
 
@@ -381,26 +377,28 @@ values appear in Fig.~\ref{fig:fig3} and Table~\ref{tab:slices}.}
 surface picks a model other than the target-best one in $67.5\%\se{2.4}$ of contexts, against
 $39.6\%\se{2.6}$ for the matched-volume common-population log. In regret the figures are
 $0.0499\se{0.0030}$ against $0.0214\se{0.0024}$. The gap is selection rather than sample size, because
-the two logs hold the same requests in the same per-cell counts, and no outcome oracle enters A1, so
-the trap is the router's. On RouterBench the same statistics are $46.9\%\se{3.3}$ and
-$25.6\%\se{2.9}$.
+the two logs hold the same requests in the same per-cell counts, and no outcome oracle enters A1. On
+RouterBench the same statistics are $46.9\%\se{3.3}$ and $25.6\%\se{2.9}$.
 
 \paragraph{Q2. Auditing repairs a substantial fraction, and no more.} At a $35\%$ budget under
 A1--D0, CASE lowers regret from $0.0499\se{0.0030}$ to $0.0338\se{0.0020}$, a paired difference of
 $-0.0161$ with $95\%$ CI $[-0.0219,-0.0103]$, better on $27$ of $30$ partitions and excluding zero
-under all three resampling schemes of App.~\ref{app:ci}. It improves on all five slices. That is
-about a third of the distance to the population-operational oracle. On RouterBench the effect is
-larger and cleaner, from $0.0784$ to $0.0421$, a paired difference of $-0.0363\se{0.0042}$ that is
-better on \emph{every} partition.
+under all three resampling schemes of App.~\ref{app:ci}. It improves on all five slices, and on
+RouterBench the effect is larger, from $0.0784$ to $0.0421$, a paired difference of
+$-0.0363\se{0.0042}$ better on \emph{every} partition. How far this goes towards a perfect repair
+depends on the estimand, so we give both. The mean over partitions of the per-partition share of the
+trust-to-oracle gap that CASE closes is $28\%$, and the share formed from aggregate means is
+$32\%$.
 
 \emph{Why only a third?} Not the budget. Prop.~\ref{prop:decomp} is cellwise but the deployed
 correction is one offset per model, and the router makes that misspecified, since $68\%\se{2}$ of the
 selection distortion is not constant across contexts. Replacing the budget-limited fit with the
 \emph{best-fitting member of the same family}, computed from the truth with no budget at all, reaches
 $0.0318\se{0.0025}$, only $0.0020\se{0.0024}$ below CASE with $95\%$ CI $[-0.0030,+0.0070]$. So of the
-trust-to-oracle gap, CASE repairs $28\%$, a further $5\%$ is reachable inside the action-level family
-($14\%$ at the top of that interval), and roughly two thirds lies outside it. More readouts would not
-help, whereas a richer corrector would, but the richer families we tried overfit $13$ purchased cells
+trust-to-oracle gap, CASE closes the $28\%$ above, a further $5\%$ is reachable inside the
+action-level family ($14\%$ at the top of that interval), and roughly two thirds lies outside it, all
+three shares being mean-of-ratios over partitions. More readouts would not help, whereas a richer
+corrector would, but the richer families we tried overfit $13$ purchased cells
 (App.~\ref{app:extra}).
 
 \paragraph{Q3. The surface decides more than the rule, but the rule is not free.} Crossing the
@@ -412,9 +410,8 @@ $+0.0003\se{0.0011}$ and two one-sided tests rejecting a difference larger than 
 $p=10^{-4}$. The two rules also buy $86.5\%\se{1.0}$ of the same cells, against $61.4\%\se{1.0}$ when
 the same rule moves to the observed surface, so the tie is mechanical rather than coincidental.
 \textbf{On the eleven-model corpus the rule does matter, and the margin heuristic loses to the
-decision-information rule by $+0.0140\se{0.0021}$.} The bounded claim is therefore that deconfounding
-the acquisition surface is the robust lever, and that a simple margin rule becomes inadequate as the
-roster grows.
+decision-information rule by $+0.0140\se{0.0021}$.} The bounded claim is that deconfounding the
+surface is the robust lever and that a simple margin rule becomes inadequate as the roster grows.
 
 \begin{figure}[t]\centering
 \includegraphics[width=\textwidth]{figs/tae_fig2.pdf}
@@ -431,20 +428,23 @@ $\Gmeas=0.0030$ in regret but $18.3\%\se{2.7}$ in identification error.}
 loses $0.0469\se{0.0025}$. A cellwise-perfect repair removes $\Gsel=0.0439\se{0.0029}$ and leaves
 $\Gmeas=0.0030$, with $95\%$ CI $[+0.0017,+0.0043]$ over partitions, though it is \emph{not} separable
 from zero when the five slices are resampled as clusters (App.~\ref{app:ci}). The measurement-only
-cell makes the point without any selection bias to repair, since CASE sits at $0.0330\se{0.0021}$
-while the population-operational oracle sits at $0.0030\se{0.0006}$.
+cell makes the point with no selection bias to repair, since CASE sits at $0.0330\se{0.0021}$
+against $0.0030\se{0.0006}$ for the population-operational oracle.
 
 The floor is small in \emph{value} and large in \emph{identification}. With selection bias removed
 exactly, the evaluator still names the wrong model in $18.3\%\se{2.7}$ of contexts on the primary
-corpus, ranging over $10.4$ to $18.3\%$ across $J\in\{6,8,12,16\}$, and $13.8\%\se{1.5}$ on
-RouterBench. Reversals concentrate where the target margin is smallest, so they are cheap in regret
-and expensive in ranking, and a value report and an identification report disagree by an order of
-magnitude about what this evaluator's bias costs. \textbf{We stress what this number is and is not.}
-It is a property of the pre-specified stress test. Applying Cor.~\ref{cor:margin} to the margin
-distribution alone predicts a reversal rate of $29.0\%\se{2.7}$ where $18.5\%\se{2.7}$ is observed, so
-the rate is largely fixed by $\lambda$ and the margin distribution and carries \emph{no} information
-about how biased any deployed judge is. What is not arithmetic is the structural claim it
-illustrates, namely that a cellwise-perfect assignment repair leaves this error untouched.
+corpus and $13.8\%\se{1.5}$ on RouterBench, both at the pre-specified distortion strength and
+$J{=}8$. Across every sensitivity we ran the floor spans $10.0$ to $30.6\%$, at its lowest under a
+context-invariant model preference and its highest at twice the pre-specified distortion
+(App.~\ref{app:extra}), so the headline pair is a point inside a range rather than a constant.
+Reversals concentrate where the target margin is smallest, so they are cheap in regret and expensive
+in ranking, and the two reports disagree by an order of magnitude about what this evaluator's bias
+costs. \textbf{We stress what this number is and is not.} Applying Cor.~\ref{cor:margin} to the
+margin distribution alone, with no reference to which model actually wins, predicts $28.8\%\se{2.7}$
+against the $18.3\%\se{2.7}$ observed, so the rate is largely fixed by $\lambda$ and the margins and
+carries \emph{no} information about how biased any deployed judge is. What is not arithmetic is the
+structural claim it illustrates, that a cellwise-perfect assignment repair leaves this error
+untouched.
 
 \subsection{Practical deployment questions}\label{sec:practical}
 
@@ -457,41 +457,47 @@ the log-derived policy is the argmax of the operational surface, so reading veri
 same distortion tilts toward retention. At the stronger bias level it switches less ($0.55$ against
 $0.62$) and falsely retains more ($0.242\se{0.035}$ against $0.208\se{0.032}$). What it provably
 cannot do is get the verdict right. On $4.6\%$ of contested contexts, or $8.3\%$ at the stronger
-level, its \emph{population} comparison with sampling noise removed points the opposite way from the
-target's, a property of the channel rather than the sample that is unchanged by budget and flat in
-readout size.
+level, its \emph{population} comparison points the opposite way from the target's, a property of the
+channel rather than the sample, unchanged by budget and flat in readout size.
 
-Gating is not free either. It trades $0.117$ fewer false switches for $0.233$ more false retentions,
-so it lowers expected loss only if a harmful switch costs at least $2.0\times$ a missed improvement at
-the $35\%$ budget, and only $1.0\times$ at the $15\%$ budget, where the audit behind it is too thin to
-trust (App.~\ref{app:extra}). \emph{State the asymmetry before quoting the gate.}
+Gating is not free. It trades $0.117$ fewer false switches for $0.233$ more false retentions, so it
+lowers expected loss only if a harmful switch costs at least $2.0\times$ a missed improvement at the
+$35\%$ budget, and $1.0\times$ at the $15\%$ budget, where the audit behind it is too thin to trust
+(App.~\ref{app:extra}). \emph{State the asymmetry before quoting the gate.}
 
 \paragraph{Q6. You can tell in advance whether the audit is worth buying.} Where the log is already
-common-population, auditing \emph{raises} regret, from $0.0214\se{0.0024}$ to $0.0321\se{0.0024}$
-(paired $+0.0107$, CI $[+0.0067,+0.0147]$, not separable from zero under slice resampling), because
-each $30$-request readout is noisier than the ${\approx}140$-request log cell it overwrites. On
-RouterBench, whose log cells are far larger, that cost disappears ($-0.0005\se{0.0037}$). This is
-only actionable with a test, so here is one. After just the $K$ per-model seed readouts, take the
-dispersion of the logged-minus-audit differences standardised by the noise they would carry under a
-common-population log. It averages $1.06\se{0.03}$ under A0 and $1.28\se{0.04}$ under A1, with AUC
+common-population and its cells are larger than the readouts that would replace them, auditing
+\emph{raises} regret, from $0.0214\se{0.0024}$ to $0.0321\se{0.0024}$ (paired $+0.0107$, CI
+$[+0.0067,+0.0147]$, not separable from zero under slice resampling), because each $30$-request
+readout is noisier than the ${\approx}140$-request log cell it overwrites. The binding condition is
+that density comparison rather than the audit itself, and on RouterBench, whose log cells are far
+larger, the cost disappears ($-0.0005\se{0.0037}$). A test makes
+this actionable. After just the $K$ per-model seed readouts, take the dispersion of the
+logged-minus-audit differences, standardised by the noise they would carry under a common-population
+log. It averages $1.06\se{0.03}$ under A0 and $1.28\se{0.04}$ under A1, with AUC
 $0.79$, and auditing only above a threshold gives mean regret $0.0313$ against $0.0329$ for always
 auditing and $0.0356$ for never auditing. The threshold is fitted in-sample, so the AUC is the honest
-separation, but the decision can be informed by five cells rather than taken blind.
+separation, but five cells can inform the decision rather than leaving it blind.
 
 % =============================================================================
 \section{Conclusion}\label{sec:scope}
 % =============================================================================
 A logged model comparison can fail in two ways that call for different remedies. Randomized auditing
-repairs the assignment failure under stated conditions, removing roughly a third of the distance to a
-perfect repair on the primary corpus and rather more on the second. It does not repair the
-measurement failure at all, and once selection bias is removed exactly the evaluator still names the
-wrong model in $14$ to $18\%$ of request types, whatever the audit budget. Three further results are
+repairs the assignment failure under stated conditions, removing between a quarter and a third of the
+distance to a perfect repair on the primary corpus and rather more on the second. It does not repair the
+measurement failure at all. Once selection bias is removed exactly, the evaluator still names the
+wrong model in $14$ to $18\%$ of request types on the two corpora at the pre-specified distortion
+strength, and in $10$ to $31\%$ across our sensitivity analyses, in every case whatever the audit
+budget. Three further results are
 practical. What makes a budget productive is the surface it is spent on rather than the rule that
 spends it, though the rule regains importance as the roster grows. A held-out check reduces harmful
 deployment changes but inherits the construct it was meant to check, and pays only when a harmful
 switch costs roughly twice a missed improvement. And the first few randomized measurements already
-indicate whether a larger audit is worth buying, which matters because auditing an already balanced
-log adds error rather than removing it.
+indicate whether a larger audit is worth buying, which matters where the readouts would be thinner
+than the log cells they overwrite. That cost, $+0.0107$ on the primary corpus and not separable from
+zero once benchmark slices are resampled as clusters, is a statement about readout size relative to
+log-cell density rather than about auditing as such, and it disappears on RouterBench, whose log
+cells are far larger.
 
 \begin{table}[t]\centering\footnotesize\setlength{\tabcolsep}{5pt}
 \caption{Validity scope of a randomized audit over a router-generated log.}
@@ -501,7 +507,7 @@ log adds error rather than removing it.
 Threat & Addressed? & Required condition\\
 \midrule
 Router-induced selective assignment & Yes, partly & Randomizable cells, correction family rich enough\\
-Finite audit noise & Partially & Adequate budget, and it \emph{adds} error if no bias exists (Q6)\\
+Finite audit noise & Partially & Readouts no thinner than the log cells they replace (Q6)\\
 Context-varying selection residual & \textbf{Largely not} & Two thirds of it lies outside the fitted family\\
 Stable shared evaluator distortion & \textbf{No} & Construct validation or a \emph{validated} channel\\
 Evaluator error that depends on the request & Can contaminate & Assignment invariance (Prop.~\ref{prop:decomp}a)\\
@@ -510,22 +516,20 @@ Unsupported model--context cells & No & Exploration or expanded support\\
 \end{tabular}
 \end{table}
 
-\paragraph{Limitations.} Table~\ref{tab:scope} lists what the protocol addresses. Two limitations matter most for reading the
-results. The first concerns the $18\%$ figure. The
+\paragraph{Limitations.} Table~\ref{tab:scope} lists what the protocol addresses, and two limitations matter most. The
 identification result of \S\ref{sec:model} holds for any evaluator, but the magnitudes come from a
-pre-specified synthetic distortion rather than a measured judge, so nothing here estimates how large
-construct bias is for a deployed LLM judge. Measuring that on a real judge is the natural next step.
-The second concerns the reference channel, which reads the designated target during verification. It
-is an experimental control rather than something a production team can obtain on demand, so it bounds
-what a better verification channel could achieve rather than describing an available one.
+pre-specified synthetic distortion rather than a measured judge, so nothing here estimates construct
+bias for a deployed LLM judge, and measuring that is the natural next step. The reference channel
+reads the designated target during verification, an experimental control rather than something a
+production team can obtain on demand, so it bounds what a better channel could achieve rather than
+describing an available one.
 
-\paragraph{A reporting checklist.} A comparison read off a router-generated log should report (i) the
-assignment mechanism, whether it depended on request difficulty, and the per-cell logged counts, so a
-reader can see whether models met comparable populations, (ii) which evaluator scored each stream,
-and whether its error is plausibly invariant to routing rather than merely whether the same judge was
-used, (iii) the outcome the conclusion is \emph{about} and how it differs from what was measured,
-(iv) the target margin per context beside the ranking, so Cor.~\ref{cor:margin} is checkable, and (v)
-both a value and an identification metric, which can disagree by an order of magnitude.
+\paragraph{A reporting checklist.} A comparison read off a router-generated log should report (i)
+the assignment mechanism and the per-cell logged counts, (ii) which evaluator scored each stream and whether its error is plausibly invariant to
+routing, not merely that the same judge was used, (iii) the outcome the conclusion is \emph{about}
+and how it differs from what was measured, (iv) the target margin per context beside the ranking, so
+Cor.~\ref{cor:margin} is checkable, and (v) both a value and an identification metric, which can
+disagree by an order of magnitude.
 
 \label{endofmaintext}
 \bibliographystyle{plainnat}
@@ -735,8 +739,8 @@ Decision-information & RouterBench ($K{=}11$) & $0.0396\se{0.0023}$ & $0.0281\se
 matching D1 rows, while the rule effect is null at $K{=}5$ and large at $K{=}11$.
 
 \subsection{Is the un-repaired gap a budget problem or a model problem?}
-CASE closes about a third of the distance to a perfect repair, and a reader is entitled to ask
-whether the rest would come with more readouts. To separate the two explanations we hold CASE's
+CASE closes between a quarter and a third of the distance to a perfect repair, and a reader is
+entitled to ask whether the rest would come with more readouts. To separate the two explanations we hold CASE's
 allocation and budget fixed and vary only the correction, adding shrinkage, a two-way additive fit
 and a rank-2 completion, together with \textsc{oracle row}, the best-fitting correction inside the
 same one-offset per-model family computed from the truth with no budget at all. That last arm is the
@@ -796,6 +800,39 @@ fixed policies. The statistic averages $1.06\se{0.03}$ under A0 and
 $1.28\se{0.04}$ under A1, with AUC $0.79$, a best in-sample threshold of $1.17$ and accuracy $75\%$.
 Auditing only above that threshold gives mean regret $0.0313$, against $0.0329$ for always auditing
 and $0.0356$ for never auditing.
+
+\subsection{How much does the result depend on how aggressively the router selects?}
+Assignment validity is half the paper, and its magnitude is set entirely by how sharply the incumbent
+router selects, which the main runs fix at an exploration rate of $0.15$. We sweep that rate, since
+$\varepsilon\to1$ is uniform routing and reproduces A0 by construction. Both the damage and the
+repair scale with the selection, which is what the mechanism predicts and what makes an audit worth
+buying only where selection is present.
+
+\begin{center}\footnotesize
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Exploration rate $\varepsilon$ & $0.05$ & $0.15$ & $0.30$ & $0.50$\\
+\midrule
+Log top-1 error, A1--D0 & $0.631$ & $0.675$ & $0.613$ & $0.569$\\
+Trust the log & $0.0476$ & $0.0499$ & $0.0412$ & $0.0368$\\
+CASE & $0.0292$ & $0.0338$ & $0.0344$ & $0.0333$\\
+R-EPIG, deconfounded surface & $0.0282$ & $0.0335$ & $0.0330$ & $0.0334$\\
+\addlinespace[2pt]
+CASE $-$ trust & $-0.0183\se{0.0041}$ & $-0.0161\se{0.0028}$ & $-0.0068\se{0.0044}$ & $-0.0035\se{0.0036}$\\
+Share of the trust regret removed & $39\%$ & $32\%$ & $17\%$ & $10\%$\\
+\bottomrule
+\end{tabular}
+\end{center}
+\noindent A1--D0 at a $35\%$ budget over $20$ partitions crossed with $6$ seeds, with
+$\varepsilon=0.15$ taken from the main runs. The repair falls monotonically as the router explores
+more, from $39\%$ of the trust regret at $\varepsilon=0.05$ to $10\%$ at $\varepsilon=0.50$. The
+damage is not monotone at the sharpest setting, and the reason is support rather than bias. At
+$\varepsilon=0.05$ only $28.6$ of the $40$ model--context cells appear in the log at all, against
+$36.2$ at $\varepsilon=0.15$ and $40.0$ at $\varepsilon=0.50$, and a cell that never appears is
+excluded from the comparison, so the surviving comparison is both smaller and easier. Aggressive
+routing therefore converts part of the bias problem into the support problem the last row of
+Table~\ref{tab:scope} records, which no audit budget addresses. What this sweep does not vary is the
+router \emph{family}, which remains a cost cascade throughout.
 
 \subsection{How much does the result depend on the shape and size of the distortion?}
 The evaluator distortion is a modelling choice, so a result that only holds at one strength or one

@@ -52,6 +52,7 @@ reviewer can check any quoted figure without re-running anything.
 | C12 | No method reads the designated target outcome before final scoring | App. B | `tests.reference_channel_leakage` in `results/tae_validity.json` | "replacing the scoring outcomes with random values leaves the acquired cells, correction, policy and gate decision identical" | "the protocol is leakage-free in general" (the test covers this pipeline) |
 | C13 | Prop. 1's cancellation needs assignment invariance, not merely the same judge — and holds only approximately here | §2 Rem. 1, §4, App. B | `diag.assignment_invariance_residual_A1` (0.0018 ± 0.0001), `..._cohort_floor_A0` (0.0013), `..._mean_abs_selection_bias` (0.0991), `..._residual_over_selection_bias` (0.0185) | "the residual is measured, not assumed: 1.8% contamination of the selection bias the differencing identifies" | "using the same judge on both streams makes the distortion cancel"; "the decomposition is exact" |
 | C14 | The measurement result is not an artefact of the capability × difficulty interaction | App. C | `appx.favoritism_Ck.reg.A1.E1k.*`, `appx.favoritism_Ck.top1.A1.E1k.oracle_sel` (0.100 ± 0.021), `appx.favoritism_Ck.gate.E1k.same_evaluator.channel_verdict_inversion` (0.077) | "context-invariant favouritism `C_kj = C_k` cancels from the differencing entirely yet still reverses the target-best model in 10% of contexts after a perfect assignment repair" | "the result holds for any evaluator error structure" (only two forms were tested) |
+| C15 | Both the damage and the repair scale with how aggressively the router selects | App. C | `appx.router_eps0.05/0.30/0.50.reg.A1.E0.*`, main run at eps = 0.15 | "the share of trust regret CASE removes falls monotonically from 39% at eps = 0.05 to 10% at eps = 0.50; at eps = 0.05 only 28.6 of 40 cells are supported, so extreme selection also converts bias into missing support" | "auditing is worthwhile at any routing aggressiveness"; "the finding holds for router families other than a cost cascade" |
 
 ---
 
@@ -64,3 +65,16 @@ reviewer can check any quoted figure without re-running anything.
 * No claim that the five benchmark slices are five independent studies; intervals are over
   prompt-cohort partitions.
 * No claim of unique superiority for the corrected-margin acquisition rule (C3).
+
+## Relationship to the TMLR manuscript
+
+The status quo the gates arbitrate against is the **log-derived deployment policy**
+(`argmax_k M_kj`), never called the "incumbent" in the paper — the incumbent *router* is a separate,
+much weaker baseline reported only in App. C (`appx.baseline_router.*`).
+
+`case_tmlr.tex` gained exactly three things from this analysis and nothing else:
+(i) a "what the readouts fix, and what they cannot" paragraph in §3 distinguishing assignment from
+measurement validity; (ii) clause (vi) of the policy-value-gate remark, stating that the gate's
+guarantee is in the recorded outcome's units; (iii) an "outcome-measurement scope" paragraph in the
+scope section. No TMLR table, figure or number changed. The 2 × 2 experiment, its figures and its
+gate comparison stay out of the journal manuscript per the two-paper plan.

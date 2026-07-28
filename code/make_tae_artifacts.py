@@ -110,7 +110,7 @@ def figure1(F, out):
     them here would squeeze the whole comparison into the top third of the panel; Fig. 2 carries the
     oracle gap instead. The y-axis is therefore fitted to the methods and does not start at zero,
     which the caption states."""
-    fig, ax = plt.subplots(1, 2, figsize=(5.5, 2.35), gridspec_kw=dict(wspace=0.08))
+    fig, ax = plt.subplots(1, 2, figsize=(5.5, 2.08), gridspec_kw=dict(wspace=0.08))
     x = np.arange(len(BUDGETS))
     lo, hi = 0.0305, 0.0555
     for a, (cond, title) in zip(ax, [("E0", "(a) faithful evaluator (A1\u2013D0)"),
@@ -122,9 +122,26 @@ def figure1(F, out):
                        marker=st["marker"], ls=st["ls"], lw=1.6, ms=5.2, capsize=2.6,
                        elinewidth=0.9, label=st["label"], zorder=3)
         v_sel = F.stat(("A1", cond, 0.35, "oracle_sel"), "reference_regret")[0]
-        a.annotate(f"axis truncated; population-operational\noracle at {v_sel:.4f}, off scale (Fig. 2)",
-                   (0.025, 0.02), xycoords="axes fraction", fontsize=6.2, color="#6b6b68",
-                   ha="left", va="bottom", linespacing=1.2)
+        # full-scale inset, so the truncation cannot make the method spread look larger than the
+        # gap to the oracle that it actually sits inside
+        ins = a.inset_axes([0.105, 0.07, 0.355, 0.375])
+        for m in ["trust", "case"]:
+            yy = [F.stat(("A1", cond, b_, m), "reference_regret")[0] for b_ in BUDGETS]
+            ins.plot(x, yy, color=STYLE[m]["color"], ls=STYLE[m]["ls"], lw=1.0,
+                     marker=STYLE[m]["marker"], ms=2.2)
+        for m in ["oracle_sel", "oracle_ref"]:
+            ins.axhline(F.stat(("A1", cond, 0.35, m), "reference_regret")[0],
+                        color=STYLE[m]["color"], ls=STYLE[m]["ls"], lw=0.8)
+        ins.set_ylim(-0.003, 0.058)
+        ins.set_xlim(-0.28, 2.28)
+        ins.set_xticks(x, ["15", "25", "35"], fontsize=5.2)
+        ins.set_yticks([0, 0.05], ["0", "0.05"], fontsize=5.2)
+        ins.tick_params(length=1.6, pad=1)
+        ins.set_title("full scale, with oracles", fontsize=5.6, pad=1.5, color="#52514e",
+                      bbox=dict(facecolor="white", edgecolor="none", pad=0.8))
+        ins.grid(False)
+        for sp in ins.spines.values():
+            sp.set_linewidth(0.5)
         a.set_xticks(x, [f"{int(b*100)}%" for b in BUDGETS], fontsize=8.0)
         a.set_xlabel("randomized cell budget", labelpad=2, fontsize=8.0)
         a.set_title(title, pad=5, loc="left", fontsize=8.4)
@@ -170,7 +187,7 @@ def figure3(F, out):
 def figure2(F, out):
     cells = [("A0", "E0"), ("A1", "E0"), ("A0", "E1"), ("A1", "E1")]
     ms = ["trust", "case", "oracle_sel"]
-    fig, ax = plt.subplots(1, 2, figsize=(5.5, 1.8), gridspec_kw=dict(wspace=0.30))
+    fig, ax = plt.subplots(1, 2, figsize=(5.5, 1.60), gridspec_kw=dict(wspace=0.30))
     xs = np.arange(len(cells))
     w = 0.24
     for a, field, ylab, top in [(ax[0], "reference_regret",
