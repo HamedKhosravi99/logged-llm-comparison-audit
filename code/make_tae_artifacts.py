@@ -111,7 +111,7 @@ def figure1(F, out):
     them here would squeeze the whole comparison into the top third of the panel; Fig. 2 carries the
     oracle gap instead. The y-axis is therefore fitted to the methods and does not start at zero,
     which the caption states."""
-    fig, ax = plt.subplots(1, 2, figsize=(5.5, 1.88), gridspec_kw=dict(wspace=0.08))
+    fig, ax = plt.subplots(1, 2, figsize=(5.5, 1.74), gridspec_kw=dict(wspace=0.08))
     x = np.arange(len(BUDGETS))
     lo, hi = 0.0305, 0.0555
     for a, (cond, title) in zip(ax, [("E0", "(a) faithful evaluator (A1\u2013D0)"),
@@ -194,7 +194,7 @@ def figure3(F, out):
 def figure2(F, out):
     cells = [("A0", "E0"), ("A1", "E0"), ("A0", "E1"), ("A1", "E1")]
     ms = ["trust", "case", "oracle_sel"]
-    fig, ax = plt.subplots(1, 2, figsize=(5.5, 1.50), gridspec_kw=dict(wspace=0.30))
+    fig, ax = plt.subplots(1, 2, figsize=(5.5, 1.38), gridspec_kw=dict(wspace=0.30))
     xs = np.arange(len(cells))
     w = 0.24
     for a, field, ylab, top in [(ax[0], "reference_regret",
