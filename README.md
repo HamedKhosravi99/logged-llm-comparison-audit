@@ -6,9 +6,8 @@ Selection and Measurement Validity under Model Routing*, submitted to the TAE wo
 (<https://tai-eval.github.io/>).
 
 This repository is the reproducibility package only, and carries no manuscript source. The paper and
-its LaTeX build live in
-[routed-llm-eval-audit-neurips-workshop-TAE](https://github.com/HamedKhosravi99/routed-llm-eval-audit-neurips-workshop-TAE),
-which mirrors everything here.
+its LaTeX build live in a companion repository, which mirrors everything here. That repository is not
+linked while the submission is under double-blind review.
 
 **One line.** A router-generated log can support the wrong model-selection conclusion for two
 unrelated reasons, and a randomized audit repairs exactly one of them. This package runs the crossed
