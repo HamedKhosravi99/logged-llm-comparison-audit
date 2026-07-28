@@ -14,3 +14,6 @@ __pycache__/
 *.fls
 *.fdb_latexmk
 *.synctex.gz
+
+# the manuscript lives in the paper repository; only its generated fragment can appear here
+tae_tables.tex

@@ -1,7 +1,14 @@
 # Can We Trust Logged LLM Comparisons? — reproducibility package
 
 Code, result files and figures for the workshop paper *Can We Trust Logged LLM Comparisons? Auditing
-Selection and Measurement Validity under Model Routing*.
+Selection and Measurement Validity under Model Routing*, submitted to the TAE workshop at NeurIPS
+2026, *Can We Trust AI Evaluation? Robustness, Causality, and Risk in Modern AI Assessment*
+(<https://tai-eval.github.io/>).
+
+This repository is the reproducibility package only, and carries no manuscript source. The paper and
+its LaTeX build live in
+[routed-llm-eval-audit-neurips-workshop-TAE](https://github.com/HamedKhosravi99/routed-llm-eval-audit-neurips-workshop-TAE),
+which mirrors everything here.
 
 **One line.** A router-generated log can support the wrong model-selection conclusion for two
 unrelated reasons, and a randomized audit repairs exactly one of them. This package runs the crossed
@@ -63,7 +70,6 @@ docs/
                            including the hypothesis that did not survive
   CLAIM_REGISTRY.md        every load-bearing claim mapped to its artifact, result file and the
                            wording the evidence does and does not support
-paper/                     manuscript source and the compiled PDF
 ```
 
 ---
@@ -86,9 +92,10 @@ python make_tae_artifacts.py                               # figures, tables, pa
 ```
 
 Every script writes to `results/` and prints its own summary. `make_tae_artifacts.py` regenerates
-`figs/`, the LaTeX table fragments, and `results/tae_paper_numbers.json`, which holds every value
-quoted in the paper under a stable key, so any figure in the text can be checked without rerunning
-anything.
+`figs/` and `results/tae_paper_numbers.json`, which holds every value quoted in the paper under a
+stable key, so any figure in the text can be checked without rerunning anything. It also writes
+`tae_tables.tex`, the LaTeX fragment the manuscript reads; that file belongs to the paper repository
+and is ignored here.
 
 Runs are deterministic given the partition and acquisition seeds, so a fresh run reproduces the
 committed result files exactly.
@@ -128,7 +135,9 @@ identical in both. Only the display layer of `make_tae_artifacts.py` renames it.
 ## Data and scope
 
 Neither corpus is redistributed here, and no new model inference is performed anywhere in this
-package. Both experiments replay per-request outputs their authors already released. The evaluator
+package. Both experiments replay per-request outputs their authors already released: LLMRouterBench,
+of whose 21 datasets and 33 models we use five and five, leaving 11,289 requests scored by all five,
+and RouterBench, whose zero-shot matrix holds 36,497 requests and 11 models. The evaluator
 distortion is a pre-specified synthetic stress test applied to those real outcomes, not a measurement
 of any deployed judge, and `docs/CLAIM_REGISTRY.md` records that distinction alongside the wording it
 does and does not license.

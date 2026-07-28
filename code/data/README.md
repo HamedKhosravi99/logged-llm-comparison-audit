@@ -13,8 +13,10 @@ code/data/
   routerbench_tfidf_svd.npy # written automatically on first use, no action needed
 ```
 
-**LLMRouterBench** (primary corpus, 11,289 requests x 5 models). Obtain the released
-performance--cost track, unpack it as `code/data/llmrouterbench/bench-release/`, then run
+**LLMRouterBench** (primary corpus). The released benchmark spans 21 datasets and 33 models; the
+runs here use five datasets and the five models that span the cost--capability range, which leaves
+11,289 requests scored by all five. Obtain the released per-request tree, unpack it as
+`code/data/llmrouterbench/bench-release/`, then run
 `python code/load_llmrouterbench.py`, which aligns requests across models and writes
 `flagship_grid.pkl`. `emb_minilm.npy` holds one 128-dimensional embedding per request in the same
 row order as that pickle; any sentence embedding works, and
