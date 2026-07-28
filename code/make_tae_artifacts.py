@@ -182,7 +182,7 @@ def figure3(F, out):
               error_kw=dict(elinewidth=0.7, ecolor="#52514e"), label=st["label"], zorder=3)
     a.set_xticks(xs, [SLICE_LABEL[s] for s in SLICES], fontsize=7.6)
     a.tick_params(axis="x", pad=1.5)
-    a.set_ylabel("deployment regret (target)", labelpad=3, fontsize=7.8)
+    a.set_ylabel("deployment regret\n(target outcome)", labelpad=3, fontsize=7.8)
     a.grid(axis="y", zorder=0)
     h, l = a.get_legend_handles_labels()
     fig.legend(h, l, loc="lower center", ncol=3, frameon=False, bbox_to_anchor=(0.5, -0.30),

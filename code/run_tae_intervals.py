@@ -164,7 +164,7 @@ def prompt_bootstrap(contrasts, reps, seed=0, budget=0.35, n_read=30, eps=0.15, 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--boot", type=int, default=10000)
-    ap.add_argument("--prompt-boot", type=int, default=1000)
+    ap.add_argument("--prompt-boot", type=int, default=2000)   # matches the shipped results
     ap.add_argument("--out", default=DEFAULT_OUT)
     args = ap.parse_args()
     rng = np.random.default_rng(7)
