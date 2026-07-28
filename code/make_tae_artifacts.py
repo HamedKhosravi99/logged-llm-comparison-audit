@@ -227,7 +227,7 @@ def figure2(F, out):
         a.grid(axis="y", zorder=0)
 
     h, l = ax[0].get_legend_handles_labels()
-    fig.legend(h, l, loc="lower center", ncol=3, frameon=False, bbox_to_anchor=(0.5, -0.17),
+    fig.legend(h, l, loc="lower center", ncol=3, frameon=False, bbox_to_anchor=(0.5, -0.50),
                handlelength=1.6, columnspacing=1.4)
     fig.savefig(out)
     plt.close(fig)
