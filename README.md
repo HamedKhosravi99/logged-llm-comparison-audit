@@ -1,7 +1,7 @@
 # Can We Trust Logged LLM Comparisons? — reproducibility package
 
 Code, result files and figures for the workshop paper *Can We Trust Logged LLM Comparisons? Auditing
-Selection and Measurement Validity under Model Routing*, submitted to the TAE workshop at NeurIPS
+Selection and Measurement Validity under Model Routing*, targeted for the TAE workshop at NeurIPS
 2026, *Can We Trust AI Evaluation? Robustness, Causality, and Risk in Modern AI Assessment*
 (<https://tai-eval.github.io/>).
 
