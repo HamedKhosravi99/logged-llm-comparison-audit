@@ -23,14 +23,13 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{hyperref}
+% hyperref is deliberately not loaded. pdftex (TeX Live 2026) aborts in pdfvlistout whenever a link
+% annotation straddles the page-2 break in this document; the workshop style does not require it.
 \usepackage{url}
 \usepackage{booktabs}
 \usepackage{amsmath,amssymb,amsfonts,amsthm}
 \usepackage{nicefrac}
-% expansion=false: pdftex (TeX Live 2026) aborts in pdfvlistout when hyperref link annotations
-% coexist with font expansion in this document. Protrusion is kept.
-\usepackage[expansion=false]{microtype}
+\usepackage{microtype}
 \usepackage{xcolor}
 \usepackage{graphicx}
 \usepackage{enumitem}
@@ -792,8 +791,8 @@ establish equivalence between CASE and the action-level ceiling, which is why th
 reported above as an interval rather than a tie.
 
 \subsection{Can a team tell in advance whether to audit?}
-The result that auditing a balanced log adds error is only actionable if the imbalance can be
-detected before the budget is spent. From the $K$ per-model seed readouts alone, which every arm buys
+The Q6 result, that readouts thinner than the log cells they replace add error where there is no
+imbalance to remove, is only actionable if the imbalance can be detected before the budget is spent. From the $K$ per-model seed readouts alone, which every arm buys
 first, we take the dispersion of $M_{kj}-R_{kj}$ standardised by the noise it would carry if the log
 were common-population. This separates the two regimes and yields a decision rule that beats both
 fixed policies. The statistic averages $1.06\se{0.03}$ under A0 and
