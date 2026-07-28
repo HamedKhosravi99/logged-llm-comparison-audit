@@ -162,7 +162,7 @@ def figure1(F, out):
         st = STYLE[m]
         h.append(Line2D([], [], color=st["color"], ls=st["ls"], lw=1.0))
         l.append(st["label"] + " (inset)")
-    fig.legend(h, l, loc="lower center", ncol=3, frameon=False, bbox_to_anchor=(0.5, -0.34),
+    fig.legend(h, l, loc="lower center", ncol=3, frameon=False, bbox_to_anchor=(0.5, -0.40),
                handlelength=1.9, columnspacing=1.0, handletextpad=0.5, labelspacing=0.35,
                fontsize=7.0)
     fig.savefig(out)
@@ -227,7 +227,7 @@ def figure2(F, out):
         a.grid(axis="y", zorder=0)
 
     h, l = ax[0].get_legend_handles_labels()
-    fig.legend(h, l, loc="lower center", ncol=3, frameon=False, bbox_to_anchor=(0.5, -0.50),
+    fig.legend(h, l, loc="lower center", ncol=3, frameon=False, bbox_to_anchor=(0.5, -0.44),
                handlelength=1.6, columnspacing=1.4)
     fig.savefig(out)
     plt.close(fig)
