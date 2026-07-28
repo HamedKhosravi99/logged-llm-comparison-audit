@@ -50,6 +50,8 @@ STYLE = {
 # the paper labels the evaluator factor D (distortion); the result files key it E. Display only.
 CELL_LABEL = {("A0", "E0"): "A0–D0\nneither", ("A1", "E0"): "A1–D0\nassign.",
               ("A0", "E1"): "A0–D1\nmeasure.", ("A1", "E1"): "A1–D1\nboth"}
+# D2/D2rev are internal keys only: the paper presents the stream-mismatch run as a
+# robustness check, not as a third level of the evaluator factor.
 COND_LABEL = {"E0": "D0", "E1": "D1", "E2": "D2", "E1k": "D1k", "E2rev": "D2rev"}
 
 plt.rcParams.update({
@@ -240,7 +242,7 @@ def table_deployment(G, meta):
             ("reference_channel", "\\;$+$ reference-channel check")]
     lines = []
     for cond, cname in [("E1", "A1--D1 (stable evaluator distortion)"),
-                        ("E2", "A1--D2 (evaluator differs between log and audit)")]:
+                        ("E2", "Stream mismatch (evaluator differs between log and audit)")]:
         lines.append(f"\\multicolumn{{7}}{{@{{}}l}}{{\\emph{{{cname}}}}}\\\\")
         for arm, label in arms:
             k = (cond, 0.35, arm)
