@@ -97,16 +97,16 @@ which request, and it decided on difficulty. Modern routers make this explicit. 
 request how well each candidate would do, or how uncertain it is, and escalate accordingly
 \citep{feng2025graphrouter,zhang2025routerr1,su2026cprouter,zheng2026disrouter}. The strong model's
 average is therefore taken over hard requests and the cheap model's over easy ones, so comparing the
-averages compares models and exam papers at once. Recent work on routing supervision makes the same
-observation from the training side, noting that outcomes sampled under a routing policy are a biased
-view of a model's capability \citep{routing2026supervision}. This is the classic confounded-log
+averages compares models and exam papers at once. Recent work on routing supervision makes a related
+point, that one sampled response is a noisy stand-in for a model's capability and injects systematic
+noise into router training \citep{routing2026supervision}. This is the classic confounded-log
 problem, and randomization is its classic answer.
 
 \paragraph{The exam measured the wrong thing (measurement validity).} The score in the log came from
 an automatic evaluator, such as an LLM acting as judge, a string-match grader, or a click-through
 proxy. Such evaluators have documented systematic preferences, including for their own outputs, for
 longer answers, and for whichever answer appears first
-\citep{wang2024notfair,panickssery2024selfpreference,zheng2023judging,chiang2024arena}. If the
+\citep{wang2024notfair,panickssery2024selfpreference,zheng2023judging}. If the
 evaluator's ranking differs from the ranking the deployment decision is about, every model sat the
 same exam and the exam was the wrong one. This is the classic \emph{construct}-validity question
 \citep{jacobs2021measurement,raji2021everything}, namely whether the number you measured is the
@@ -115,14 +115,14 @@ quantity you care about, and randomizing who is graded on what does not touch it
 \paragraph{What is missing.} Both failures are individually familiar. The methods literature on
 confounded logs combines an observational log with a small randomized sample and spends an
 experimental budget where it changes decisions
-\citep{athey2020combining,kallus2018removing,rosenman2018combining}, and the last two years have
+\citep{athey2020combining,kallus2018removing,rosenman2022propensity}, and the last two years have
 sharpened both halves, with cross-validated fusion of experimental and observational data
-\citep{yang2025crossvalidated}, confounding-robust offline learning that buys online interventions
-\citep{li2025confounding}, and decision-oriented active designs
+\citep{yang2025crossvalidated}, offline reinforcement learning robust to the confounding in a logged
+dataset \citep{li2025confounding}, and decision-oriented active designs
 \citep{cha2025abc3,gao2025causalepig,gao2026observationally,gao2026budgeted}. All of it targets the
 first failure and reports gains against a benchmark score treated as valid. The evaluation literature
-documents the second, mostly by measuring judges against human labels, without connecting it to a
-model-selection decision taken from a routed log. Missing is the joint statement a practitioner
+documents the second, mostly by measuring judges against human preference
+\citep{chiang2024arena}, without connecting it to a decision taken from a routed log. Missing is the joint statement a practitioner
 needs, namely \emph{which} failure an audit repairs, what it leaves behind, and how the leftover
 shows up in the decision they make. Answering that requires switching one failure on and off while
 holding the other fixed, which no observational study of a production log can do and a controlled
@@ -172,14 +172,14 @@ recovers the decisions that objective implies.
 \caption{Notation. The three surfaces differ only in \emph{who was measured} and \emph{what the
 measurement was}, and keeping them apart is the whole argument.}
 \label{tab:notation}
-\begin{tabular}{@{}llp{7.4cm}@{}}
+\begin{tabular}{@{}llp{8.6cm}@{}}
 \toprule
 Symbol & Name & What it is\\
 \midrule
 $\muref_{kj}$ & target surface & average designated outcome of model $k$ on context-$j$ requests\\
-$M_{kj}$ & logged surface & average \emph{recorded score} of model $k$ over the context-$j$ requests \emph{the router sent it}\\
+$M_{kj}$ & logged surface & average \emph{recorded score} of model $k$ on the context-$j$ requests \emph{the router sent it}\\
 $R_{kj}$ & audit readout & average recorded score of model $k$ on a fresh \emph{random} sample of context-$j$ requests\\
-$\muop_{kj}$ & population-operational surface & what the evaluator would report for model $k$ on \emph{all} context-$j$ requests, with selection removed and evaluator error kept\\
+$\muop_{kj}$ & population-operational & what the evaluator would report for model $k$ on \emph{all} context-$j$ requests, with selection removed and evaluator error kept\\
 $\Bsel_{kj}$ & selection bias & how much easier or harder the router's requests were, in target units\\
 $C_{kj}$ & evaluator distortion & how far the recorded score sits from the target outcome, per cell\\
 $\Delta_j$ & target margin & gap between best and second-best model in context $j$, under $\muref$\\
@@ -289,8 +289,9 @@ about, in matched pairs, and switch only if the candidate wins.
 
 Steps 1 to 3 form a deliberately simple reference protocol, which we call CASE. It sits in the family
 that combines a confounded log with a small unbiased sample
-\citep{athey2020combining,kallus2018removing,rosenman2018combining,agarwal2023causalmc} and in
-budgeted causal experimental design \citep{gao2026budgeted,gao2025causalepig}. We make no claim for
+\citep{athey2020combining,kallus2018removing,rosenman2022propensity}, in confounded matrix completion
+\citep{agarwal2023causalmc}, and in budgeted causal experimental design
+\citep{gao2026budgeted,gao2025causalepig}. We make no claim for
 the margin heuristic, so we also run a decision-information rule (R-EPIG,
 \citealp{gao2026observationally}) on both surfaces, and \S\ref{sec:results} shows where each is
 adequate. Step 4 is a conditional gate rather than a safe-deployment certificate, because it bounds
@@ -299,12 +300,12 @@ harm relative to the status quo only on the cells it checks, under the evaluator
 % =============================================================================
 \section{Experimental design}\label{sec:design}
 % =============================================================================
-\paragraph{Two corpora.} The primary study replays the LLMRouterBench performance--cost track
-\citep{li2026llmrouterbench}, which holds $11{,}289$ requests aligned across five benchmark slices and
-five models spanning the cost--capability range. Every conclusion is re-derived by running the
-identical pipeline on RouterBench \citep{hu2024routerbench}, which holds $36{,}497$ requests, $11$
-models and five benchmark families, and shares no requests, models or scoring convention with the
-first. Both are offline replays rather than production traces, so neither carries temporal drift,
+\paragraph{Two corpora.} The primary study replays the released per-request scores and costs of
+LLMRouterBench \citep{li2026llmrouterbench}, taking five of its $21$ datasets and the five models
+that span the cost--capability range, which leaves $11{,}289$ requests scored by all five. Every
+conclusion is re-derived on RouterBench \citep{hu2024routerbench}, whose zero-shot matrix holds
+$36{,}497$ requests and $11$ models, grouped here into five benchmark families, and which shares no
+requests, models or scoring convention with the first. Both are offline replays rather than production traces, so neither carries temporal drift,
 dynamic router updates, retries or missing counterfactual outputs (\S\ref{sec:scope}). Contexts are
 $J{=}8$ frozen KMeans clusters of request embeddings.
 
@@ -755,7 +756,7 @@ Correction, at CASE's allocation and a $35\%$ budget & A1--D0 & A1--D1\\
 \midrule
 Trust the log (no correction) & $0.0499\se{0.0030}$ & $0.0469\se{0.0025}$\\
 Action-level (deployed) & $0.0338\se{0.0020}$ & $0.0338\se{0.0017}$\\
-\;+ experiment-grounded shrinkage \citep{athey2020combining} & $0.0339\se{0.0020}$ & $0.0338\se{0.0017}$\\
+\;+ experiment-grounded shrinkage \citep{kallus2018removing,rosenman2023shrinkage} & $0.0339\se{0.0020}$ & $0.0338\se{0.0017}$\\
 Two-way additive (row $+$ column) & $0.0399\se{0.0019}$ & $0.0394\se{0.0024}$\\
 Rank-2 completion of the purchased bias residuals & $0.0452\se{0.0019}$ & $0.0426\se{0.0019}$\\
 \addlinespace[2pt]

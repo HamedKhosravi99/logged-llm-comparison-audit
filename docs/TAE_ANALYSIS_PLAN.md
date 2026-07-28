@@ -131,8 +131,8 @@ observed-surface acquisition.
    could be misspecification rather than budget. It is the latter: the best-fitting member of the
    action-level family, computed from the truth with no budget, reaches 0.0318 against CASE's 0.0338
    at a 35% budget (paired +0.0020 ± 0.0024). Of the trust-to-oracle gap, 28% is repaired, 5% remains
-   reachable inside the family, and 66% lies outside it. Richer correctors (two-way, rank-2, Athey
-   shrinkage) do not help at this budget.
+   reachable inside the family, and 66% lies outside it. Richer correctors (two-way, rank-2,
+   experiment-grounded shrinkage) do not help at this budget.
 4. *95% confidence intervals under three resampling schemes* (`code/run_tae_intervals.py`) were
    added after review objected that a partition SE is not uncertainty over future prompts or
    benchmark suites. Consequence, reported in the paper: the audit benefit and the CASE/R-EPIG tie

@@ -202,10 +202,12 @@ def vm_twoway(M, reads, R, iters=50):
 
 
 def vm_athey(M, reads, R, tau=3.0):
-    """Athey-combine / experiment-grounded shrinkage (athey2020combining): per-action
-    correction shrunk toward 0 by how much unbiased evidence supports it (weight
-    n_k/(n_k+tau)) -- trust the log where the experimental sample is thin. (With a dense
-    uniform budget the shrinkage is small, so it tracks the per-action corrector.)"""
+    """Experiment-grounded shrinkage: the per-action correction is shrunk toward 0 by how much
+    unbiased evidence supports it (weight n_k/(n_k+tau)), so the log is trusted where the
+    experimental sample is thin. This is the experimental-grounding idea of Kallus et al. (2018)
+    combined with the observational/experimental shrinkage of Rosenman et al. (2023, Biometrics).
+    The function name is kept for backward compatibility with the committed result files. (With a
+    dense uniform budget the shrinkage is small, so it tracks the per-action corrector.)"""
     K, J = M.shape
     b = np.zeros(K)
     for k in range(K):
@@ -263,7 +265,7 @@ VALUE_MODELS = {
     "log": vm_log,                 # log-greedy / behavior cloning
     "peraction": vm_peraction,     # CASE value model (per-action), uniform alloc
     "twoway": vm_twoway,           # Kallus / two-way fixed-effects additive correction
-    "athey": vm_athey,             # Athey-combine / experiment-grounded shrinkage
+    "athey": vm_athey,             # experiment-grounded shrinkage (key kept for result files)
     "causalmc": vm_causalmc,       # Causal-MC / SpectralRep / G-ESTT (OUTCOME low-rank completion)
 }
 
