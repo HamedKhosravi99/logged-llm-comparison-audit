@@ -19,6 +19,7 @@ import numpy as np
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+from matplotlib.lines import Line2D
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -110,7 +111,7 @@ def figure1(F, out):
     them here would squeeze the whole comparison into the top third of the panel; Fig. 2 carries the
     oracle gap instead. The y-axis is therefore fitted to the methods and does not start at zero,
     which the caption states."""
-    fig, ax = plt.subplots(1, 2, figsize=(5.5, 2.08), gridspec_kw=dict(wspace=0.08))
+    fig, ax = plt.subplots(1, 2, figsize=(5.5, 1.98), gridspec_kw=dict(wspace=0.08))
     x = np.arange(len(BUDGETS))
     lo, hi = 0.0305, 0.0555
     for a, (cond, title) in zip(ax, [("E0", "(a) faithful evaluator (A1\u2013D0)"),
@@ -156,8 +157,14 @@ def figure1(F, out):
     ax[0].set_ylabel("reference-channel\ndeployment regret", labelpad=3, fontsize=8.0)
     ax[1].set_yticklabels([])
     h, l = ax[0].get_legend_handles_labels()
-    fig.legend(h, l, loc="lower center", ncol=3, frameon=False, bbox_to_anchor=(0.5, -0.32),
-               handlelength=2.2, columnspacing=1.3, fontsize=7.4)
+    # the two oracle lines are drawn only inside the inset, so they need their own legend entries
+    for m in ["oracle_sel", "oracle_ref"]:
+        st = STYLE[m]
+        h.append(Line2D([], [], color=st["color"], ls=st["ls"], lw=1.0))
+        l.append(st["label"] + " (inset)")
+    fig.legend(h, l, loc="lower center", ncol=3, frameon=False, bbox_to_anchor=(0.5, -0.34),
+               handlelength=1.9, columnspacing=1.0, handletextpad=0.5, labelspacing=0.35,
+               fontsize=7.0)
     fig.savefig(out)
     plt.close(fig)
 
