@@ -5,11 +5,7 @@ Cheaper LLM? Auditing Selection and Measurement Validity in Multi-Model Routing*
 TAE workshop at NeurIPS 2026, *Can We Trust AI Evaluation? Robustness, Causality, and Risk in Modern
 AI Assessment* (<https://tai-eval.github.io/>).
 
-This repository is the reproducibility package only, and carries no manuscript source. The paper and
-its LaTeX build live in a companion repository, which mirrors everything here. That repository is not
-linked while the submission is under double-blind review.
-
-**One line.** A routed production log can support the wrong cheaper-model decision for two unrelated
+**TLDR.** A routed production log can support the wrong cheaper-model decision for two unrelated
 reasons, and a randomized audit repairs exactly one of them. This package runs the crossed experiment
 that separates the two, prices the decision in dollars, and releases the tool that applies it to your
 own traces.
@@ -119,7 +115,7 @@ routeraudit-space/        browser demo of RouterAudit
 
 A submission-verification script that recomputes every table and figure number and checks the
 manuscript is withheld from this package: it names the authors, so including it would defeat the
-double blind. It lives in the companion repository.
+double blind.
 
 ## Reproducing
 
