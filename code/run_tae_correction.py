@@ -85,7 +85,7 @@ def main():
     args = ap.parse_args()
 
     rows = []
-    for cond in ("E0", "E1"):
+    for cond in ("D0", "D1"):
         for p in range(args.partitions):
             base = build_base(p)
             cells, n_kj, _ = A.make_selective_log(base, p, eps=args.eps)
@@ -134,7 +134,7 @@ def main():
     fields = ["trust", "case", "case_twoway", "case_lowrank", "case_athey",
               "oracle_row", "oracle_cell", "oracle_ref"]
     print("\nreference regret at the {:.0%} budget (mean +- paired SE over partitions)".format(args.budget))
-    for cond in ("E0", "E1"):
+    for cond in ("D0", "D1"):
         sel = [r for r in rows if r["evaluator"] == cond]
         parts = sorted({r["partition"] for r in sel})
         print(f"  A1-{cond}")

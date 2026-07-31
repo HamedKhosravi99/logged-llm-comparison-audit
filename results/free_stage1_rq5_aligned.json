@@ -1,0 +1,151 @@
+{
+ "gate_passed": true,
+ "gate": [
+  {
+   "quantity": "raw_success",
+   "target": 0.487,
+   "tolerance": 0.002,
+   "reproduced": 0.4875,
+   "delta": 0.0005,
+   "passed": true
+  },
+  {
+   "quantity": "raw_cost_1k",
+   "target": 26.34,
+   "tolerance": 0.25,
+   "reproduced": 26.3438024861,
+   "delta": 0.0038024861,
+   "passed": true
+  },
+  {
+   "quantity": "case_success",
+   "target": 0.479,
+   "tolerance": 0.002,
+   "reproduced": 0.4794444444,
+   "delta": 0.0004444444,
+   "passed": true
+  },
+  {
+   "quantity": "case_cost_1k",
+   "target": 28.34,
+   "tolerance": 0.25,
+   "reproduced": 28.340402375,
+   "delta": 0.000402375,
+   "passed": true
+  },
+  {
+   "quantity": "case_audit",
+   "target": 0.83,
+   "tolerance": 0.05,
+   "reproduced": 0.8305100308,
+   "delta": 0.0005100308,
+   "passed": true
+  },
+  {
+   "quantity": "case_pairs",
+   "target": 7.2,
+   "tolerance": 0.2,
+   "reproduced": 7.16,
+   "delta": -0.04,
+   "passed": true
+  }
+ ],
+ "table": [
+  {
+   "arm": "Current CASE",
+   "success": 0.4820757576,
+   "success_se": 0.012288667,
+   "cost_per_1k": 29.5344296959,
+   "cost_per_1k_se": 1.7265433493,
+   "audit": 0.8305100308,
+   "pairs": 7.16,
+   "cost_per_success": 0.061282349,
+   "harmful": 0.549,
+   "retained": 0.0,
+   "wrong": 0.511,
+   "break_even_point": null,
+   "break_even_certified": null,
+   "n_units": 50
+  },
+  {
+   "arm": "Ideal complete matrix",
+   "success": 0.5875,
+   "success_se": 0.0130001962,
+   "cost_per_1k": 62.26869975,
+   "cost_per_1k_se": 0.9025788614,
+   "audit": 0.0,
+   "pairs": 0.0,
+   "cost_per_success": 0.1059892762,
+   "harmful": 0.0,
+   "retained": 0.0,
+   "wrong": 0.0,
+   "break_even_point": null,
+   "break_even_certified": null,
+   "n_units": 50
+  },
+  {
+   "arm": "Inverse-variance CASE",
+   "success": 0.4955353535,
+   "success_se": 0.0137498282,
+   "cost_per_1k": 33.3608616,
+   "cost_per_1k_se": 1.9299162715,
+   "audit": 0.7729422316,
+   "pairs": 7.4,
+   "cost_per_success": 0.0673384669,
+   "harmful": 0.395,
+   "retained": 0.0,
+   "wrong": 0.4546666667,
+   "break_even_point": null,
+   "break_even_certified": null,
+   "n_units": 50
+  },
+  {
+   "arm": "Raw routed log",
+   "success": 0.4875,
+   "success_se": 0.0155181056,
+   "cost_per_1k": 26.3438024861,
+   "cost_per_1k_se": 2.246749591,
+   "audit": 0.0,
+   "pairs": 0.0,
+   "cost_per_success": 0.0540385692,
+   "harmful": 0.0,
+   "retained": 3.0,
+   "wrong": 0.5266666667,
+   "break_even_point": null,
+   "break_even_certified": null,
+   "n_units": 50
+  },
+  {
+   "arm": "Safe CASE",
+   "success": 0.4853333333,
+   "success_se": 0.0157249498,
+   "cost_per_1k": 26.0010328174,
+   "cost_per_1k_se": 2.2234770467,
+   "audit": 0.8305100308,
+   "pairs": 7.16,
+   "cost_per_success": 0.0535906688,
+   "harmful": 0.051,
+   "retained": 2.948,
+   "wrong": 0.5313333333,
+   "break_even_point": 2422.9390945296,
+   "break_even_certified": 26669.6344817668,
+   "n_units": 50
+  },
+  {
+   "arm": "Safe inverse-variance CASE",
+   "success": 0.4859166667,
+   "success_se": 0.0156091163,
+   "cost_per_1k": 26.1184167861,
+   "cost_per_1k_se": 2.2306188474,
+   "audit": 0.7729422316,
+   "pairs": 7.4,
+   "cost_per_success": 0.0537667217,
+   "harmful": 0.038,
+   "retained": 2.958,
+   "wrong": 0.5293333333,
+   "break_even_point": 3429.4200192159,
+   "break_even_certified": 38320.0103760116,
+   "n_units": 50
+  }
+ ]
+}

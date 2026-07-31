@@ -2,12 +2,12 @@
 
 Runs, on the LLMRouterBench performance-cost replay:
 
-  * the 2x2 factorial   A0/A1 assignment x E0/E1 evaluator, at 15%/25%/35% cell budgets, for
+  * the 2x2 factorial   A0/A1 assignment x D0/D1 evaluator, at 15%/25%/35% cell budgets, for
                         trust / uniform / CASE / corrected-surface R-EPIG plus the two labelled
                         oracle controls;
-  * the A1-E2 evaluator-comparability diagnostic;
+  * the A1-D2 evaluator-comparability diagnostic;
   * the deployment-decision comparison  ungated / same-evaluator held-out check /
-                                        reference-channel held-out check, under A1-E1 and A1-E2;
+                                        reference-channel held-out check, under A1-D1 and A1-D2;
   * every leakage and algebra test in `eval_validity.validation`.
 
 The replication unit is the prompt-cohort partition; acquisition seeds within a partition are
@@ -65,7 +65,7 @@ def main():
     for p in range(args.partitions):
         r, g, m = run_partition(p, acq_seeds=args.acq_seeds, eps=args.eps, n_read=args.n_read,
                                 extra_methods=("rawmargin", "epig_obs"),
-                                factorial_conds=("E0", "E1", "E2"))
+                                factorial_conds=("D0", "D1", "D2"))
         rows += r
         gate_rows += g
         metas.append(m)

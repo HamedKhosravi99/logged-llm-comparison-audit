@@ -21,73 +21,73 @@
   "n_seed_cells": "K per-action seeds only (5 of 13 cells at the 35% budget)"
  },
  "D3_gate_breakeven": {
-  "E1.15.same_evaluator": {
+  "D1.15.same_evaluator": {
    "delta_false_switch": -0.23333333333333328,
    "delta_false_retention": 0.22777777777777775,
    "breakeven_cost_ratio": 0.9761904761904763,
    "delta_reference_regret": -0.005089338888888885
   },
-  "E1.15.reference_channel": {
+  "D1.15.reference_channel": {
    "delta_false_switch": -0.2055555555555555,
    "delta_false_retention": 0.21111111111111108,
    "breakeven_cost_ratio": 1.0270270270270272,
    "delta_reference_regret": -0.004602283333333332
   },
-  "E1.25.same_evaluator": {
+  "D1.25.same_evaluator": {
    "delta_false_switch": -0.1388888888888888,
    "delta_false_retention": 0.22777777777777777,
    "breakeven_cost_ratio": 1.6400000000000008,
    "delta_reference_regret": 0.0020885500000000154
   },
-  "E1.25.reference_channel": {
+  "D1.25.reference_channel": {
    "delta_false_switch": -0.13888888888888884,
    "delta_false_retention": 0.19444444444444448,
    "breakeven_cost_ratio": 1.4000000000000008,
    "delta_reference_regret": 0.00104110000000001
   },
-  "E1.35.same_evaluator": {
+  "D1.35.same_evaluator": {
    "delta_false_switch": -0.11666666666666667,
    "delta_false_retention": 0.23333333333333334,
    "breakeven_cost_ratio": 2.0,
    "delta_reference_regret": 0.003551338888888894
   },
-  "E1.35.reference_channel": {
+  "D1.35.reference_channel": {
    "delta_false_switch": -0.10555555555555557,
    "delta_false_retention": 0.23333333333333328,
    "breakeven_cost_ratio": 2.210526315789473,
    "delta_reference_regret": 0.0034281055555555606
   },
-  "E2.15.same_evaluator": {
+  "D2.15.same_evaluator": {
    "delta_false_switch": -0.2833333333333334,
    "delta_false_retention": 0.23333333333333334,
    "breakeven_cost_ratio": 0.8235294117647057,
    "delta_reference_regret": -0.0068033666666666714
   },
-  "E2.15.reference_channel": {
+  "D2.15.reference_channel": {
    "delta_false_switch": -0.25,
    "delta_false_retention": 0.2111111111111111,
    "breakeven_cost_ratio": 0.8444444444444444,
    "delta_reference_regret": -0.006181300000000001
   },
-  "E2.25.same_evaluator": {
+  "D2.25.same_evaluator": {
    "delta_false_switch": -0.15555555555555545,
    "delta_false_retention": 0.25,
    "breakeven_cost_ratio": 1.6071428571428583,
    "delta_reference_regret": 0.0013111166666666535
   },
-  "E2.25.reference_channel": {
+  "D2.25.reference_channel": {
    "delta_false_switch": -0.14999999999999988,
    "delta_false_retention": 0.2222222222222222,
    "breakeven_cost_ratio": 1.4814814814814825,
    "delta_reference_regret": 0.0006330277777777671
   },
-  "E2.35.same_evaluator": {
+  "D2.35.same_evaluator": {
    "delta_false_switch": -0.13888888888888884,
    "delta_false_retention": 0.24444444444444444,
    "breakeven_cost_ratio": 1.7600000000000007,
    "delta_reference_regret": 0.003088683333333335
   },
-  "E2.35.reference_channel": {
+  "D2.35.reference_channel": {
    "delta_false_switch": -0.11111111111111109,
    "delta_false_retention": 0.23888888888888887,
    "breakeven_cost_ratio": 2.1500000000000004,
@@ -95,7 +95,7 @@
   }
  },
  "D4_equivalence": {
-  "A1-E0: CASE vs R-EPIG_corr": {
+  "A1-D0: CASE vs R-EPIG_corr": {
    "mean": 0.00029847222222222276,
    "se": 0.0010601178806559895,
    "n": 30,
@@ -104,7 +104,7 @@
    "tost_p": 6.076372877023876e-05,
    "equivalent_at_margin": true
   },
-  "A1-E1: CASE vs R-EPIG_corr": {
+  "A1-D1: CASE vs R-EPIG_corr": {
    "mean": -0.0011868777777777778,
    "se": 0.001096541927449537,
    "n": 30,
@@ -113,7 +113,7 @@
    "tost_p": 0.0008088133565450351,
    "equivalent_at_margin": true
   },
-  "A1-E0: CASE vs the action-level ceiling": {
+  "A1-D0: CASE vs the action-level ceiling": {
    "mean": 0.0019976088920455244,
    "se": 0.0024297170208584648,
    "n": 30,

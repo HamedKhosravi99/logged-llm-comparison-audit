@@ -7,7 +7,7 @@
   "note": "'+-' elsewhere in the paper is a paired SE over partitions"
  },
  "contrasts": {
-  "A1-E0: CASE - trust": {
+  "A1-D0: CASE - trust": {
    "mean": -0.01609563333333333,
    "se": 0.002835157089090691,
    "n_partitions": 30,
@@ -29,7 +29,7 @@
     -0.013237508663616207
    ]
   },
-  "A1-E0: CASE - R-EPIG_corr": {
+  "A1-D0: CASE - R-EPIG_corr": {
    "mean": 0.00029847222222222276,
    "se": 0.0010601178806559895,
    "n_partitions": 30,
@@ -51,7 +51,7 @@
     0.0012611210018219064
    ]
   },
-  "A1-E1: CASE - trust": {
+  "A1-D1: CASE - trust": {
    "mean": -0.01300608888888889,
    "se": 0.0023924099744147137,
    "n_partitions": 30,
@@ -73,7 +73,7 @@
     -0.010297888442244935
    ]
   },
-  "A1-E1: CASE - population-operational oracle": {
+  "A1-D1: CASE - population-operational oracle": {
    "mean": 0.030860044444444443,
    "se": 0.0018522176317139444,
    "n_partitions": 30,
@@ -95,7 +95,7 @@
     0.0338292596740951
    ]
   },
-  "A1-E1: measurement floor (oracle_sel - oracle_ref)": {
+  "A1-D1: measurement floor (oracle_sel - oracle_ref)": {
    "mean": 0.0029848000000000006,
    "se": 0.0006366972654378939,
    "n_partitions": 30,
@@ -117,7 +117,7 @@
     0.004743183976548278
    ]
   },
-  "A0-E0: CASE - trust (cost of auditing)": {
+  "A0-D0: CASE - trust (cost of auditing)": {
    "mean": 0.010709444444444443,
    "se": 0.0019594485030977565,
    "n_partitions": 30,
@@ -139,7 +139,7 @@
     0.01324309637754602
    ]
   },
-  "A1-E1: false switch, same-evaluator - reference-channel": {
+  "A1-D1: false switch, same-evaluator - reference-channel": {
    "mean": -0.01111111111111111,
    "se": 0.007720092597551679,
    "n_partitions": 30,
@@ -154,7 +154,7 @@
    "ci_slice_cluster_boot": null,
    "slice_mean": null
   },
-  "A1-E2: false switch, same-evaluator - reference-channel": {
+  "A1-D2: false switch, same-evaluator - reference-channel": {
    "mean": -0.027777777777777776,
    "se": 0.011534094424130555,
    "n_partitions": 30,

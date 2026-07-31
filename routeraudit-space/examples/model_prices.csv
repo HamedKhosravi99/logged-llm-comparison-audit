@@ -1,0 +1,10 @@
+request_type,model,expected_cost_usd
+billing,premium-large,0.018
+billing,balanced-mid,0.0052
+billing,compact-small,0.0011
+technical,premium-large,0.018
+technical,balanced-mid,0.0052
+technical,compact-small,0.0011
+account,premium-large,0.018
+account,balanced-mid,0.0052
+account,compact-small,0.0011

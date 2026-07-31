@@ -1,0 +1,175 @@
+{
+ "traffic:original": {
+  "policy": {
+   "airline": "gpt-4o-mini",
+   "retail": "gpt-4o",
+   "telecom": "gpt-4.1-mini"
+  },
+  "quality": 0.5923923923923925,
+  "cost_per_1k": 39.717061111111114
+ },
+ "traffic:uniform": {
+  "policy": {
+   "airline": "gpt-4o-mini",
+   "retail": "gpt-4o",
+   "telecom": "gpt-4.1-mini"
+  },
+  "quality": 0.5923923923923925,
+  "cost_per_1k": 39.717061111111114
+ },
+ "traffic:2x airline": {
+  "policy": {
+   "airline": "gpt-4o-mini",
+   "retail": "gpt-4o",
+   "telecom": "gpt-4.1-mini"
+  },
+  "quality": 0.5831831831831832,
+  "cost_per_1k": 30.789404166666667
+ },
+ "traffic:2x retail": {
+  "policy": {
+   "airline": "gpt-4o-mini",
+   "retail": "gpt-4o",
+   "telecom": "gpt-4.1-mini"
+  },
+  "quality": 0.5996996996996997,
+  "cost_per_1k": 50.030295833333334
+ },
+ "traffic:2x telecom": {
+  "policy": {
+   "airline": "gpt-4o-mini",
+   "retail": "gpt-4o",
+   "telecom": "gpt-4.1-mini"
+  },
+  "quality": 0.5942942942942944,
+  "cost_per_1k": 38.33148333333333
+ },
+ "price:cheapest x0.5": {
+  "policy": {
+   "airline": "gpt-4o-mini",
+   "retail": "gpt-4o",
+   "telecom": "gpt-4.1-mini"
+  },
+  "quality": 0.5923923923923925,
+  "cost_per_1k": 39.717061111111114,
+  "audit_usd": 10.33
+ },
+ "price:priciest x0.5": {
+  "policy": {
+   "airline": "gpt-4o-mini",
+   "retail": "gpt-4o",
+   "telecom": "gpt-4.1-mini"
+  },
+  "quality": 0.5923923923923925,
+  "cost_per_1k": 26.22206111111111,
+  "audit_usd": 10.33
+ },
+ "price:all prices x0.5": {
+  "policy": {
+   "airline": "gpt-4o-mini",
+   "retail": "gpt-4o",
+   "telecom": "gpt-4.1-mini"
+  },
+  "quality": 0.5923923923923925,
+  "cost_per_1k": 19.858530555555557,
+  "audit_usd": 10.33
+ },
+ "price:audit x0.5": {
+  "policy": {
+   "airline": "gpt-4o-mini",
+   "retail": "gpt-4o",
+   "telecom": "gpt-4.1-mini"
+  },
+  "quality": 0.5923923923923925,
+  "cost_per_1k": 39.717061111111114,
+  "audit_usd": 5.165
+ },
+ "price:audit x2": {
+  "policy": {
+   "airline": "gpt-4o-mini",
+   "retail": "gpt-4o",
+   "telecom": "gpt-4.1-mini"
+  },
+  "quality": 0.5923923923923925,
+  "cost_per_1k": 39.717061111111114,
+  "audit_usd": 20.66
+ },
+ "price:audit x5": {
+  "policy": {
+   "airline": "gpt-4o-mini",
+   "retail": "gpt-4o",
+   "telecom": "gpt-4.1-mini"
+  },
+  "quality": 0.5923923923923925,
+  "cost_per_1k": 39.717061111111114,
+  "audit_usd": 51.65
+ },
+ "candidates:remove cheapest": {
+  "policy": {
+   "airline": "gpt-4o-mini",
+   "retail": "gpt-4o",
+   "telecom": "gpt-4.1-mini"
+  },
+  "quality": 0.5923923923923925,
+  "cost_per_1k": 39.717061111111114
+ },
+ "candidates:remove priciest": {
+  "policy": {
+   "airline": "gpt-4o-mini",
+   "retail": "gpt-4.1-mini",
+   "telecom": "gpt-4.1-mini"
+  },
+  "quality": 0.5351851851851852,
+  "cost_per_1k": 16.71616111111111
+ },
+ "candidates:remove gpt-4.1-mini": {
+  "policy": {
+   "airline": "gpt-4o-mini",
+   "retail": "gpt-4o",
+   "telecom": "gpt-4o"
+  },
+  "quality": 0.494956494956495,
+  "cost_per_1k": 75.47804188034189
+ },
+ "candidates:remove gpt-4.1-nano": {
+  "policy": {
+   "airline": "gpt-4o-mini",
+   "retail": "gpt-4o",
+   "telecom": "gpt-4.1-mini"
+  },
+  "quality": 0.5923923923923925,
+  "cost_per_1k": 39.717061111111114
+ },
+ "candidates:remove gpt-4o": {
+  "policy": {
+   "airline": "gpt-4o-mini",
+   "retail": "gpt-4.1-mini",
+   "telecom": "gpt-4.1-mini"
+  },
+  "quality": 0.5351851851851852,
+  "cost_per_1k": 16.71616111111111
+ },
+ "candidates:remove gpt-4o-mini": {
+  "policy": {
+   "airline": "gpt-4o",
+   "retail": "gpt-4o",
+   "telecom": "gpt-4.1-mini"
+  },
+  "quality": 0.5905405405405406,
+  "cost_per_1k": 62.32997916666667
+ },
+ "candidates:add unsupported model": {
+  "policy": {
+   "airline": "gpt-4o-mini",
+   "retail": "gpt-4o",
+   "telecom": "gpt-4.1-mini"
+  },
+  "quality": 0.5923923923923925,
+  "cost_per_1k": 39.717061111111114,
+  "notes": [
+   "airline: insufficient evidence; exploration required for hypothetical-unseen-model",
+   "retail: insufficient evidence; exploration required for hypothetical-unseen-model",
+   "telecom: insufficient evidence; exploration required for hypothetical-unseen-model"
+  ]
+ }
+}

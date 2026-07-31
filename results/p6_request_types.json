@@ -1,0 +1,16 @@
+{
+ "counts": {
+  "read-only": {
+   "airline": 7,
+   "retail": 11,
+   "telecom": 20
+  },
+  "state-changing": {
+   "airline": 20,
+   "retail": 18,
+   "telecom": 20
+  }
+ },
+ "min_cell": 2,
+ "reportable": false
+}

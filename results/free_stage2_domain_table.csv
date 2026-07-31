@@ -1,0 +1,4 @@
+domain,n_cells,opp_best,opp_inc,pool,switch_rate,dq_inc,dq_best,viol_best,viol_inc,valid_best,valid_inc
+airline,50,0,40,3.0,0.1,-0.0016666666666667052,-0.04166666666666674,5,1,0,4
+retail,50,0,0,3.0,0.02,-0.07500000000000001,-0.25,1,1,0,0
+telecom,50,10,10,3.0,0.14,0.42499999999999993,0.0,0,0,7,7

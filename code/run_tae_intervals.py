@@ -42,12 +42,12 @@ SLICES = ["simpleqa", "mmlupro", "hle", "livecodebench", "arenahard"]
 
 # the four pre-specified confirmatory contrasts, plus the two headline levels they refer to
 CONTRASTS = [
-    ("A1-E0: CASE - trust", "A1", "E0", "case", "trust"),
-    ("A1-E0: CASE - R-EPIG_corr", "A1", "E0", "case", "epig_corr"),
-    ("A1-E1: CASE - trust", "A1", "E1", "case", "trust"),
-    ("A1-E1: CASE - population-operational oracle", "A1", "E1", "case", "oracle_sel"),
-    ("A1-E1: measurement floor (oracle_sel - oracle_ref)", "A1", "E1", "oracle_sel", "oracle_ref"),
-    ("A0-E0: CASE - trust (cost of auditing)", "A0", "E0", "case", "trust"),
+    ("A1-D0: CASE - trust", "A1", "D0", "case", "trust"),
+    ("A1-D0: CASE - R-EPIG_corr", "A1", "D0", "case", "epig_corr"),
+    ("A1-D1: CASE - trust", "A1", "D1", "case", "trust"),
+    ("A1-D1: CASE - population-operational oracle", "A1", "D1", "case", "oracle_sel"),
+    ("A1-D1: measurement floor (oracle_sel - oracle_ref)", "A1", "D1", "oracle_sel", "oracle_ref"),
+    ("A0-D0: CASE - trust (cost of auditing)", "A0", "D0", "case", "trust"),
 ]
 
 
@@ -99,7 +99,7 @@ def prompt_bootstrap(contrasts, reps, seed=0, budget=0.35, n_read=30, eps=0.15, 
         sc = np.where(base["coh"] == "score")[0]
         rec = dict(Q=base["Q"][sc], ctx=base["ctx"][sc], supp=supp, pols={})
         for aname, cells in (("A0", cellsA0), ("A1", cellsA1)):
-            for cond in ("E0", "E1"):
+            for cond in ("D0", "D1"):
                 surf = EV.build_surfaces(base, cells, EV.distortions(base, cond), n_read)
                 B = max(base["K"], int(round(budget * int(supp.sum()))))
                 for m in need:
@@ -191,7 +191,7 @@ def main():
     for r in D["gate_rows"]:
         if r["budget"] == 0.35:
             gg[(r["evaluator"], r["arm"])][r["partition"]].append(r["false_switch"])
-    for cond in ("E1", "E2"):
+    for cond in ("D1", "D2"):
         parts = sorted(gg[(cond, "same_evaluator")])
         d = np.array([np.mean(gg[(cond, "same_evaluator")][p]) for p in parts]) - \
             np.array([np.mean(gg[(cond, "reference_channel")][p]) for p in parts])

@@ -1,0 +1,30 @@
+{
+ "primary": {
+  "n_partitions": 30,
+  "saving_per_M": 1578.7339258686693,
+  "saving_ci": [
+   1019.0293853522525,
+   2226.9572869589224
+  ],
+  "break_even": 1513.6235003644538,
+  "break_even_ci": [
+   1064.0588030041042,
+   2367.864260529548
+  ],
+  "frac_nonpositive_saving": 0.0
+ },
+ "RouterBench": {
+  "n_partitions": 20,
+  "saving_per_M": 450.6002573227478,
+  "saving_ci": [
+   310.8331843690116,
+   589.7847081850528
+  ],
+  "break_even": 1975.8065324165093,
+  "break_even_ci": [
+   1518.8612382602444,
+   2837.8580224552416
+  ],
+  "frac_nonpositive_saving": 0.0
+ }
+}

@@ -49,7 +49,7 @@ def assignment_matching(base, cellsA1, cellsA0, n_kj):
                 cohort_and_context_respected=bool(ok_ctx))
 
 
-def reference_channel_leakage(base, cells, supp, cond="E1", B=14, seed=0, n_read=30):
+def reference_channel_leakage(base, cells, supp, cond="D1", B=14, seed=0, n_read=30):
     """Scramble the scoring cohort's target outcomes; nothing an audit method does may change."""
     def artefacts(basex):
         surf = EV.build_surfaces(basex, cells, EV.distortions(basex, cond), n_read)
@@ -75,7 +75,7 @@ def reference_channel_leakage(base, cells, supp, cond="E1", B=14, seed=0, n_read
                 gate_decision_identical=bool(a["deploy"] == b["deploy"]))
 
 
-def effective_distortion(base, cells, cond="E1", n_read=30):
+def effective_distortion(base, cells, cond="D1", n_read=30):
     """C^eff_kj = mu^op_kj - mu^ref_kj, the distortion that actually reaches the cell means.
 
     The nominal distortion lambda*z_k*s_j is attenuated because the target outcomes are (near-)binary
@@ -88,8 +88,8 @@ def effective_distortion(base, cells, cond="E1", n_read=30):
 
 def stable_evaluator_algebra(base, cellsA1, cellsA0, supp, n_read=30):
     """C^o = C^i: distortion cancels from logged-minus-randomized, survives in the corrected surface."""
-    Cs1 = EV.distortions(base, "E1")
-    Cs0 = EV.distortions(base, "E0")
+    Cs1 = EV.distortions(base, "D1")
+    Cs0 = EV.distortions(base, "D0")
     K, J = base["K"], base["J"]
     out = {}
     for aname, cells in (("A0", cellsA0), ("A1", cellsA1)):
@@ -104,7 +104,7 @@ def stable_evaluator_algebra(base, cellsA1, cellsA0, supp, n_read=30):
         pol_op = s1["Ef_op"].argmax(0)
         out[aname] = dict(
             mean_abs_diff_of_differences=float(np.abs((d1 - d0)[supp]).mean()),
-            mean_abs_difference_E0=float(np.abs(d0[supp]).mean()),
+            mean_abs_difference_D0=float(np.abs(d0[supp]).mean()),
             mean_abs_effective_C=float(np.abs(Ceff[supp]).mean()),
             mean_abs_nominal_C=float(np.abs(Cs1["C"][supp]).mean()),
             clipping_attenuation=float(np.abs(Ceff[supp]).mean() / np.abs(Cs1["C"][supp]).mean()),
@@ -116,7 +116,7 @@ def stable_evaluator_algebra(base, cellsA1, cellsA0, supp, n_read=30):
     return out
 
 
-def assignment_invariance(base, cellsA1, cellsA0, supp, cond="E1", n_read=30):
+def assignment_invariance(base, cellsA1, cellsA0, supp, cond="D1", n_read=30):
     """How assignment-invariant is the REALISED evaluator distortion?
 
     Prop. 1's cancellation needs more than "the same judge scored both streams": it needs the
@@ -163,11 +163,11 @@ def stream_mismatch_algebra(base, cellsA1, supp, n_read=30):
     attenuation range rather than on exact equality with the nominal term.
     """
     K, J = base["K"], base["J"]
-    s1 = EV.build_surfaces(base, cellsA1, EV.distortions(base, "E1"), n_read)
-    s2 = EV.build_surfaces(base, cellsA1, EV.distortions(base, "E2"), n_read)
+    s1 = EV.build_surfaces(base, cellsA1, EV.distortions(base, "D1"), n_read)
+    s2 = EV.build_surfaces(base, cellsA1, EV.distortions(base, "D2"), n_read)
     R = lambda s: np.array([[s["cellq"][(k, j)].mean() for j in range(J)] for k in range(K)])
     extra = (s2["M"] - R(s2)) - (s1["M"] - R(s1))
-    pred = 0.5 * EV.distortions(base, "E1")["C"]
+    pred = 0.5 * EV.distortions(base, "D1")["C"]
     x, y = pred[supp].ravel(), extra[supp].ravel()
     slope = float((x @ y) / (x @ x))
     corr = float(np.corrcoef(x, y)[0, 1])

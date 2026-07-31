@@ -1,0 +1,104 @@
+# Locked stage-2 confirmatory protocol: targeted incumbent-anchored paired audit
+# Frozen BEFORE any operational run on the independent corpora. No parameter may be
+# changed after viewing independent results. Design-stage inputs used to freeze this file:
+# corpus sizes, score scales, price tables, and the tau2 exploratory analysis ONLY.
+# The primary gate condition is candidate quality >= incumbent quality - delta: it controls
+# degradation relative to the DEPLOYED INCUMBENT and does not certify that the candidate
+# lies within delta of the best available model.
+
+name: targeted incumbent-anchored paired audit
+status: confirmatory, locked
+date_frozen: "2026-07-30"
+
+corpora:
+  primary: LLMRouterBench flagship grid (5 models x 5 datasets-as-domains, 11,289 prompts)
+  replication: RouterBench 0-shot (11 models, 8 eval families as domains, 35,563 prompts;
+    families by mechanical prefix rule mmlu*/chinese*/mtbench*/grade-school-math/
+    hellaswag/winogrande/arc-challenge/mbpp; other evals excluded)
+  design_note: both corpora appear in the paper's earlier validity and economic
+    experiments, but no stage-2 threshold, rule, or parameter was selected using their
+    operational replay results; stage 2 was designed on tau2-Bench-Verified only.
+
+partitions:            # disjoint, per unit, uniform over (domain, task) keys
+  router_train: 0.20   # incumbent selection + price table
+  log: 0.30            # routed log (incumbent 85% / uniform exploration 15%)
+  audit: 0.20          # paired audit pool
+  verification: 0.10   # untouched deployment-check reserve (reported, never used by policy)
+  scoring: 0.20        # held-out evaluation, read once after policies are fixed
+units: 50 split seeds (0..49); audit-draw randomness averaged over 5 seeds inside each unit
+  before any inference; paired intervals over the 50 units.
+
+incumbent_rule: model with the highest unweighted cross-domain mean quality on the
+  router_train split.
+candidate_rule: models with router_train mean per-request cost strictly below the
+  incumbent's in that domain, ordered cheapest first; ties by (price, name).
+quality_margin_delta: 0.02          # the paper's two-point tolerance on the [0,1] scale
+audit_pool_size: "n = min(|audit pool of the domain|, 100)"
+  # sizing rule fixed from worst-case power design, not from results: smallest n with 80%
+  # one-sided power at level alpha/3 for slack (gap+delta) = 0.15 under SD 0.5:
+  # n = (0.5*(z_{0.9833}+z_{0.80})/0.15)^2 ~= 98 -> 100
+confidence_level: 0.95 one-sided (alpha = 0.05)
+test: paired one-sided non-inferiority. Candidate and incumbent scored on the SAME n audit
+  tasks; dbar = mean paired difference; SE = max(sample SE, sqrt(0.25/n)); pass iff
+  dbar - t_{1-alpha', n-1} * SE >= -delta. Zero paired variance is handled by the SE floor
+  (all-identical samples never read as certainty).
+candidate_testing_order: cheapest first, sequential; STOP AT FIRST PASSER (audit calls for
+  later candidates are then never purchased); if none passes, retain the incumbent.
+multiplicity: alpha' = alpha / k per candidate, k = number of eligible candidates in the
+  domain (known from the price table before outcomes).
+  justification: P(inferior switch) <= sum over inferior candidates of P(pass at alpha/k)
+    <= k * alpha / k = alpha. This is strong policy-level control for any configuration of
+    true states; price ordering with stop-at-first-pass only determines WHICH passer is
+    selected (the cheapest) and cannot increase the bound. The full-alpha fixed sequence
+    with stop-at-first-pass does NOT control the family-wise rate (bound k*alpha), so the
+    alpha-spending version is locked as primary.
+  sensitivity_only: unadjusted per-candidate alpha = 0.05 (reported, never primary).
+tie_breaking: cheapest passer; exact ties by model name.
+fallback_policy: retain the incumbent in every domain with no passer, no candidates, or an
+  empty audit pool.
+maximum_audit_expenditure: audits stop at first passer; hard cap = every eligible candidate
+  plus the incumbent on n tasks per domain (no re-audits, no adaptive extensions).
+cost_accounting: |
+  model-call audit cost = stored per-request cost of every audited (model, task) call,
+  including the incumbent, failed investigations, and domains with no switch.
+  total audit cost(v) = candidate calls + incumbent calls + n_verified_outputs * v,
+  where n_verified_outputs = all audited (model, task) outputs and v is the verification
+  cost per output. Verification-cost grid: [0, 0.10, 0.25, 0.50, 1, 5] USD.
+  primary economic assumption: v = 0.25 USD per verified output.
+horizon_H: 100000 requests (audit-inclusive cost = deployment cost + total audit cost / H)
+
+primary_outcomes:
+  - audit-inclusive cost vs the current incumbent (paired, v = 0.25)
+  - audit-inclusive cost vs the matched-safety free-log policy (paired, v = 0.25)
+  - incumbent-relative inferior-switch rate (per domain-decision)
+  - verified task success vs the incumbent (paired)
+secondary_outcomes: [direct cost vs unrestricted raw-log downrouting, best-relative valid
+  switches, best-relative category C switches, valid-opportunity recall, switch precision,
+  audit expense, candidate and incumbent call counts, best-relative tolerance violations,
+  point and 95%-lower-bound break-even]
+
+free_baselines:                    # all pre-specified; no threshold chosen on test outcomes
+  - current incumbent (never switch)
+  - unrestricted raw-log downrouting (cheapest within delta of the logged best)
+  - incumbent-anchored log-evidence NI gates at tau in [0.5, 0.8, 0.9, 0.95] (no audit)
+matched_safety_rule: the cheapest free baseline whose incumbent-relative inferior-switch
+  rate is <= the risk ceiling (rule fixed here, before viewing independent results).
+risk_ceiling: 0.05 inferior switches per domain-decision
+
+success_criteria:                  # evaluated on LLMRouterBench (primary)
+  S1: positive 95% lower bound of the paired audit-inclusive saving vs the incumbent at
+      v = 0.25
+  S2: incumbent-relative inferior-switch rate <= 0.05
+  S3: audit-inclusive cost below the matched-safety free baseline with a paired 95%
+      interval excluding zero
+  S4: paired 95% lower bound of (success - incumbent success) > -0.01
+  replication: RouterBench shows the same sign for S1 and S3 point estimates and an
+      inferior-switch rate <= 0.05
+decision_rule:
+  GO: S1-S4 all pass on LLMRouterBench AND the replication condition holds
+  PARTIAL: S1, S2, S4 pass on LLMRouterBench but S3 fails (either corpus)
+  NO-GO: anything else
+classification_reporting: best-relative A/B/C/D (paper objective) AND incumbent-relative
+  valid/inferior/no-economic-saving, always both; best-relative C is never relabeled valid.
+exploratory_labeling: all tau2-Bench-Verified stage-2 results remain a post-hoc exploratory
+  protocol analysis regardless of this run's outcome.

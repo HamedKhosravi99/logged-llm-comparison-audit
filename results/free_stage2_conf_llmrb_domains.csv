@@ -1,0 +1,6 @@
+domain,inc,opp_best,switch_rate,dq_inc,A,C,inferior
+arenahard,qwen3-235b-a22b-thinking-2507,0.0,0.0,0.0,0.0,0.0,0.0
+hle,qwen3-235b-a22b-thinking-2507,0.0,0.0,0.0,0.0,0.0,0.0
+livecodebench,qwen3-235b-a22b-thinking-2507,0.0,0.0,0.0,0.0,0.0,0.0
+mmlupro,qwen3-235b-a22b-thinking-2507,1.0,0.068,0.022196078431372574,0.044,0.024,0.0
+simpleqa,qwen3-235b-a22b-thinking-2507,0.0,0.0,0.0,0.0,0.0,0.0

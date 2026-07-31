@@ -1,0 +1,13 @@
+{
+ "n_tasks": 150,
+ "human_only": 161375.0,
+ "totals": {
+  "single_gpt-4.1-mini": 71625.0983688,
+  "single_gpt-4.1-nano": 93625.0247442,
+  "single_gpt-4o": 74125.618435,
+  "single_gpt-4o-mini": 83875.0373005,
+  "global": 71625.0983688,
+  "banded": 70625.26617495,
+  "truth": 35625.0630992
+ }
+}

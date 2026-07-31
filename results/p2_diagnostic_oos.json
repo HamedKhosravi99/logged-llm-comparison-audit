@@ -1,0 +1,871 @@
+{
+ "frozen_threshold": 1.05350259025521,
+ "lopo_cv_mean_loss": 0.030699028210036613,
+ "original_in_sample_threshold": 1.17,
+ "train_llmrouterbench": {
+  "threshold": 1.05350259025521,
+  "auc": 0.7877777777777778,
+  "sensitivity": 0.8333333333333334,
+  "specificity": 0.5333333333333333,
+  "mean_loss_rule": 0.030403530750268533,
+  "mean_loss_always": 0.03293838359211944,
+  "mean_loss_never": 0.03563147924261209,
+  "mean_loss_oracle": 0.0271457120406484,
+  "loss_vs_oracle": 0.0032578187096201326,
+  "wrong_audit_decision_rate": 0.26666666666666666,
+  "unnecessary_audit_loss": 0.003180341067829595,
+  "missed_improvement_loss": 0.0034017057586597094,
+  "beats_always": true,
+  "beats_never": true
+ },
+ "train_in_sample_1p17": {
+  "threshold": 1.17,
+  "auc": 0.7877777777777778,
+  "sensitivity": 0.7333333333333333,
+  "specificity": 0.7666666666666667,
+  "mean_loss_rule": 0.031332781206366095,
+  "mean_loss_always": 0.03293838359211944,
+  "mean_loss_never": 0.03563147924261209,
+  "mean_loss_oracle": 0.0271457120406484,
+  "loss_vs_oracle": 0.004187069165717695,
+  "wrong_audit_decision_rate": 0.3333333333333333,
+  "unnecessary_audit_loss": 0.003500530404858298,
+  "missed_improvement_loss": 0.004829315103295846,
+  "beats_always": true,
+  "beats_never": true
+ },
+ "test_routerbench_frozen": {
+  "threshold": 1.05350259025521,
+  "auc": 0.95,
+  "sensitivity": 0.9,
+  "specificity": 0.65,
+  "mean_loss_rule": 0.03381423971175832,
+  "mean_loss_always": 0.030683241225611703,
+  "mean_loss_never": 0.04911927549023461,
+  "mean_loss_oracle": 0.027776364339323973,
+  "loss_vs_oracle": 0.006037875372434349,
+  "wrong_audit_decision_rate": 0.4,
+  "unnecessary_audit_loss": 0.0017734053840745203,
+  "missed_improvement_loss": 0.013145325353034067,
+  "beats_always": false,
+  "beats_never": true
+ },
+ "test_routerbench_refit_would_be": {
+  "threshold": 0.9541116314604843,
+  "auc": 0.95,
+  "sensitivity": 1.0,
+  "specificity": 0.25,
+  "mean_loss_rule": 0.029793747346665456,
+  "mean_loss_always": 0.030683241225611703,
+  "mean_loss_never": 0.04911927549023461,
+  "mean_loss_oracle": 0.027776364339323973,
+  "loss_vs_oracle": 0.0020173830073414827,
+  "wrong_audit_decision_rate": 0.2,
+  "unnecessary_audit_loss": 0.0022433894105543823,
+  "missed_improvement_loss": 0.0004353381848512094,
+  "beats_always": true,
+  "beats_never": true
+ },
+ "rows": [
+  {
+   "corpus": "llmrouterbench",
+   "partition": 0,
+   "arm": "A0",
+   "stat": 1.377089058000695,
+   "loss_audit": 0.026640207555665544,
+   "loss_no_audit": 0.027278730964639866
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 0,
+   "arm": "A1",
+   "stat": 1.3256471762457351,
+   "loss_audit": 0.02800366064626716,
+   "loss_no_audit": 0.034762794384057986
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 1,
+   "arm": "A0",
+   "stat": 1.1424664800619364,
+   "loss_audit": 0.034410079968847845,
+   "loss_no_audit": 0.02535481279066323
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 1,
+   "arm": "A1",
+   "stat": 1.268911627182711,
+   "loss_audit": 0.04574313704210537,
+   "loss_no_audit": 0.04750579129555394
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 2,
+   "arm": "A0",
+   "stat": 0.8829052362147838,
+   "loss_audit": 0.020268920791763134,
+   "loss_no_audit": 0.0195423077806154
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 2,
+   "arm": "A1",
+   "stat": 1.2062441498736078,
+   "loss_audit": 0.023173868719161644,
+   "loss_no_audit": 0.026533430396738025
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 3,
+   "arm": "A0",
+   "stat": 1.1498152338788699,
+   "loss_audit": 0.03181728688098397,
+   "loss_no_audit": 0.031271971681643966
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 3,
+   "arm": "A1",
+   "stat": 1.5733477924970976,
+   "loss_audit": 0.045296058143133144,
+   "loss_no_audit": 0.05405611395644416
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 4,
+   "arm": "A0",
+   "stat": 0.9167041823490681,
+   "loss_audit": 0.03336270187759567,
+   "loss_no_audit": 0.015908880935452643
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 4,
+   "arm": "A1",
+   "stat": 0.9779025622491878,
+   "loss_audit": 0.039179731829378873,
+   "loss_no_audit": 0.05885878119080646
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 5,
+   "arm": "A0",
+   "stat": 1.0897226054372096,
+   "loss_audit": 0.015146932218160908,
+   "loss_no_audit": 0.015914813686668708
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 5,
+   "arm": "A1",
+   "stat": 1.4045730094933402,
+   "loss_audit": 0.024243918263025705,
+   "loss_no_audit": 0.07150843359731957
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 6,
+   "arm": "A0",
+   "stat": 1.2840212331033969,
+   "loss_audit": 0.04949204061088341,
+   "loss_no_audit": 0.022993918683702205
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 6,
+   "arm": "A1",
+   "stat": 1.0025568760092394,
+   "loss_audit": 0.04603712895371657,
+   "loss_no_audit": 0.0685112166796743
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 7,
+   "arm": "A0",
+   "stat": 0.7229857231766194,
+   "loss_audit": 0.031036301718590464,
+   "loss_no_audit": 0.023867167656724614
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 7,
+   "arm": "A1",
+   "stat": 1.0540867765992326,
+   "loss_audit": 0.055516972937640276,
+   "loss_no_audit": 0.073854037522211
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 8,
+   "arm": "A0",
+   "stat": 1.076112924391567,
+   "loss_audit": 0.015227926855226497,
+   "loss_no_audit": 0.015659791398101475
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 8,
+   "arm": "A1",
+   "stat": 1.4157017598025308,
+   "loss_audit": 0.04171224417761863,
+   "loss_no_audit": 0.07314954465054307
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 9,
+   "arm": "A0",
+   "stat": 1.0037694860569049,
+   "loss_audit": 0.009969877015896828,
+   "loss_no_audit": 0.005733944954128441
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 9,
+   "arm": "A1",
+   "stat": 1.3301603457569395,
+   "loss_audit": 0.031036245465092486,
+   "loss_no_audit": 0.04198328326014539
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 10,
+   "arm": "A0",
+   "stat": 0.7865002685901546,
+   "loss_audit": 0.03231665838861103,
+   "loss_no_audit": 0.014948169370005843
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 10,
+   "arm": "A1",
+   "stat": 0.9536457632616423,
+   "loss_audit": 0.031783880367987564,
+   "loss_no_audit": 0.04306982008508788
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 11,
+   "arm": "A0",
+   "stat": 1.0157202546119666,
+   "loss_audit": 0.03294045526455621,
+   "loss_no_audit": 0.009244340494340482
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 11,
+   "arm": "A1",
+   "stat": 1.7578607443669412,
+   "loss_audit": 0.014365994116353309,
+   "loss_no_audit": 0.05383992583523168
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 12,
+   "arm": "A0",
+   "stat": 1.0105288446876248,
+   "loss_audit": 0.01908897857979019,
+   "loss_no_audit": 0.0040137614678899085
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 12,
+   "arm": "A1",
+   "stat": 1.1091396440923382,
+   "loss_audit": 0.021595880590843348,
+   "loss_no_audit": 0.058444909154399975
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 13,
+   "arm": "A0",
+   "stat": 1.1685190365578848,
+   "loss_audit": 0.03098938614929123,
+   "loss_no_audit": 0.01807204862235229
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 13,
+   "arm": "A1",
+   "stat": 1.227422697110765,
+   "loss_audit": 0.03298935429786871,
+   "loss_no_audit": 0.054347012105989134
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 14,
+   "arm": "A0",
+   "stat": 0.9944435576479265,
+   "loss_audit": 0.05238037503945051,
+   "loss_no_audit": 0.014616253689129366
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 14,
+   "arm": "A1",
+   "stat": 0.9863310503851377,
+   "loss_audit": 0.04435765298909178,
+   "loss_no_audit": 0.05236086717033194
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 15,
+   "arm": "A0",
+   "stat": 1.0914325680201171,
+   "loss_audit": 0.01871561857009561,
+   "loss_no_audit": 0.0232174799441085
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 15,
+   "arm": "A1",
+   "stat": 1.4003735043722587,
+   "loss_audit": 0.009109705394877135,
+   "loss_no_audit": 0.037414267604405305
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 16,
+   "arm": "A0",
+   "stat": 1.251605019355967,
+   "loss_audit": 0.06139905168760471,
+   "loss_no_audit": 0.04958596511015866
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 16,
+   "arm": "A1",
+   "stat": 1.649649404960945,
+   "loss_audit": 0.0348293703361605,
+   "loss_no_audit": 0.04293161773214966
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 17,
+   "arm": "A0",
+   "stat": 1.1877759552666147,
+   "loss_audit": 0.03263453524020465,
+   "loss_no_audit": 0.002452406134320465
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 17,
+   "arm": "A1",
+   "stat": 1.1829742929189115,
+   "loss_audit": 0.016000022232927222,
+   "loss_no_audit": 0.02732837945512275
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 18,
+   "arm": "A0",
+   "stat": 0.9578807266429855,
+   "loss_audit": 0.01692651287024607,
+   "loss_no_audit": 0.010889596253235496
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 18,
+   "arm": "A1",
+   "stat": 1.0699818533113574,
+   "loss_audit": 0.02867323572789165,
+   "loss_no_audit": 0.04126441461079683
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 19,
+   "arm": "A0",
+   "stat": 0.7169759166240494,
+   "loss_audit": 0.028138751516497213,
+   "loss_no_audit": 0.0198471055088702
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 19,
+   "arm": "A1",
+   "stat": 1.3861500059489653,
+   "loss_audit": 0.033761057408965275,
+   "loss_no_audit": 0.09104416878606571
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 20,
+   "arm": "A0",
+   "stat": 1.0243865892168855,
+   "loss_audit": 0.029216553347271274,
+   "loss_no_audit": 0.007362554423360562
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 20,
+   "arm": "A1",
+   "stat": 1.2775095062318043,
+   "loss_audit": 0.02316847061814979,
+   "loss_no_audit": 0.022196740915955363
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 21,
+   "arm": "A0",
+   "stat": 1.2129268652482217,
+   "loss_audit": 0.03657103080076408,
+   "loss_no_audit": 0.03850724194206446
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 21,
+   "arm": "A1",
+   "stat": 1.555664797495613,
+   "loss_audit": 0.04831052659093114,
+   "loss_no_audit": 0.037048611833489564
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 22,
+   "arm": "A0",
+   "stat": 1.050956876886106,
+   "loss_audit": 0.017779204302641804,
+   "loss_no_audit": 0.017578125
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 22,
+   "arm": "A1",
+   "stat": 1.3790102552909518,
+   "loss_audit": 0.030585904251295107,
+   "loss_no_audit": 0.05246812527598965
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 23,
+   "arm": "A0",
+   "stat": 1.0463632755996188,
+   "loss_audit": 0.04087852874837668,
+   "loss_no_audit": 0.023349760464933648
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 23,
+   "arm": "A1",
+   "stat": 1.4425687029924905,
+   "loss_audit": 0.04129352870787375,
+   "loss_no_audit": 0.04918224215065114
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 24,
+   "arm": "A0",
+   "stat": 0.823077728944388,
+   "loss_audit": 0.04013753933878518,
+   "loss_no_audit": 0.02096731986953709
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 24,
+   "arm": "A1",
+   "stat": 1.3728466317679577,
+   "loss_audit": 0.028484587896624097,
+   "loss_no_audit": 0.028809512249904256
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 25,
+   "arm": "A0",
+   "stat": 1.3000238758523694,
+   "loss_audit": 0.04149441474300595,
+   "loss_no_audit": 0.029127358490566052
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 25,
+   "arm": "A1",
+   "stat": 1.318231181262165,
+   "loss_audit": 0.03937597471829417,
+   "loss_no_audit": 0.048731629747713896
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 26,
+   "arm": "A0",
+   "stat": 1.4488773012457887,
+   "loss_audit": 0.059204335672025064,
+   "loss_no_audit": 0.05175675144818916
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 26,
+   "arm": "A1",
+   "stat": 1.2890551227990434,
+   "loss_audit": 0.03778245577098462,
+   "loss_no_audit": 0.036808696576517225
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 27,
+   "arm": "A0",
+   "stat": 0.9779050026852801,
+   "loss_audit": 0.02710776943185569,
+   "loss_no_audit": 0.011318542568542568
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 27,
+   "arm": "A1",
+   "stat": 1.0474795812472382,
+   "loss_audit": 0.03640045905537583,
+   "loss_no_audit": 0.046393989001503926
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 28,
+   "arm": "A0",
+   "stat": 1.1543870994415883,
+   "loss_audit": 0.05180272073609823,
+   "loss_no_audit": 0.05659678858998735
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 28,
+   "arm": "A1",
+   "stat": 1.3977199181085673,
+   "loss_audit": 0.041619401858908035,
+   "loss_no_audit": 0.04902114513704192
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 29,
+   "arm": "A0",
+   "stat": 0.8971026425156284,
+   "loss_audit": 0.026524962355229515,
+   "loss_no_audit": 0.015359268707483003
+  },
+  {
+   "corpus": "llmrouterbench",
+   "partition": 29,
+   "arm": "A1",
+   "stat": 1.1810169506903188,
+   "loss_audit": 0.0382529281426083,
+   "loss_no_audit": 0.07212207356346795
+  },
+  {
+   "corpus": "routerbench",
+   "partition": 0,
+   "arm": "A0",
+   "stat": 0.9821795591873719,
+   "loss_audit": 0.006052148575885575,
+   "loss_no_audit": 0.013680844941135329
+  },
+  {
+   "corpus": "routerbench",
+   "partition": 0,
+   "arm": "A1",
+   "stat": 1.286831874776658,
+   "loss_audit": 0.03133091108615085,
+   "loss_no_audit": 0.07064758519755447
+  },
+  {
+   "corpus": "routerbench",
+   "partition": 1,
+   "arm": "A0",
+   "stat": 0.9573026542621755,
+   "loss_audit": 0.014051413858247873,
+   "loss_no_audit": 0.020972302012851607
+  },
+  {
+   "corpus": "routerbench",
+   "partition": 1,
+   "arm": "A1",
+   "stat": 1.6861110831145274,
+   "loss_audit": 0.026250375584571006,
+   "loss_no_audit": 0.08581838761702258
+  },
+  {
+   "corpus": "routerbench",
+   "partition": 2,
+   "arm": "A0",
+   "stat": 0.9361361791131811,
+   "loss_audit": 0.011386075931071127,
+   "loss_no_audit": 0.013562766855327174
+  },
+  {
+   "corpus": "routerbench",
+   "partition": 2,
+   "arm": "A1",
+   "stat": 1.4332316818165411,
+   "loss_audit": 0.08017540862246371,
+   "loss_no_audit": 0.08234572945120765
+  },
+  {
+   "corpus": "routerbench",
+   "partition": 3,
+   "arm": "A0",
+   "stat": 1.0930369927759231,
+   "loss_audit": 0.01510871664469142,
+   "loss_no_audit": 0.010750886448153585
+  },
+  {
+   "corpus": "routerbench",
+   "partition": 3,
+   "arm": "A1",
+   "stat": 1.5451091273405553,
+   "loss_audit": 0.03572945030017949,
+   "loss_no_audit": 0.1025783308901634
+  },
+  {
+   "corpus": "routerbench",
+   "partition": 4,
+   "arm": "A0",
+   "stat": 0.8347006723773586,
+   "loss_audit": 0.006460890891076511,
+   "loss_no_audit": 0.0016337131367292201
+  },
+  {
+   "corpus": "routerbench",
+   "partition": 4,
+   "arm": "A1",
+   "stat": 1.1891794040294072,
+   "loss_audit": 0.05033208813183896,
+   "loss_no_audit": 0.07000176453980801
+  },
+  {
+   "corpus": "routerbench",
+   "partition": 5,
+   "arm": "A0",
+   "stat": 1.0275146781742832,
+   "loss_audit": 0.03019707175390189,
+   "loss_no_audit": 0.04235924369747898
+  },
+  {
+   "corpus": "routerbench",
+   "partition": 5,
+   "arm": "A1",
+   "stat": 1.3659173851261601,
+   "loss_audit": 0.05894909274081078,
+   "loss_no_audit": 0.09565118492557811
+  },
+  {
+   "corpus": "routerbench",
+   "partition": 6,
+   "arm": "A0",
+   "stat": 0.9889445995603667,
+   "loss_audit": 0.03422538484796931,
+   "loss_no_audit": 4.189008042894404e-05
+  },
+  {
+   "corpus": "routerbench",
+   "partition": 6,
+   "arm": "A1",
+   "stat": 1.870460947902732,
+   "loss_audit": 0.04403750396246937,
+   "loss_no_audit": 0.09323139121015166
+  },
+  {
+   "corpus": "routerbench",
+   "partition": 7,
+   "arm": "A0",
+   "stat": 1.0656355912133033,
+   "loss_audit": 0.025085323109676566,
+   "loss_no_audit": 0.046587011952294595
+  },
+  {
+   "corpus": "routerbench",
+   "partition": 7,
+   "arm": "A1",
+   "stat": 1.2832080988339898,
+   "loss_audit": 0.027204503305181316,
+   "loss_no_audit": 0.0793180690363039
+  },
+  {
+   "corpus": "routerbench",
+   "partition": 8,
+   "arm": "A0",
+   "stat": 1.1087905291258642,
+   "loss_audit": 0.012206590997620047,
+   "loss_no_audit": 0.001843163538873982
+  },
+  {
+   "corpus": "routerbench",
+   "partition": 8,
+   "arm": "A1",
+   "stat": 1.2131801177841535,
+   "loss_audit": 0.03729833261869233,
+   "loss_no_audit": 0.05594966734783018
+  },
+  {
+   "corpus": "routerbench",
+   "partition": 9,
+   "arm": "A0",
+   "stat": 0.9644465640247879,
+   "loss_audit": 0.023894200009159667,
+   "loss_no_audit": 0.030468846773194613
+  },
+  {
+   "corpus": "routerbench",
+   "partition": 9,
+   "arm": "A1",
+   "stat": 1.2229075586536782,
+   "loss_audit": 0.015538250747960844,
+   "loss_no_audit": 0.08504383923201443
+  },
+  {
+   "corpus": "routerbench",
+   "partition": 10,
+   "arm": "A0",
+   "stat": 0.9523036503955042,
+   "loss_audit": 0.016428194548272195,
+   "loss_no_audit": 0.0004607908847185094
+  },
+  {
+   "corpus": "routerbench",
+   "partition": 10,
+   "arm": "A1",
+   "stat": 1.301379836373091,
+   "loss_audit": 0.04085040164189404,
+   "loss_no_audit": 0.06769759913170172
+  },
+  {
+   "corpus": "routerbench",
+   "partition": 11,
+   "arm": "A0",
+   "stat": 0.9568179789825352,
+   "loss_audit": 0.007649247046327179,
+   "loss_no_audit": 0.01710816777041943
+  },
+  {
+   "corpus": "routerbench",
+   "partition": 11,
+   "arm": "A1",
+   "stat": 1.3441872391028256,
+   "loss_audit": 0.027667298853578114,
+   "loss_no_audit": 0.06173785496603334
+  },
+  {
+   "corpus": "routerbench",
+   "partition": 12,
+   "arm": "A0",
+   "stat": 1.1771294789559257,
+   "loss_audit": 0.02831355566445158,
+   "loss_no_audit": 0.013764880952380945
+  },
+  {
+   "corpus": "routerbench",
+   "partition": 12,
+   "arm": "A1",
+   "stat": 1.1787154430007576,
+   "loss_audit": 0.06537994914953786,
+   "loss_no_audit": 0.08350163271941624
+  },
+  {
+   "corpus": "routerbench",
+   "partition": 13,
+   "arm": "A0",
+   "stat": 1.0216622947499532,
+   "loss_audit": 0.0068548628045943,
+   "loss_no_audit": 0.05280790166118011
+  },
+  {
+   "corpus": "routerbench",
+   "partition": 13,
+   "arm": "A1",
+   "stat": 1.189224582359016,
+   "loss_audit": 0.0361841116265429,
+   "loss_no_audit": 0.06824355889921191
+  },
+  {
+   "corpus": "routerbench",
+   "partition": 14,
+   "arm": "A0",
+   "stat": 1.1407412473052807,
+   "loss_audit": 0.023884868384939018,
+   "loss_no_audit": 0.015901396231615336
+  },
+  {
+   "corpus": "routerbench",
+   "partition": 14,
+   "arm": "A1",
+   "stat": 1.186824621011807,
+   "loss_audit": 0.0474860535806628,
+   "loss_no_audit": 0.07078898815661551
+  },
+  {
+   "corpus": "routerbench",
+   "partition": 15,
+   "arm": "A0",
+   "stat": 0.9635067607910367,
+   "loss_audit": 0.018326430353634675,
+   "loss_no_audit": 0.03320954277514265
+  },
+  {
+   "corpus": "routerbench",
+   "partition": 15,
+   "arm": "A1",
+   "stat": 1.038196677971747,
+   "loss_audit": 0.0372962509539563,
+   "loss_no_audit": 0.08115592733651887
+  },
+  {
+   "corpus": "routerbench",
+   "partition": 16,
+   "arm": "A0",
+   "stat": 1.1635654991635167,
+   "loss_audit": 0.028019215175891236,
+   "loss_no_audit": 0.027913858985910135
+  },
+  {
+   "corpus": "routerbench",
+   "partition": 16,
+   "arm": "A1",
+   "stat": 1.3387889572756333,
+   "loss_audit": 0.03910430572522774,
+   "loss_no_audit": 0.045839908048504026
+  },
+  {
+   "corpus": "routerbench",
+   "partition": 17,
+   "arm": "A0",
+   "stat": 0.9153596629838224,
+   "loss_audit": 0.03431590902246799,
+   "loss_no_audit": 0.018071046981525507
+  },
+  {
+   "corpus": "routerbench",
+   "partition": 17,
+   "arm": "A1",
+   "stat": 1.0020019118149477,
+   "loss_audit": 0.045709337943301016,
+   "loss_no_audit": 0.09327137570234184
+  },
+  {
+   "corpus": "routerbench",
+   "partition": 18,
+   "arm": "A0",
+   "stat": 1.198714564878942,
+   "loss_audit": 0.022984963868818237,
+   "loss_no_audit": 0.01600858997761455
+  },
+  {
+   "corpus": "routerbench",
+   "partition": 18,
+   "arm": "A1",
+   "stat": 1.2452997919098021,
+   "loss_audit": 0.027943516214199392,
+   "loss_no_audit": 0.05529699865518839
+  },
+  {
+   "corpus": "routerbench",
+   "partition": 19,
+   "arm": "A0",
+   "stat": 0.9440479568458189,
+   "loss_audit": 0.0202822200145666,
+   "loss_no_audit": 0.019565217391304346
+  },
+  {
+   "corpus": "routerbench",
+   "partition": 19,
+   "arm": "A1",
+   "stat": 1.3420146763683285,
+   "loss_audit": 0.06713522273198623,
+   "loss_no_audit": 0.11993916349793822
+  }
+ ]
+}

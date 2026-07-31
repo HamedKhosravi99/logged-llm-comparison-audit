@@ -51,7 +51,7 @@ def main():
     for p in range(args.partitions):
         r, g, m = run_partition(p, acq_seeds=args.acq_seeds, eps=args.eps, n_read=args.n_read,
                                 corpus=args.corpus, extra_methods=("rawmargin", "epig_obs"),
-                                factorial_conds=("E0", "E1", "E2"))
+                                factorial_conds=("D0", "D1", "D2"))
         rows += r
         gate_rows += g
         metas.append(m)
@@ -81,13 +81,13 @@ def main():
     ms = ["trust", "uniform", "epig_obs", "case", "epig_corr", "oracle_sel", "oracle_ref"]
     print(f"{'cell':<8}" + "".join(f"{m:>13}" for m in ms))
     for A in ("A0", "A1"):
-        for E in ("E0", "E1"):
+        for E in ("D0", "D1"):
             print(f"{A}-{E:<5}" + "".join(f"{st((A, E, m), 'reference_regret')[0]:13.4f}" for m in ms))
     print(f"\n{'cell':<8}" + "".join(f"{m:>13}" for m in ms) + "   (top-1 identification error)")
     for A in ("A0", "A1"):
-        for E in ("E0", "E1"):
+        for E in ("D0", "D1"):
             print(f"{A}-{E:<5}" + "".join(f"{st((A, E, m), 'top1_error')[0]:13.3f}" for m in ms))
-    for A, E in (("A1", "E0"), ("A1", "E1"), ("A0", "E0")):
+    for A, E in (("A1", "D0"), ("A1", "D1"), ("A0", "D0")):
         a = np.array([np.mean([q["reference_regret"] for q in agg[(A, E, "case")][p]])
                       for p in sorted(agg[(A, E, "case")])])
         b = np.array([np.mean([q["reference_regret"] for q in agg[(A, E, "trust")][p]])

@@ -1,0 +1,213 @@
+{
+ "note": "Plan section 7 steps 1-3 computed from saved data. Steps 4-5 (two independent author labels, resolved before viewing method performance) need the authors.",
+ "types": [
+  {
+   "request_type": 0,
+   "n": 1439,
+   "source_composition": {
+    "hle": "76%",
+    "mmlupro": "18%",
+    "arenahard": "4%"
+   },
+   "top_terms": [
+    "let",
+    "number",
+    "mathbb",
+    "frac",
+    "value",
+    "set",
+    "consider",
+    "right",
+    "left",
+    "function"
+   ],
+   "nearest_examples": [
+    "Let \\(\\mathbb{R}\\) be the set of real numbers and \\(\\mathbb{N}\\) be the set of natural numbers. We use the shorthands \\([n]:=\\{1, \\ldots, n\\}\\) and \\(\\mathbb{N}_{\\geq 0}:=\\mathbb{N} \\cup\\{0\\}\\). We de",
+    "Let $N$ be a positive integer and $h$ be a non-negative integer such that $h \\leq N$. Let $\\mathcal{D}_2(N, h)$ denote the set of all equivalence classes of dessins with $N$ edges, $h$ faces of degree",
+    "Consider the function \\( f(z) \\) defined and analytic on the complex plane \\( \\mathbb{C} \\), satisfying the functional equation: \\[ f(z) = 2^{1 - z} \\cdot f\\left( \\frac{z}{2} \\right) \\cdot f\\left( \\fr"
+   ]
+  },
+  {
+   "request_type": 1,
+   "n": 473,
+   "source_composition": {
+    "livecodebench": "94%",
+    "arenahard": "3%",
+    "mmlupro": "2%"
+   },
+   "top_terms": [
+    "nums",
+    "example",
+    "example input",
+    "explanation",
+    "output",
+    "input",
+    "array",
+    "length",
+    "output explanation",
+    "10"
+   ],
+   "nearest_examples": [
+    "Given an array of integers nums and an integer k, return the number of subarrays of nums where the bitwise AND of the elements of the subarray equals k.\n \nExample 1:\n\nInput: nums = [1,1,1], k = 1\nOutp",
+    "You are given an integer array nums and an integer k.\nYou are allowed to perform the following operation on each element of the array at most once:\n\nAdd an integer in the range [-k, k] to the element.",
+    "You have an array of floating point numbers averages which is initially empty. You are given an array nums of n integers where n is even.\nYou repeat the following procedure n / 2 times:\n\nRemove the sm"
+   ]
+  },
+  {
+   "request_type": 2,
+   "n": 3671,
+   "source_composition": {
+    "simpleqa": "74%",
+    "mmlupro": "17%",
+    "arenahard": "5%"
+   },
+   "top_terms": [
+    "year",
+    "award",
+    "won",
+    "season",
+    "awarded",
+    "city",
+    "founded",
+    "municipality",
+    "colombia",
+    "episode"
+   ],
+   "nearest_examples": [
+    "What year was the municipality of Andes, Antioquia, Colombia, founded?",
+    "In which year was the municipality of Carepa, Antioquia, Colombia, founded?",
+    "What year was the municipality of Necocl\u00ed, Antioquia, Colombia, founded?"
+   ]
+  },
+  {
+   "request_type": 3,
+   "n": 620,
+   "source_composition": {
+    "livecodebench": "98%",
+    "mmlupro": "1%",
+    "arenahard": "1%"
+   },
+   "top_terms": [
+    "sample",
+    "input",
+    "leq",
+    "output",
+    "sample input",
+    "sample output",
+    "leq leq",
+    "print",
+    "10",
+    "given"
+   ],
+   "nearest_examples": [
+    "You are given positive integers A and B.\r\nPrint the value A^B+B^A.\n\nInput\n\nThe input is given from Standard Input in the following format:\nA B\n\nOutput\n\nPrint the answer as an integer.\n\nConstraints\n\n\n-",
+    "You are given a sequence of positive integers A=(A_1,A_2,\\dots,A_N) of length N and a positive integer K.\nFind the sum of the integers between 1 and K, inclusive, that do not appear in the sequence A.",
+    "You are given two positive integers N and M.\nLet X = \\displaystyle\\sum_{i = 0}^{M} N^i. If X \\leq 10^9, print the value of X. If X > 10^9, print inf.\n\nInput\n\nThe input is given from Standard Input in "
+   ]
+  },
+  {
+   "request_type": 4,
+   "n": 685,
+   "source_composition": {
+    "simpleqa": "98%",
+    "mmlupro": "1%",
+    "arenahard": "0%"
+   },
+   "top_terms": [
+    "month",
+    "month year",
+    "year",
+    "day",
+    "day month",
+    "year did",
+    "did",
+    "born",
+    "date",
+    "date month"
+   ],
+   "nearest_examples": [
+    "On what day, month, and year was the USS *Nina* recommissioned as a torpedo boat?",
+    "What day, month, and year did Sara Duterte resign from Lakas-CMD?",
+    "What day, month, and year did Emperor Xizong of Jin become the emperor of the Jin dynasty?"
+   ]
+  },
+  {
+   "request_type": 5,
+   "n": 2180,
+   "source_composition": {
+    "mmlupro": "49%",
+    "hle": "29%",
+    "arenahard": "18%"
+   },
+   "top_terms": [
+    "following",
+    "answer",
+    "choices",
+    "answer choices",
+    "write",
+    "use",
+    "using",
+    "likely",
+    "statements",
+    "man"
+   ],
+   "nearest_examples": [
+    "Sacred literature originated with which of the following jina?",
+    "Which of the following entities cannot sue for libel?",
+    "Which of the following sexual variations is probably the most dangerous?"
+   ]
+  },
+  {
+   "request_type": 6,
+   "n": 1417,
+   "source_composition": {
+    "mmlupro": "72%",
+    "hle": "18%",
+    "arenahard": "8%"
+   },
+   "top_terms": [
+    "10",
+    "mathrm",
+    "000",
+    "calculate",
+    "cm",
+    "water",
+    "energy",
+    "temperature",
+    "rate",
+    "pressure"
+   ],
+   "nearest_examples": [
+    "Air is flowing over a 5-row tube bank. The air enters the enclosing duct at a temperature of 60\u00b0F, and it leaves at 100\u00b0F. The air flow is 500 ft^3/min, and is at atmospheric pressure. The tubes have ",
+    "A container with an air tight piston is at a pressure of 100psiaand a temperature of 70\u00b0F. The piston moves up when 100 Btu of heat is transferred and the volume changes from 0.5 ft^3 to 2.0 ft^3. Ass",
+    "(a) If the x direction is normal to the surface of the earth and directed upward, the gravitational force is F_G = -Mgx\u02c4, where g is the acceleration of gravity and has the approximate value 980 cm/se"
+   ]
+  },
+  {
+   "request_type": 7,
+   "n": 804,
+   "source_composition": {
+    "simpleqa": "96%",
+    "mmlupro": "2%",
+    "hle": "2%"
+   },
+   "top_terms": [
+    "did",
+    "year did",
+    "year",
+    "receive",
+    "university",
+    "win",
+    "school",
+    "award",
+    "university did",
+    "day year"
+   ],
+   "nearest_examples": [
+    "In which year did Grete Stern become a citizen of Argentina?",
+    "During what year did Isa Genzken divorce Gerhard Richter?",
+    "In which year did Thabo Cecil Makgoba first become the diocesan bishop of Grahamstown in Makhanda?"
+   ]
+  }
+ ]
+}

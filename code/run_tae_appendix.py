@@ -68,27 +68,27 @@ def main():
     rows, grows, metas = [], [], {}
     specs = [
         # A. evaluator-bias strength (lambda multiplier on the pre-specified 0.5 x median margin)
-        ("lambda_x1.0", dict(lam_scale=2.0, factorial_conds=("E1",), gate_conds=("E1",))),
+        ("lambda_x1.0", dict(lam_scale=2.0, factorial_conds=("D1",), gate_conds=("D1",))),
         # B. stream mismatch: sign reversal instead of attenuation
-        ("stream_sign_reversal", dict(factorial_conds=("E2rev",), gate_conds=("E2rev",))),
+        ("stream_sign_reversal", dict(factorial_conds=("D2rev",), gate_conds=("D2rev",))),
         # C. readout size
-        ("readout_15", dict(n_read=15, factorial_conds=("E0", "E1"), gate_conds=("E1",))),
-        ("readout_60", dict(n_read=60, factorial_conds=("E0", "E1"), gate_conds=("E1",))),
+        ("readout_15", dict(n_read=15, factorial_conds=("D0", "D1"), gate_conds=("D1",))),
+        ("readout_60", dict(n_read=60, factorial_conds=("D0", "D1"), gate_conds=("D1",))),
         # D. status-quo definition for the deployment gate
-        ("baseline_router", dict(baseline="router", factorial_conds=(), gate_conds=("E1", "E2"))),
+        ("baseline_router", dict(baseline="router", factorial_conds=(), gate_conds=("D1", "D2"))),
         # F. context-invariant model favouritism C_kj = C_k -- the cleanest case of Prop. 1(b)
-        ("favoritism_Ck", dict(factorial_conds=("E1k",), gate_conds=("E1k",))),
+        ("favoritism_Ck", dict(factorial_conds=("D1k",), gate_conds=("D1k",))),
         # H. routing aggressiveness: the assignment factor's whole magnitude is set by how sharply
         #    the incumbent router selects, so the exploration rate is swept end to end. eps -> 1 is
         #    uniform routing, which is A0 by construction; eps = 0.15 is the main setting.
-        ("router_eps0.05", dict(eps=0.05, factorial_conds=("E0", "E1"), gate_conds=("E1",))),
-        ("router_eps0.30", dict(eps=0.30, factorial_conds=("E0", "E1"), gate_conds=("E1",))),
-        ("router_eps0.50", dict(eps=0.50, factorial_conds=("E0", "E1"), gate_conds=("E1",))),
+        ("router_eps0.05", dict(eps=0.05, factorial_conds=("D0", "D1"), gate_conds=("D1",))),
+        ("router_eps0.30", dict(eps=0.30, factorial_conds=("D0", "D1"), gate_conds=("D1",))),
+        ("router_eps0.50", dict(eps=0.50, factorial_conds=("D0", "D1"), gate_conds=("D1",))),
         # G. context granularity: the whole design is defined over J embedding clusters, so J is a
         #    design choice that could drive the margins, the reversals and the acquisition order
-        ("contexts_J6", dict(n_clusters=6, factorial_conds=("E0", "E1"), gate_conds=("E1",))),
-        ("contexts_J12", dict(n_clusters=12, factorial_conds=("E0", "E1"), gate_conds=("E1",))),
-        ("contexts_J16", dict(n_clusters=16, factorial_conds=("E0", "E1"), gate_conds=("E1",))),
+        ("contexts_J6", dict(n_clusters=6, factorial_conds=("D0", "D1"), gate_conds=("D1",))),
+        ("contexts_J12", dict(n_clusters=12, factorial_conds=("D0", "D1"), gate_conds=("D1",))),
+        ("contexts_J16", dict(n_clusters=16, factorial_conds=("D0", "D1"), gate_conds=("D1",))),
     ]
     for name, kw in specs:
         kw.setdefault("acq_seeds", S)

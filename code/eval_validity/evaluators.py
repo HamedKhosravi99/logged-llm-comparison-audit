@@ -8,16 +8,16 @@ operational evaluator on stream s in {o (logging), i (randomized audit), v (veri
 with C^s_kj a systematic model-by-context distortion; finite-sample evaluator noise enters through
 the finite readout size, exactly as in the audit protocol itself.
 
-    E0  construct-aligned         C^o = C^i = C^v = 0
-    E1  stable construct-biased   C^o = C^i = C^v = C,      C_kj = lambda * z_k * s_j
-    E2  evaluator-stream mismatch C^o = C, C^i = 0.5 C, same-evaluator verification C^v = C
+    D0  construct-aligned         C^o = C^i = C^v = 0
+    D1  stable construct-biased   C^o = C^i = C^v = C,      C_kj = lambda * z_k * s_j
+    D2  evaluator-stream mismatch C^o = C, C^i = 0.5 C, same-evaluator verification C^v = C
 
 z_k (standardized model capability rank), s_j (context difficulty sign) and lambda are fixed on the
 router-train cohort by `grid.build_base` before any run; nothing here is tuned on results.
 """
 import numpy as np
 
-CONDITIONS = ("E0", "E1", "E1k", "E2", "E2rev")
+CONDITIONS = ("D0", "D1", "D1k", "D2", "D2rev")
 
 
 def distortions(base, cond, lam_scale=1.0):
@@ -28,16 +28,16 @@ def distortions(base, cond, lam_scale=1.0):
     K, J = base["K"], base["J"]
     Z = np.zeros((K, J))
     C = lam_scale * base["lam"] * base["z"][:, None] * base["s"][None, :]
-    if cond == "E0":
+    if cond == "D0":
         return dict(o=Z, i=Z, v=Z, C=Z)
-    if cond == "E1":
+    if cond == "D1":
         return dict(o=C, i=C, v=C, C=C)
-    if cond == "E1k":                                    # context-invariant model favouritism C_kj = C_k
+    if cond == "D1k":                                    # context-invariant model favouritism C_kj = C_k
         Ck = np.repeat((lam_scale * base["lam"] * base["z"])[:, None], J, axis=1)
         return dict(o=Ck, i=Ck, v=Ck, C=Ck)
-    if cond == "E2":
+    if cond == "D2":
         return dict(o=C, i=0.5 * C, v=C, C=C)
-    if cond == "E2rev":                                  # appendix: sign-reversed audit stream
+    if cond == "D2rev":                                  # appendix: sign-reversed audit stream
         return dict(o=C, i=-0.5 * C, v=C, C=C)
     raise ValueError(f"unknown evaluator condition {cond!r}")
 

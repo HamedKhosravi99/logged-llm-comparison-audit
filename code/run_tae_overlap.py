@@ -66,7 +66,7 @@ def main():
             "epig_observed": ("epig", "observed"),        # same rule, different surface
             "margin_observed": ("margin", "observed")}    # CASE's rule off the corrected surface
     rows = []
-    for cond in ("E0", "E1"):
+    for cond in ("D0", "D1"):
         for p in range(args.partitions):
             base = build_base(p)
             cells, n_kj, _ = A.make_selective_log(base, p, eps=args.eps)
@@ -99,7 +99,7 @@ def main():
     json.dump(out, open(args.out, "w"), separators=(",", ":"))
 
     print("\ncell-set overlap with CASE's purchases (shared budget, seed and support):")
-    for cond in ("E0", "E1"):
+    for cond in ("D0", "D1"):
         sel = [r for r in rows if r["evaluator"] == cond]
         parts = sorted({r["partition"] for r in sel})
         print(f"  A1-{cond}")

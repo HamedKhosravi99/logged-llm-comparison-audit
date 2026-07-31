@@ -1,0 +1,118 @@
+{
+ "n_simulations": 440,
+ "per_cell": [
+  {
+   "domain": "airline",
+   "model": "gpt-4.1-mini",
+   "n": 40,
+   "success": 0.5,
+   "cost_per_task": 0.0121814,
+   "cost_per_success": 0.0243628,
+   "sim_cost_per_task": 0.0011133299999999998
+  },
+  {
+   "domain": "airline",
+   "model": "gpt-4.1-nano",
+   "n": 40,
+   "success": 0.175,
+   "cost_per_task": 0.0027438224999999997,
+   "cost_per_success": 0.015678985714285713,
+   "sim_cost_per_task": 0.00097272
+  },
+  {
+   "domain": "airline",
+   "model": "gpt-4o",
+   "n": 40,
+   "success": 0.55,
+   "cost_per_task": 0.0718451875,
+   "cost_per_success": 0.13062761363636366,
+   "sim_cost_per_task": 0.00083343375
+  },
+  {
+   "domain": "airline",
+   "model": "gpt-4o-mini",
+   "n": 45,
+   "success": 0.5555555555555556,
+   "cost_per_task": 0.0040064333333333325,
+   "cost_per_success": 0.007211579999999999,
+   "sim_cost_per_task": 0.0008429166666666666
+  },
+  {
+   "domain": "retail",
+   "model": "gpt-4.1-mini",
+   "n": 40,
+   "success": 0.45,
+   "cost_per_task": 0.0119673,
+   "cost_per_success": 0.026594,
+   "sim_cost_per_task": 0.0010336837499999997
+  },
+  {
+   "domain": "retail",
+   "model": "gpt-4.1-nano",
+   "n": 42,
+   "success": 0.30952380952380953,
+   "cost_per_task": 0.004507614285714286,
+   "cost_per_success": 0.014563061538461538,
+   "sim_cost_per_task": 0.0008803357142857142
+  },
+  {
+   "domain": "retail",
+   "model": "gpt-4o",
+   "n": 37,
+   "success": 0.6216216216216216,
+   "cost_per_task": 0.08097,
+   "cost_per_success": 0.13025608695652174,
+   "sim_cost_per_task": 0.0008143824324324324
+  },
+  {
+   "domain": "retail",
+   "model": "gpt-4o-mini",
+   "n": 41,
+   "success": 0.36585365853658536,
+   "cost_per_task": 0.00568884512195122,
+   "cost_per_success": 0.015549509999999999,
+   "sim_cost_per_task": 0.0010198207317073172
+  },
+  {
+   "domain": "telecom",
+   "model": "gpt-4.1-mini",
+   "n": 40,
+   "success": 0.6,
+   "cost_per_task": 0.03417475,
+   "cost_per_success": 0.056957916666666664,
+   "sim_cost_per_task": 0.0064867725
+  },
+  {
+   "domain": "telecom",
+   "model": "gpt-4.1-nano",
+   "n": 24,
+   "success": 0.16666666666666666,
+   "cost_per_task": 0.024421054166666668,
+   "cost_per_success": 0.146526325,
+   "sim_cost_per_task": 0.008262125
+  },
+  {
+   "domain": "telecom",
+   "model": "gpt-4o",
+   "n": 26,
+   "success": 0.3076923076923077,
+   "cost_per_task": 0.1414576923076923,
+   "cost_per_success": 0.4597375,
+   "sim_cost_per_task": 0.005286749999999999
+  },
+  {
+   "domain": "telecom",
+   "model": "gpt-4o-mini",
+   "n": 25,
+   "success": 0.04,
+   "cost_per_task": 0.098071344,
+   "cost_per_success": 2.4517836,
+   "sim_cost_per_task": 0.001036764
+  }
+ ],
+ "termination": {
+  "user_stop": 408,
+  "max_steps": 31,
+  "too_many_errors": 1
+ }
+}

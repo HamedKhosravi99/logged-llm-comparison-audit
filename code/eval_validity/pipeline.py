@@ -52,8 +52,8 @@ def _method_surface(name, surf, supp, B, seed, n_read):
 
 
 def run_partition(part_seed, acq_seeds=4, eps=0.15, n_read=30, lam_scale=1.0, corpus="llmrouterbench",
-                  budget_fracs=BUDGET_FRACS, methods=METHODS, gate_conds=("E1", "E2"),
-                  factorial_conds=("E0", "E1"), extra_methods=(), baseline="logged", n_clusters=8):
+                  budget_fracs=BUDGET_FRACS, methods=METHODS, gate_conds=("D1", "D2"),
+                  factorial_conds=("D0", "D1"), extra_methods=(), baseline="logged", n_clusters=8):
     """Run every (assignment, evaluator, budget, acquisition-seed, method) cell for one partition."""
     base = build_base(part_seed, n_clusters=n_clusters, corpus=corpus)
     K, J = base["K"], base["J"]
@@ -142,9 +142,9 @@ def run_partition(part_seed, acq_seeds=4, eps=0.15, n_read=30, lam_scale=1.0, co
 
 def condition_diagnostics(base, cellsA0, cellsA1, supp, tab, pol_ref, lam_scale=1.0, n_read=30):
     """Design diagnostics for one partition: trap strength and realised evaluator distortion."""
-    s0 = surfaces_for(base, cellsA1, "E0", lam_scale, n_read)
-    s1 = surfaces_for(base, cellsA1, "E1", lam_scale, n_read)
-    a0 = surfaces_for(base, cellsA0, "E0", lam_scale, n_read)
+    s0 = surfaces_for(base, cellsA1, "D0", lam_scale, n_read)
+    s1 = surfaces_for(base, cellsA1, "D1", lam_scale, n_read)
+    a0 = surfaces_for(base, cellsA0, "D0", lam_scale, n_read)
     Bias = s0["M"] - s0["Ef_ref"]
     bk = Bias.mean(1)
     Ceff = s1["Ef_op"] - s1["Ef_ref"]

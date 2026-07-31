@@ -1,0 +1,242 @@
+{
+ "table": [
+  {
+   "policy": "Best single model",
+   "success": 0.3975,
+   "success_se": 0.0186418841,
+   "agent_cost_per_1k": 43.1658979583,
+   "audit_usd": 0.0,
+   "cost_per_success": 0.108593454,
+   "tool_err": 0.2894444444,
+   "violation": 0.68,
+   "wrong": 0.68,
+   "switches": 1.6,
+   "break_even": null,
+   "break_even_by_fallback": {
+    "0": null,
+    "2": null,
+    "5": null,
+    "10": null,
+    "25": null
+   }
+  },
+  {
+   "policy": "CASE",
+   "success": 0.4794444444,
+   "success_se": 0.0144895076,
+   "agent_cost_per_1k": 28.340402375,
+   "audit_usd": 0.8305100308,
+   "cost_per_success": 0.0591109204,
+   "tool_err": 0.4158333333,
+   "violation": 0.54,
+   "wrong": 0.54,
+   "switches": 1.24,
+   "break_even": null,
+   "break_even_by_fallback": {
+    "0": null,
+    "2": null,
+    "5": null,
+    "10": null,
+    "25": null
+   }
+  },
+  {
+   "policy": "Cheapest model",
+   "success": 0.1871212121,
+   "success_se": 0.0133538557,
+   "agent_cost_per_1k": 9.9184941768,
+   "audit_usd": 0.0,
+   "cost_per_success": 0.0530057179,
+   "tool_err": 1.2271717172,
+   "violation": 1.0,
+   "wrong": 1.0,
+   "switches": 2.72,
+   "break_even": null,
+   "break_even_by_fallback": {
+    "0": null,
+    "2": null,
+    "5": null,
+    "10": null,
+    "25": null
+   }
+  },
+  {
+   "policy": "Dollar-aware CASE",
+   "success": 0.4852777778,
+   "success_se": 0.0142493474,
+   "agent_cost_per_1k": 28.9981465417,
+   "audit_usd": 0.7891137798,
+   "cost_per_success": 0.0597557685,
+   "tool_err": 0.4075,
+   "violation": 0.5266666667,
+   "wrong": 0.5266666667,
+   "switches": 1.2,
+   "break_even": null,
+   "break_even_by_fallback": {
+    "0": null,
+    "2": null,
+    "5": null,
+    "10": null,
+    "25": null
+   }
+  },
+  {
+   "policy": "Highest-success model",
+   "success": 0.3975,
+   "success_se": 0.0186418841,
+   "agent_cost_per_1k": 43.1658979583,
+   "audit_usd": 0.0,
+   "cost_per_success": 0.108593454,
+   "tool_err": 0.2894444444,
+   "violation": 0.68,
+   "wrong": 0.68,
+   "switches": 1.6,
+   "break_even": null,
+   "break_even_by_fallback": {
+    "0": null,
+    "2": null,
+    "5": null,
+    "10": null,
+    "25": null
+   }
+  },
+  {
+   "policy": "Ideal complete matrix",
+   "success": 0.5875,
+   "success_se": 0.0130001962,
+   "agent_cost_per_1k": 62.26869975,
+   "audit_usd": 0.0,
+   "cost_per_success": 0.1059892762,
+   "tool_err": 0.1066666667,
+   "violation": 0.0,
+   "wrong": 0.0,
+   "switches": 1.58,
+   "break_even": null,
+   "break_even_by_fallback": {
+    "0": null,
+    "2": null,
+    "5": null,
+    "10": null,
+    "25": null
+   }
+  },
+  {
+   "policy": "Raw routed log",
+   "success": 0.4875,
+   "success_se": 0.0155181056,
+   "agent_cost_per_1k": 26.3438024861,
+   "audit_usd": 0.0,
+   "cost_per_success": 0.0540385692,
+   "tool_err": 0.3797222222,
+   "violation": 0.5266666667,
+   "wrong": 0.5266666667,
+   "switches": 0.0,
+   "break_even": null,
+   "break_even_by_fallback": {
+    "0": null,
+    "2": null,
+    "5": null,
+    "10": null,
+    "25": null
+   }
+  },
+  {
+   "policy": "Uniform audit",
+   "success": 0.4716666667,
+   "success_se": 0.0171185895,
+   "agent_cost_per_1k": 28.8487604306,
+   "audit_usd": 1.1529270742,
+   "cost_per_success": 0.0611634497,
+   "tool_err": 0.3927777778,
+   "violation": 0.5333333333,
+   "wrong": 0.5333333333,
+   "switches": 1.28,
+   "break_even": null,
+   "break_even_by_fallback": {
+    "0": null,
+    "2": null,
+    "5": null,
+    "10": null,
+    "25": null
+   }
+  }
+ ],
+ "modal_policies": {
+  "raw": {
+   "airline": "gpt-4o-mini",
+   "retail": "gpt-4.1-mini",
+   "telecom": "gpt-4.1-mini"
+  },
+  "case": {
+   "airline": "gpt-4.1-mini",
+   "retail": "gpt-4.1-mini",
+   "telecom": "gpt-4.1-mini"
+  },
+  "ideal": {
+   "airline": "gpt-4o",
+   "retail": "gpt-4o",
+   "telecom": "gpt-4.1-mini"
+  }
+ },
+ "n_pairs_mean": 7.159999999999999,
+ "diagnostic_triggered": 790,
+ "diagnostic_total": 1000,
+ "purchase_order": [
+  {
+   "domain": "telecom",
+   "model": "gpt-4.1-mini",
+   "order": 1,
+   "cost": 0.0761556,
+   "seed": true
+  },
+  {
+   "domain": "retail",
+   "model": "gpt-4.1-nano",
+   "order": 2,
+   "cost": 0.0071573999999999995,
+   "seed": true
+  },
+  {
+   "domain": "telecom",
+   "model": "gpt-4o",
+   "order": 3,
+   "cost": 0.45106749999999995,
+   "seed": true
+  },
+  {
+   "domain": "telecom",
+   "model": "gpt-4o-mini",
+   "order": 4,
+   "cost": 0.29643225,
+   "seed": true
+  },
+  {
+   "domain": "airline",
+   "model": "gpt-4o-mini",
+   "order": 5,
+   "cost": 0.010695375,
+   "seed": false
+  },
+  {
+   "domain": "airline",
+   "model": "gpt-4o",
+   "order": 6,
+   "cost": 0.20436125,
+   "seed": false
+  },
+  {
+   "domain": "retail",
+   "model": "gpt-4o",
+   "order": 7,
+   "cost": 0.2333725,
+   "seed": false
+  },
+  {
+   "domain": "retail",
+   "model": "gpt-4.1-mini",
+   "order": 8,
+   "cost": 0.0332998,
+   "seed": false
+  }
+ ]
+}

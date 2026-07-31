@@ -1,0 +1,103 @@
+{
+ "uncorrected": 0.5962596259625963,
+ "n_cal": 3438,
+ "n_val": 3636,
+ "confirmatory": {
+  "n_test": 7005,
+  "method": "logistic",
+  "labels": 2500,
+  "uncorrected": 0.5897216274089936,
+  "corrected": 0.6169878658101356
+ },
+ "budgets": [
+  50,
+  100,
+  250,
+  500,
+  1000,
+  2500,
+  5000
+ ],
+ "reps": 20,
+ "rows": [
+  {
+   "budget": 50,
+   "per_model": 0.5963008800880086,
+   "length_position": 0.5888063806380638,
+   "logistic": 0.588517601760176,
+   "isotonic": 0.542051705170517,
+   "hierarchical": 0.5881600660066006,
+   "per_model_se": 5.73962245756085e-05,
+   "length_position_se": 0.009839802423290417,
+   "logistic_se": 0.010020200412673338,
+   "isotonic_se": 0.011816936800739457,
+   "hierarchical_se": 0.007123396052436126
+  },
+  {
+   "budget": 100,
+   "per_model": 0.595902090209021,
+   "length_position": 0.6029977997799779,
+   "logistic": 0.6027640264026404,
+   "isotonic": 0.5613861386138614,
+   "hierarchical": 0.5985561056105609,
+   "per_model_se": 0.0001717546204179977,
+   "length_position_se": 0.00588366386332087,
+   "logistic_se": 0.00578880629171972,
+   "isotonic_se": 0.011398233260505083,
+   "hierarchical_se": 0.005559340552199826
+  },
+  {
+   "budget": 250,
+   "per_model": 0.5963283828382838,
+   "length_position": 0.6200770077007701,
+   "logistic": 0.6198982398239825,
+   "isotonic": 0.5811331133113311,
+   "hierarchical": 0.6149202420242024,
+   "per_model_se": 9.542889089400903e-05,
+   "length_position_se": 0.0019823881827147226,
+   "logistic_se": 0.0018459625621400054,
+   "isotonic_se": 0.009029137681778796,
+   "hierarchical_se": 0.002016621329024278
+  },
+  {
+   "budget": 500,
+   "per_model": 0.5962596259625961,
+   "length_position": 0.6253850385038505,
+   "logistic": 0.6253437843784379,
+   "isotonic": 0.5985011001100109,
+   "hierarchical": 0.624436193619362,
+   "per_model_se": 5.0940525990875e-17,
+   "length_position_se": 0.0007140965547972574,
+   "logistic_se": 0.0006873877939150942,
+   "isotonic_se": 0.0005662020444969756,
+   "hierarchical_se": 0.00072229348089377
+  },
+  {
+   "budget": 1000,
+   "per_model": 0.5962596259625961,
+   "length_position": 0.6283415841584158,
+   "logistic": 0.6285203520352034,
+   "isotonic": 0.5987898789878987,
+   "hierarchical": 0.6261551155115511,
+   "per_model_se": 5.0940525990875e-17,
+   "length_position_se": 0.0007032475011767758,
+   "logistic_se": 0.0006526968353669012,
+   "isotonic_se": 0.0005266123744504332,
+   "hierarchical_se": 0.000650252498214353
+  },
+  {
+   "budget": 2500,
+   "per_model": 0.5962596259625961,
+   "length_position": 0.6296204620462047,
+   "logistic": 0.6296479647964796,
+   "isotonic": 0.5987073707370735,
+   "hierarchical": 0.6272552255225523,
+   "per_model_se": 5.0940525990875e-17,
+   "length_position_se": 0.00025714858636685574,
+   "logistic_se": 0.000267245588138148,
+   "isotonic_se": 0.0005586369490776497,
+   "hierarchical_se": 0.0004050425347876984
+  }
+ ],
+ "note": "frozen test split intentionally unused"
+}

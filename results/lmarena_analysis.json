@@ -1,0 +1,184 @@
+{
+ "agreement": {
+  "exact_4class": 0.42967781908302355,
+  "merged_ties": 0.434634448574969,
+  "decisive_only": 0.5820725903828396,
+  "n": 19368
+ },
+ "position_bias": {
+  "flip_rate": 0.3351061083286002,
+  "prefers_first": -0.11901688439097435,
+  "n": 19367
+ },
+ "length_bias": {
+  "intercept": 0.240696387439243,
+  "human_effect": 0.13046916020647703,
+  "longer_effect": 0.242516696936698,
+  "n": 14079
+ },
+ "model_bias": [
+  {
+   "model": "claude-opus-4-20250514",
+   "n": 1029,
+   "judge_winrate": 0.3722060252672498,
+   "human_winrate": 0.4878522837706511,
+   "gap": -0.11564625850340132
+  },
+  {
+   "model": "gemini-2.5-pro",
+   "n": 1027,
+   "judge_winrate": 0.6475170399221032,
+   "human_winrate": 0.7147030185004869,
+   "gap": -0.06718597857838371
+  },
+  {
+   "model": "gemini-2.5-flash",
+   "n": 1008,
+   "judge_winrate": 0.5049603174603174,
+   "human_winrate": 0.6299603174603174,
+   "gap": -0.125
+  },
+  {
+   "model": "qwen3-235b-a22b-no-thinking",
+   "n": 938,
+   "judge_winrate": 0.6823027718550106,
+   "human_winrate": 0.5767590618336887,
+   "gap": 0.1055437100213219
+  },
+  {
+   "model": "o3-2025-04-16",
+   "n": 908,
+   "judge_winrate": 0.7004405286343612,
+   "human_winrate": 0.6486784140969163,
+   "gap": 0.05176211453744495
+  },
+  {
+   "model": "mistral-medium-2505",
+   "n": 899,
+   "judge_winrate": 0.6006674082313682,
+   "human_winrate": 0.525027808676307,
+   "gap": 0.07563959955506117
+  }
+ ],
+ "category": [
+  {
+   "category": "code",
+   "n": 4051,
+   "agreement": 0.536163910145643
+  },
+  {
+   "category": "non-code",
+   "n": 10028,
+   "agreement": 0.6006182688472278
+  }
+ ],
+ "routed_log": {
+  "n": 971,
+  "models": 8,
+  "rank_error_balanced_judge": 0.875,
+  "rank_error_selective_judge": 0.5,
+  "mean_abs_winrate_gap_balanced": 0.10096163679822935,
+  "mean_abs_winrate_gap_selective": 0.12113931983999504
+ },
+ "calibration": [
+  {
+   "budget": 0,
+   "method": "uncorrected",
+   "accuracy": 0.5784439685938615,
+   "n_test": 7005
+  },
+  {
+   "budget": 50,
+   "method": "global_flip",
+   "accuracy": 0.5784439685938615,
+   "n_test": 7005
+  },
+  {
+   "budget": 50,
+   "method": "position_shift",
+   "accuracy": 0.5784439685938615,
+   "n_test": 7005,
+   "estimated_position_shift": -0.12
+  },
+  {
+   "budget": 100,
+   "method": "global_flip",
+   "accuracy": 0.5784439685938615,
+   "n_test": 7005
+  },
+  {
+   "budget": 100,
+   "method": "position_shift",
+   "accuracy": 0.5784439685938615,
+   "n_test": 7005,
+   "estimated_position_shift": -0.07000000000000006
+  },
+  {
+   "budget": 250,
+   "method": "global_flip",
+   "accuracy": 0.5784439685938615,
+   "n_test": 7005
+  },
+  {
+   "budget": 250,
+   "method": "position_shift",
+   "accuracy": 0.5784439685938615,
+   "n_test": 7005,
+   "estimated_position_shift": 0.02799999999999997
+  },
+  {
+   "budget": 500,
+   "method": "global_flip",
+   "accuracy": 0.5784439685938615,
+   "n_test": 7005
+  },
+  {
+   "budget": 500,
+   "method": "position_shift",
+   "accuracy": 0.5784439685938615,
+   "n_test": 7005,
+   "estimated_position_shift": -0.018000000000000016
+  },
+  {
+   "budget": 1000,
+   "method": "global_flip",
+   "accuracy": 0.5784439685938615,
+   "n_test": 7005
+  },
+  {
+   "budget": 1000,
+   "method": "position_shift",
+   "accuracy": 0.5784439685938615,
+   "n_test": 7005,
+   "estimated_position_shift": -0.03899999999999998
+  },
+  {
+   "budget": 2500,
+   "method": "global_flip",
+   "accuracy": 0.5784439685938615,
+   "n_test": 7005
+  },
+  {
+   "budget": 2500,
+   "method": "position_shift",
+   "accuracy": 0.5784439685938615,
+   "n_test": 7005,
+   "estimated_position_shift": -0.06519999999999998
+  },
+  {
+   "budget": 5000,
+   "method": "global_flip",
+   "accuracy": 0.5784439685938615,
+   "n_test": 7005
+  },
+  {
+   "budget": 5000,
+   "method": "position_shift",
+   "accuracy": 0.5784439685938615,
+   "n_test": 7005,
+   "estimated_position_shift": -0.06140000000000001
+  }
+ ],
+ "judge_cost_usd": 10.09236795,
+ "n": 19377
+}

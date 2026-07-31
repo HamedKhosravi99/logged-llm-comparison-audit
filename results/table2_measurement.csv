@@ -1,0 +1,5 @@
+evaluator,corpus,n,agree,flip,longer
+\texttt{gpt-4o-mini},"LMArena, all human-voted",19368,0.42967781908302355,0.3351061083286002,0.242516696936698
+\texttt{gpt-4o-mini},"LMArena, shared subset",275,0.44363636363636366,0.3236363636363636,0.27774222732187365
+\texttt{Qwen2.5-7B} (local),"LMArena, shared subset",275,0.3,0.4606741573033708,-0.31378568234329596
+\texttt{gpt-4o-mini},"HelpSteer2, human correctness",2400,0.7165820642978004,,

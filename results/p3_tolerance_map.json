@@ -1,0 +1,488 @@
+{
+ "deltas": [
+  0.0,
+  0.005,
+  0.01,
+  0.015,
+  0.02,
+  0.03,
+  0.05
+ ],
+ "horizons": [
+  1000,
+  2000,
+  5000,
+  10000,
+  100000,
+  1000000
+ ],
+ "primary_delta": 0.01,
+ "tau2": [
+  {
+   "corpus": "tau2",
+   "delta": 0.0,
+   "quality": 0.5916666666666667,
+   "cost_per_1k": 62.287958333333336,
+   "violation_rate": 0.0,
+   "policy": {
+    "airline": "gpt-4o",
+    "retail": "gpt-4o",
+    "telecom": "gpt-4.1-mini"
+   }
+  },
+  {
+   "corpus": "tau2",
+   "delta": 0.005,
+   "quality": 0.5916666666666667,
+   "cost_per_1k": 62.287958333333336,
+   "violation_rate": 0.0,
+   "policy": {
+    "airline": "gpt-4o",
+    "retail": "gpt-4o",
+    "telecom": "gpt-4.1-mini"
+   }
+  },
+  {
+   "corpus": "tau2",
+   "delta": 0.01,
+   "quality": 0.5916666666666667,
+   "cost_per_1k": 62.287958333333336,
+   "violation_rate": 0.0,
+   "policy": {
+    "airline": "gpt-4o",
+    "retail": "gpt-4o",
+    "telecom": "gpt-4.1-mini"
+   }
+  },
+  {
+   "corpus": "tau2",
+   "delta": 0.015,
+   "quality": 0.5916666666666667,
+   "cost_per_1k": 62.287958333333336,
+   "violation_rate": 0.0,
+   "policy": {
+    "airline": "gpt-4o",
+    "retail": "gpt-4o",
+    "telecom": "gpt-4.1-mini"
+   }
+  },
+  {
+   "corpus": "tau2",
+   "delta": 0.02,
+   "quality": 0.5916666666666667,
+   "cost_per_1k": 62.287958333333336,
+   "violation_rate": 0.0,
+   "policy": {
+    "airline": "gpt-4o",
+    "retail": "gpt-4o",
+    "telecom": "gpt-4.1-mini"
+   }
+  },
+  {
+   "corpus": "tau2",
+   "delta": 0.03,
+   "quality": 0.5916666666666667,
+   "cost_per_1k": 62.287958333333336,
+   "violation_rate": 0.0,
+   "policy": {
+    "airline": "gpt-4o",
+    "retail": "gpt-4o",
+    "telecom": "gpt-4.1-mini"
+   }
+  },
+  {
+   "corpus": "tau2",
+   "delta": 0.05,
+   "quality": 0.5777777777777778,
+   "cost_per_1k": 39.7492425,
+   "violation_rate": 0.0,
+   "policy": {
+    "airline": "gpt-4o-mini",
+    "retail": "gpt-4o",
+    "telecom": "gpt-4.1-mini"
+   }
+  }
+ ],
+ "llmrouterbench": [
+  {
+   "corpus": "llmrouterbench",
+   "delta": 0.0,
+   "basis": "case",
+   "quality": 0.5062794464075383,
+   "cost_per_1k": 5.890586349430703,
+   "wrong_model_rate": 0.5416666666666666,
+   "audit_usd": 2.3896087710174507
+  },
+  {
+   "corpus": "llmrouterbench",
+   "delta": 0.0,
+   "basis": "log",
+   "quality": 0.4857626619552416,
+   "cost_per_1k": 3.3576670678003526,
+   "wrong_model_rate": 0.675,
+   "audit_usd": 0.0
+  },
+  {
+   "corpus": "llmrouterbench",
+   "delta": 0.0,
+   "basis": "truth",
+   "quality": 0.5366902237926972,
+   "cost_per_1k": 7.7779432931389865,
+   "wrong_model_rate": 0.020833333333333332,
+   "audit_usd": 0.0
+  },
+  {
+   "corpus": "llmrouterbench",
+   "delta": 0.005,
+   "basis": "case",
+   "quality": 0.5056537102473497,
+   "cost_per_1k": 5.8447515324033175,
+   "wrong_model_rate": 0.54375,
+   "audit_usd": 2.3896087710174507
+  },
+  {
+   "corpus": "llmrouterbench",
+   "delta": 0.005,
+   "basis": "log",
+   "quality": 0.4820082449941108,
+   "cost_per_1k": 3.186255797482332,
+   "wrong_model_rate": 0.6875,
+   "audit_usd": 0.0
+  },
+  {
+   "corpus": "llmrouterbench",
+   "delta": 0.005,
+   "basis": "truth",
+   "quality": 0.5365871613663132,
+   "cost_per_1k": 7.421662263324499,
+   "wrong_model_rate": 0.04583333333333333,
+   "audit_usd": 0.0
+  },
+  {
+   "corpus": "llmrouterbench",
+   "delta": 0.01,
+   "basis": "case",
+   "quality": 0.505719964664311,
+   "cost_per_1k": 5.819523024182861,
+   "wrong_model_rate": 0.5444444444444444,
+   "audit_usd": 2.3896087710174507
+  },
+  {
+   "corpus": "llmrouterbench",
+   "delta": 0.01,
+   "basis": "log",
+   "quality": 0.47938751472320384,
+   "cost_per_1k": 3.094065639355123,
+   "wrong_model_rate": 0.7,
+   "audit_usd": 0.0
+  },
+  {
+   "corpus": "llmrouterbench",
+   "delta": 0.01,
+   "basis": "truth",
+   "quality": 0.5362043580683156,
+   "cost_per_1k": 7.168672371981743,
+   "wrong_model_rate": 0.07916666666666666,
+   "audit_usd": 0.0
+  },
+  {
+   "corpus": "llmrouterbench",
+   "delta": 0.015,
+   "basis": "case",
+   "quality": 0.5050745975657636,
+   "cost_per_1k": 5.761285612841089,
+   "wrong_model_rate": 0.5472222222222223,
+   "audit_usd": 2.3896087710174507
+  },
+  {
+   "corpus": "llmrouterbench",
+   "delta": 0.015,
+   "basis": "log",
+   "quality": 0.47909305064782104,
+   "cost_per_1k": 3.074588708112485,
+   "wrong_model_rate": 0.7083333333333334,
+   "audit_usd": 0.0
+  },
+  {
+   "corpus": "llmrouterbench",
+   "delta": 0.015,
+   "basis": "truth",
+   "quality": 0.5353945818610129,
+   "cost_per_1k": 6.801277368669023,
+   "wrong_model_rate": 0.12916666666666668,
+   "audit_usd": 0.0
+  },
+  {
+   "corpus": "llmrouterbench",
+   "delta": 0.02,
+   "basis": "case",
+   "quality": 0.504691794267766,
+   "cost_per_1k": 5.720511317800353,
+   "wrong_model_rate": 0.5506944444444445,
+   "audit_usd": 2.3896087710174507
+  },
+  {
+   "corpus": "llmrouterbench",
+   "delta": 0.02,
+   "basis": "log",
+   "quality": 0.4759570082449942,
+   "cost_per_1k": 2.9175561198468785,
+   "wrong_model_rate": 0.7083333333333334,
+   "audit_usd": 0.0
+  },
+  {
+   "corpus": "llmrouterbench",
+   "delta": 0.02,
+   "basis": "truth",
+   "quality": 0.5344817432273262,
+   "cost_per_1k": 6.333983934923439,
+   "wrong_model_rate": 0.17916666666666667,
+   "audit_usd": 0.0
+  },
+  {
+   "corpus": "llmrouterbench",
+   "delta": 0.03,
+   "basis": "case",
+   "quality": 0.503970357283078,
+   "cost_per_1k": 5.607046488503632,
+   "wrong_model_rate": 0.5520833333333334,
+   "audit_usd": 2.3896087710174507
+  },
+  {
+   "corpus": "llmrouterbench",
+   "delta": 0.03,
+   "basis": "log",
+   "quality": 0.47373380447585406,
+   "cost_per_1k": 2.7247857720848057,
+   "wrong_model_rate": 0.725,
+   "audit_usd": 0.0
+  },
+  {
+   "corpus": "llmrouterbench",
+   "delta": 0.03,
+   "basis": "truth",
+   "quality": 0.531934628975265,
+   "cost_per_1k": 5.519228179034157,
+   "wrong_model_rate": 0.26666666666666666,
+   "audit_usd": 0.0
+  },
+  {
+   "corpus": "llmrouterbench",
+   "delta": 0.05,
+   "basis": "case",
+   "quality": 0.5013987043580683,
+   "cost_per_1k": 5.278645797739989,
+   "wrong_model_rate": 0.5736111111111111,
+   "audit_usd": 2.3896087710174507
+  },
+  {
+   "corpus": "llmrouterbench",
+   "delta": 0.05,
+   "basis": "log",
+   "quality": 0.462279151943463,
+   "cost_per_1k": 2.0822386122644287,
+   "wrong_model_rate": 0.7458333333333333,
+   "audit_usd": 0.0
+  },
+  {
+   "corpus": "llmrouterbench",
+   "delta": 0.05,
+   "basis": "truth",
+   "quality": 0.5218050647820964,
+   "cost_per_1k": 4.263436747717903,
+   "wrong_model_rate": 0.45416666666666666,
+   "audit_usd": 0.0
+  }
+ ],
+ "routerbench": [
+  {
+   "corpus": "routerbench",
+   "delta": 0.0,
+   "basis": "case",
+   "quality": 0.7285020302947349,
+   "cost_per_1k": 1.644770151172552,
+   "wrong_model_rate": 0.4239583333333333,
+   "audit_usd": 0.8902989319268453
+  },
+  {
+   "corpus": "routerbench",
+   "delta": 0.0,
+   "basis": "log",
+   "quality": 0.6934615384615384,
+   "cost_per_1k": 1.3474950725431154,
+   "wrong_model_rate": 0.54375,
+   "audit_usd": 0.0
+  },
+  {
+   "corpus": "routerbench",
+   "delta": 0.0,
+   "basis": "truth",
+   "quality": 0.7817513003011223,
+   "cost_per_1k": 2.9481729509991785,
+   "wrong_model_rate": 0.0125,
+   "audit_usd": 0.0
+  },
+  {
+   "corpus": "routerbench",
+   "delta": 0.005,
+   "basis": "case",
+   "quality": 0.7271667122912675,
+   "cost_per_1k": 1.588232153636281,
+   "wrong_model_rate": 0.4322916666666667,
+   "audit_usd": 0.8902989319268453
+  },
+  {
+   "corpus": "routerbench",
+   "delta": 0.005,
+   "basis": "log",
+   "quality": 0.6900540651519298,
+   "cost_per_1k": 1.2883863126197648,
+   "wrong_model_rate": 0.54375,
+   "audit_usd": 0.0
+  },
+  {
+   "corpus": "routerbench",
+   "delta": 0.005,
+   "basis": "truth",
+   "quality": 0.7815781549411441,
+   "cost_per_1k": 2.7308030084861765,
+   "wrong_model_rate": 0.06875,
+   "audit_usd": 0.0
+  },
+  {
+   "corpus": "routerbench",
+   "delta": 0.01,
+   "basis": "case",
+   "quality": 0.7256699972625238,
+   "cost_per_1k": 1.5466243554795147,
+   "wrong_model_rate": 0.44166666666666665,
+   "audit_usd": 0.8902989319268453
+  },
+  {
+   "corpus": "routerbench",
+   "delta": 0.01,
+   "basis": "log",
+   "quality": 0.6883746235970435,
+   "cost_per_1k": 1.1867806734191075,
+   "wrong_model_rate": 0.5625,
+   "audit_usd": 0.0
+  },
+  {
+   "corpus": "routerbench",
+   "delta": 0.01,
+   "basis": "truth",
+   "quality": 0.7812222830550233,
+   "cost_per_1k": 2.6525788365726806,
+   "wrong_model_rate": 0.08125,
+   "audit_usd": 0.0
+  },
+  {
+   "corpus": "routerbench",
+   "delta": 0.015,
+   "basis": "case",
+   "quality": 0.7235229035495938,
+   "cost_per_1k": 1.469122076731454,
+   "wrong_model_rate": 0.44583333333333336,
+   "audit_usd": 0.8902989319268453
+  },
+  {
+   "corpus": "routerbench",
+   "delta": 0.015,
+   "basis": "log",
+   "quality": 0.6860717218724336,
+   "cost_per_1k": 1.0575959622228308,
+   "wrong_model_rate": 0.575,
+   "audit_usd": 0.0
+  },
+  {
+   "corpus": "routerbench",
+   "delta": 0.015,
+   "basis": "truth",
+   "quality": 0.7800930741856009,
+   "cost_per_1k": 2.540550268272654,
+   "wrong_model_rate": 0.125,
+   "audit_usd": 0.0
+  },
+  {
+   "corpus": "routerbench",
+   "delta": 0.02,
+   "basis": "case",
+   "quality": 0.7222357194999542,
+   "cost_per_1k": 1.4205671741308514,
+   "wrong_model_rate": 0.45,
+   "audit_usd": 0.8902989319268453
+  },
+  {
+   "corpus": "routerbench",
+   "delta": 0.02,
+   "basis": "log",
+   "quality": 0.6842923624418286,
+   "cost_per_1k": 0.976733999452505,
+   "wrong_model_rate": 0.58125,
+   "audit_usd": 0.0
+  },
+  {
+   "corpus": "routerbench",
+   "delta": 0.02,
+   "basis": "truth",
+   "quality": 0.779637968792773,
+   "cost_per_1k": 2.507678874897345,
+   "wrong_model_rate": 0.13125,
+   "audit_usd": 0.0
+  },
+  {
+   "corpus": "routerbench",
+   "delta": 0.03,
+   "basis": "case",
+   "quality": 0.7189760698968883,
+   "cost_per_1k": 1.364516280262798,
+   "wrong_model_rate": 0.465625,
+   "audit_usd": 0.8902989319268453
+  },
+  {
+   "corpus": "routerbench",
+   "delta": 0.03,
+   "basis": "log",
+   "quality": 0.6791226389269094,
+   "cost_per_1k": 0.8870988636189434,
+   "wrong_model_rate": 0.5875,
+   "audit_usd": 0.0
+  },
+  {
+   "corpus": "routerbench",
+   "delta": 0.03,
+   "basis": "truth",
+   "quality": 0.7778654530522859,
+   "cost_per_1k": 2.2586757486997,
+   "wrong_model_rate": 0.1625,
+   "audit_usd": 0.0
+  },
+  {
+   "corpus": "routerbench",
+   "delta": 0.05,
+   "basis": "case",
+   "quality": 0.7101957295373665,
+   "cost_per_1k": 1.226424842385254,
+   "wrong_model_rate": 0.496875,
+   "audit_usd": 0.8902989319268453
+  },
+  {
+   "corpus": "routerbench",
+   "delta": 0.05,
+   "basis": "log",
+   "quality": 0.6637530796605529,
+   "cost_per_1k": 0.6595595366548042,
+   "wrong_model_rate": 0.69375,
+   "audit_usd": 0.0
+  },
+  {
+   "corpus": "routerbench",
+   "delta": 0.05,
+   "basis": "truth",
+   "quality": 0.7708924171913495,
+   "cost_per_1k": 1.3727235067068166,
+   "wrong_model_rate": 0.2125,
+   "audit_usd": 0.0
+  }
+ ]
+}

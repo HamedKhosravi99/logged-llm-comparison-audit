@@ -71,3 +71,23 @@ reviewer can check any quoted figure without re-running anything.
 The status quo the gates arbitrate against is the **log-derived deployment policy**
 (`argmax_k M_kj`), never called the "incumbent" in the paper — the incumbent *router* is a separate,
 much weaker baseline reported only in App. C (`appx.baseline_router.*`).
+
+---
+
+## Economic claims added in the impact revision
+
+Same contract as above: every claim maps to its artifact, its result file, the wording the evidence
+supports, and the wording it does not.
+
+| id | Claim | Artifact | Result file key | Supported wording | NOT supported |
+|---|---|---|---|---|---|
+| E1 | The audit costs a few dollars in released benchmark prices | App. `app:econ` | `A1.case.audit_usd` in `econ_llmrouterbench.json`, `econ_routerbench.json` | "priced on the corpora's released costs the audit is $2.39±0.08 and $0.89±0.02" | "the audit costs $2.39" as a production quote |
+| E2 | An accurate comparison changes the wrong-model rate under a quality tolerance | Tab. `tab:econ` | `A1.qcLOG_*`, `A1.qcCASE_*`, `A1.qc_*` | "70.0% deciding on the log, 54.4% on the audited surface, 7.9% on truth" | "the audit fixes model selection" |
+| E3 | Auditing raises deployment spend | App. `app:econ` | `A1.trust.cost_per_request` vs `A1.case.cost_per_request` | "correcting a confounded log moves traffic toward better and dearer models" | omitting this when stating E1 or E4 |
+| E4 | A quality tolerance saves money and the audit repays itself | App. `app:econ` | `A1.qc_delta_0.02`, `A1.target_best`, `A1.case.audit_usd` | "a two-point tolerance saves $1,579 per 1M for 0.0022 quality; payback at 1,514 requests" | "the method saves a company $1,579" |
+| E5 | Dollar-denominated allocation buys more evidence per dollar | App. `app:econ` | `A1.case_cost_aware.cells_read` and the four `ca_*` ablations | "23.3 cells against 12.8 for the same money, and the extra evidence did not improve the decision" | "cost-aware allocation improves decisions" |
+| E6 | Six of eleven RouterBench models are strictly dominated | direct computation on the released matrix | `results/ECON_FINDINGS.md` §1 | "a cheaper and more accurate alternative exists for six of eleven" | naming any deployment as wasteful |
+
+**Enforcement.** `docs/CLAIM_BOUNDARIES.md` lists the forbidden wordings and the required
+companions. E3 is a required companion of E1 and E4; E5's second clause is a required companion of
+its first.

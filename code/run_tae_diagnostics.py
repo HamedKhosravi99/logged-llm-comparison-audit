@@ -51,7 +51,7 @@ def d1_reversal(n_parts=30, n_read=30, eps=0.15):
         base = build_base(p)
         cells, n_kj, _ = A.make_selective_log(base, p, eps=eps)
         supp = A.support(n_kj, base, n_read=n_read)
-        surf = EV.build_surfaces(base, cells, EV.distortions(base, "E1"), n_read)
+        surf = EV.build_surfaces(base, cells, EV.distortions(base, "D1"), n_read)
         ref, op = surf["Ef_ref"], surf["Ef_op"]
         Ceff = op - ref
         o = p_ = 0
@@ -118,7 +118,7 @@ def d2_diagnostic(n_parts=30, acq_seeds=6, n_read=30, eps=0.15, budget=0.35):
         pref = MT.target_policy(tab, supp)
         B = max(base["K"], int(round(budget * int(supp.sum()))))
         for aname, cells in (("A0", c0), ("A1", c1)):
-            surf = EV.build_surfaces(base, cells, EV.distortions(base, "E0"), n_read)
+            surf = EV.build_surfaces(base, cells, EV.distortions(base, "D0"), n_read)
             ss, rc, rt = [], [], []
             for s in range(acq_seeds):
                 sd = 10_000 * p + 100 * int(budget * 100) + s
@@ -160,7 +160,7 @@ def d3_gate_asymmetry():
     for r in D["gate_rows"]:
         g[(r["evaluator"], r["budget"], r["arm"])][r["partition"]].append(r)
     out = {}
-    for cond in ("E1", "E2"):
+    for cond in ("D1", "D2"):
         for b in (0.15, 0.25, 0.35):
             def m(arm, f):
                 x = g[(cond, b, arm)]
@@ -193,11 +193,11 @@ def d4_equivalence(margin=TOST_MARGIN):
         cf[(r["evaluator"], "case")][r["partition"]].append(r["case"])
         cf[(r["evaluator"], "oracle_row")][r["partition"]].append(r["oracle_row"])
     pairs = [
-        ("A1-E0: CASE vs R-EPIG_corr", series("A1", "E0", "case") - series("A1", "E0", "epig_corr")),
-        ("A1-E1: CASE vs R-EPIG_corr", series("A1", "E1", "case") - series("A1", "E1", "epig_corr")),
-        ("A1-E0: CASE vs the action-level ceiling",
-         np.array([np.mean(cf[("E0", "case")][p]) for p in sorted(cf[("E0", "case")])]) -
-         np.array([np.mean(cf[("E0", "oracle_row")][p]) for p in sorted(cf[("E0", "oracle_row")])])),
+        ("A1-D0: CASE vs R-EPIG_corr", series("A1", "D0", "case") - series("A1", "D0", "epig_corr")),
+        ("A1-D1: CASE vs R-EPIG_corr", series("A1", "D1", "case") - series("A1", "D1", "epig_corr")),
+        ("A1-D0: CASE vs the action-level ceiling",
+         np.array([np.mean(cf[("D0", "case")][p]) for p in sorted(cf[("D0", "case")])]) -
+         np.array([np.mean(cf[("D0", "oracle_row")][p]) for p in sorted(cf[("D0", "oracle_row")])])),
     ]
     out = {}
     for name, d in pairs:

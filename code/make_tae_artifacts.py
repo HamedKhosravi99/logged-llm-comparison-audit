@@ -3,7 +3,7 @@
     python make_tae_artifacts.py
 
 Reads  results/tae_validity.json, results/tae_validity_appendix.json
-Writes figs/tae_fig1.pdf, figs/tae_fig2.pdf
+Writes figures/tae_fig1.pdf, figures/tae_fig2.pdf
        tae_tables.tex               (LaTeX fragments the paper \\input{}s)
        results/tae_paper_numbers.json (claim registry: every number quoted in the text)
 
@@ -24,7 +24,7 @@ from matplotlib.lines import Line2D
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 RES = os.path.join(ROOT, "results")
-FIGS = os.path.join(ROOT, "figs")
+FIGS = os.path.join(ROOT, "figures")
 
 SLICES = ["simpleqa", "mmlupro", "hle", "livecodebench", "arenahard"]
 SLICE_LABEL = {"simpleqa": "SimpleQA", "mmlupro": "MMLU-Pro", "hle": "HLE",
@@ -48,11 +48,11 @@ STYLE = {
 }
 
 # the paper labels the evaluator factor D (distortion); the result files key it E. Display only.
-CELL_LABEL = {("A0", "E0"): "A0–D0\nneither", ("A1", "E0"): "A1–D0\nassign.",
-              ("A0", "E1"): "A0–D1\nmeasure.", ("A1", "E1"): "A1–D1\nboth"}
+CELL_LABEL = {("A0", "D0"): "A0–D0\nneither", ("A1", "D0"): "A1–D0\nassign.",
+              ("A0", "D1"): "A0–D1\nmeasure.", ("A1", "D1"): "A1–D1\nboth"}
 # D2/D2rev are internal keys only: the paper presents the stream-mismatch run as a
 # robustness check, not as a third level of the evaluator factor.
-COND_LABEL = {"E0": "D0", "E1": "D1", "E2": "D2", "E1k": "D1k", "E2rev": "D2rev"}
+COND_LABEL = {"D0": "D0", "D1": "D1", "D2": "D2", "D1k": "D1k", "D2rev": "D2rev"}
 
 plt.rcParams.update({
     "font.size": 7.2, "axes.titlesize": 7.8, "axes.labelsize": 7.2,
@@ -116,8 +116,8 @@ def figure1(F, out):
     fig, ax = plt.subplots(1, 2, figsize=(5.5, 1.68), gridspec_kw=dict(wspace=0.08))
     x = np.arange(len(BUDGETS))
     lo, hi = 0.0305, 0.0555
-    for a, (cond, title) in zip(ax, [("E0", "(a) faithful evaluator (A1\u2013D0)"),
-                                     ("E1", "(b) distorted evaluator (A1\u2013D1)")]):
+    for a, (cond, title) in zip(ax, [("D0", "(a) faithful evaluator (A1\u2013D0)"),
+                                     ("D1", "(b) distorted evaluator (A1\u2013D1)")]):
         for m in ["trust", "uniform", "epig_obs", "case", "epig_corr"]:
             y = [F.stat(("A1", cond, b, m), "reference_regret") for b in BUDGETS]
             st = STYLE[m]
@@ -156,7 +156,7 @@ def figure1(F, out):
         a.spines["bottom"].set_visible(False)
         a.plot([0, 1], [0, 0], transform=a.transAxes, color="#8a8a86", lw=0.6,
                clip_on=False, dashes=(3, 3), zorder=1)   # broken baseline: axis is truncated
-    ax[0].set_ylabel("deployment regret\n(target outcome)", labelpad=3, fontsize=8.0)
+    ax[0].set_ylabel("target-value loss\n(lower is better)", labelpad=3, fontsize=8.0)
     ax[1].set_yticklabels([])
     h, l = ax[0].get_legend_handles_labels()
     # the two oracle lines are drawn only inside the inset, so they need their own legend entries
@@ -178,13 +178,13 @@ def figure3(F, out):
     w, xs = 0.168, np.arange(len(SLICES))
     for i, m in enumerate(ms):
         st = STYLE[m]
-        vals = [F.stat(("A1", "E1", 0.35, m), "slice_regret", sub=s) for s in SLICES]
+        vals = [F.stat(("A1", "D1", 0.35, m), "slice_regret", sub=s) for s in SLICES]
         a.bar(xs + (i - 2) * w, [v[0] for v in vals], w * 0.84, yerr=[v[1] for v in vals],
               color=st["color"], edgecolor="white", linewidth=0.6, capsize=1.4,
               error_kw=dict(elinewidth=0.7, ecolor="#52514e"), label=st["label"], zorder=3)
     a.set_xticks(xs, [SLICE_LABEL[s] for s in SLICES], fontsize=7.6)
     a.tick_params(axis="x", pad=1.5)
-    a.set_ylabel("deployment regret\n(target outcome)", labelpad=3, fontsize=7.8)
+    a.set_ylabel("target-value loss\n(lower is better)", labelpad=3, fontsize=7.8)
     a.grid(axis="y", zorder=0)
     h, l = a.get_legend_handles_labels()
     fig.legend(h, l, loc="lower center", ncol=3, frameon=False, bbox_to_anchor=(0.5, -0.30),
@@ -194,13 +194,13 @@ def figure3(F, out):
 
 
 def figure2(F, out):
-    cells = [("A0", "E0"), ("A1", "E0"), ("A0", "E1"), ("A1", "E1")]
+    cells = [("A0", "D0"), ("A1", "D0"), ("A0", "D1"), ("A1", "D1")]
     ms = ["trust", "case", "oracle_sel"]
     fig, ax = plt.subplots(1, 2, figsize=(5.5, 1.30), gridspec_kw=dict(wspace=0.30))
     xs = np.arange(len(cells))
     w = 0.24
     for a, field, ylab, top in [(ax[0], "reference_regret",
-                                 "deployment regret\n(target outcome)", 0.062),
+                                 "target-value loss\n(lower is better)", 0.062),
                                 (ax[1], "top1_error", "top-1\nidentification error", 0.80)]:
         for i, m in enumerate(ms):
             st = STYLE[m]
@@ -241,8 +241,8 @@ def table_deployment(G, meta):
             ("same_evaluator", "\\;$+$ same-evaluator check"),
             ("reference_channel", "\\;$+$ reference-channel check")]
     lines = []
-    for cond, cname in [("E1", "A1--D1 (stable evaluator distortion)"),
-                        ("E2", "Stream mismatch (evaluator differs between log and audit)")]:
+    for cond, cname in [("D1", "A1--D1 (stable evaluator distortion)"),
+                        ("D2", "Stream mismatch (evaluator differs between log and audit)")]:
         lines.append(f"\\multicolumn{{7}}{{@{{}}l}}{{\\emph{{{cname}}}}}\\\\")
         for arm, label in arms:
             k = (cond, 0.35, arm)
@@ -264,7 +264,7 @@ def table_deployment(G, meta):
 def table_factorial(F):
     ms = ["trust", "uniform", "case", "epig_corr", "oracle_sel", "oracle_ref"]
     out = []
-    for A, E in [("A0", "E0"), ("A1", "E0"), ("A0", "E1"), ("A1", "E1")]:
+    for A, E in [("A0", "D0"), ("A1", "D0"), ("A0", "D1"), ("A1", "D1")]:
         row = [f"{A}--{COND_LABEL[E]}"]
         for m in ms:
             mu, se, _ = F.stat((A, E, 0.35, m), "reference_regret")
@@ -281,7 +281,7 @@ SHORT = {"trust": "Trust log", "uniform": "Uniform audit",
 def table_slices(F):
     ms = ["trust", "uniform", "rawmargin", "epig_obs", "case", "epig_corr"]
     out = []
-    for cond in ["E0", "E1"]:
+    for cond in ["D0", "D1"]:
         out.append(f"\\multicolumn{{7}}{{@{{}}l}}{{\\emph{{A1--{COND_LABEL[cond]}}}}}\\\\")
         for m in ms:
             row = [SHORT[m]]
@@ -307,7 +307,7 @@ def paper_numbers(D, A, F, G):
     P["diag.lambda"] = dict(mean=float(lam.mean()), lo=float(lam.min()), hi=float(lam.max()))
     P["diag.n_supported"] = float(np.mean([m["n_supported"] for m in D["meta"]]))
 
-    for A_, E_ in [("A0", "E0"), ("A1", "E0"), ("A0", "E1"), ("A1", "E1")]:
+    for A_, E_ in [("A0", "D0"), ("A1", "D0"), ("A0", "D1"), ("A1", "D1")]:
         for b in BUDGETS:
             for m in ["trust", "uniform", "case", "epig_corr", "oracle_sel", "oracle_ref",
                       "rawmargin", "epig_obs"]:
@@ -333,24 +333,24 @@ def paper_numbers(D, A, F, G):
             mean=float((tr.mean() - ca.mean()) / (tr.mean() - os_.mean()))
             if tr.mean() - os_.mean() > 1e-4 else None)
 
-    for A_, E_, b in [("A1", "E0", 0.35), ("A1", "E1", 0.35), ("A0", "E1", 0.35),
-                      ("A0", "E0", 0.35), ("A1", "E0", 0.25), ("A1", "E1", 0.25)]:
+    for A_, E_, b in [("A1", "D0", 0.35), ("A1", "D1", 0.35), ("A0", "D1", 0.35),
+                      ("A0", "D0", 0.35), ("A1", "D0", 0.25), ("A1", "D1", 0.25)]:
         P[f"paired.{A_}.{E_}.{int(b*100)}.case_vs_trust"] = F.paired(
             (A_, E_, b, "case"), (A_, E_, b, "trust"), "reference_regret")
         P[f"paired.{A_}.{E_}.{int(b*100)}.case_vs_epigcorr"] = F.paired(
             (A_, E_, b, "case"), (A_, E_, b, "epig_corr"), "reference_regret")
         P[f"paired.{A_}.{E_}.{int(b*100)}.uniform_vs_trust"] = F.paired(
             (A_, E_, b, "uniform"), (A_, E_, b, "trust"), "reference_regret")
-    P["paired.A1.construct_gap"] = F.paired(("A1", "E1", 0.35, "case"),
-                                            ("A1", "E0", 0.35, "case"), "reference_regret")
-    P["paired.A1.stream_mismatch"] = F.paired(("A1", "E2", 0.35, "case"),
-                                              ("A1", "E1", 0.35, "case"), "reference_regret")
+    P["paired.A1.construct_gap"] = F.paired(("A1", "D1", 0.35, "case"),
+                                            ("A1", "D0", 0.35, "case"), "reference_regret")
+    P["paired.A1.stream_mismatch"] = F.paired(("A1", "D2", 0.35, "case"),
+                                              ("A1", "D1", 0.35, "case"), "reference_regret")
     for s in SLICES:
-        for cond in ["E0", "E1"]:
+        for cond in ["D0", "D1"]:
             P[f"slice.{cond}.{s}.case_vs_trust"] = F.paired(
                 ("A1", cond, 0.35, "case"), ("A1", cond, 0.35, "trust"), "slice_regret", sub=s)
 
-    for cond in ["E1", "E2"]:
+    for cond in ["D1", "D2"]:
         for b in BUDGETS:
             for arm in ["ungated", "same_evaluator", "reference_channel"]:
                 for f in ["reference_regret", "false_switch", "false_retention", "switch_rate",
@@ -372,7 +372,7 @@ def paper_numbers(D, A, F, G):
             for f in ("reference_regret", "top1_error"):
                 mu, se, _ = RPa.stat(key, f)
                 P[f"rep.{f.split('_')[0]}.{key[0]}.{key[1]}.{key[3]}"] = dict(mean=mu, se=se)
-        for A_, E_ in (("A1", "E0"), ("A1", "E1"), ("A0", "E0")):
+        for A_, E_ in (("A1", "D0"), ("A1", "D1"), ("A0", "D0")):
             P[f"rep.paired.{A_}.{E_}.case_vs_trust"] = RPa.paired(
                 (A_, E_, 0.35, "case"), (A_, E_, 0.35, "trust"), "reference_regret")
             P[f"rep.paired.{A_}.{E_}.case_vs_epigcorr"] = RPa.paired(
@@ -400,7 +400,7 @@ def paper_numbers(D, A, F, G):
     cf_path = os.path.join(RES, "tae_correction_family.json")
     if os.path.exists(cf_path):
         CF = json.load(open(cf_path))["rows"]
-        for cond in ("E0", "E1"):
+        for cond in ("D0", "D1"):
             sel = [r for r in CF if r["evaluator"] == cond]
             parts = sorted({r["partition"] for r in sel})
             ser = {}
@@ -424,7 +424,7 @@ def paper_numbers(D, A, F, G):
     ov_path = os.path.join(RES, "tae_acquisition_overlap.json")
     if os.path.exists(ov_path):
         OV = json.load(open(ov_path))["rows"]
-        for cond in ("E0", "E1"):
+        for cond in ("D0", "D1"):
             sel = [r for r in OV if r["evaluator"] == cond]
             parts = sorted({r["partition"] for r in sel})
             for arm in ("epig_corrected", "margin_observed", "epig_observed", "uniform"):
@@ -472,7 +472,7 @@ def main():
 
     P = paper_numbers(D, A, F, G)
     json.dump(P, open(os.path.join(RES, "tae_paper_numbers.json"), "w"), indent=1, default=float)
-    print(f"wrote figs/tae_fig1.pdf, figs/tae_fig2.pdf, tae_tables.tex, "
+    print(f"wrote figures/tae_fig1.pdf, figures/tae_fig2.pdf, tae_tables.tex, "
           f"results/tae_paper_numbers.json ({len(P)} registered numbers)")
 
 

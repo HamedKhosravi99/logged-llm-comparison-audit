@@ -1,0 +1,140 @@
+---
+title: RouterAudit
+emoji: 🔎
+colorFrom: blue
+colorTo: indigo
+sdk: gradio
+sdk_version: 5.49.1
+app_file: app.py
+pinned: false
+license: apache-2.0
+short_description: Audit planning and uncertainty reporting for model-switch decisions
+---
+
+# RouterAudit
+
+RouterAudit is an offline research tool for auditing model-switch decisions from selectively
+routed logs.
+
+It does not call model APIs, modify production routing, guarantee savings, or establish
+measurement validity unless validated outcomes are supplied.
+
+## What it is for
+
+A team runs several language models behind a router and wants to know whether some traffic can
+move to a cheaper model without losing more quality than an agreed tolerance. The production log
+looks like the obvious evidence, but it is not a fair comparison: the router chose which model
+saw which request, and the automatic score may not measure the outcome the organisation values.
+
+RouterAudit answers a narrower and more honest question — **is an audit statistically and
+economically worth considering, and what evidence would it take?**
+
+## Two modes
+
+**Mode A, plan an audit.** Supply a routed log and model prices. The tool reports whether the log
+has enough support, whether selective assignment looks important, which models are priced below
+the incumbent, which model/request-type comparisons to buy first, and what that would cost. It
+never claims a switch is valid.
+
+**Mode B, analyse a completed audit.** Add randomized audit results. The tool reports
+routing-adjusted and inverse-variance-pooled estimates, a candidate policy with uncertainty
+intervals, a switch classification, deployment and audit-inclusive cost, and point and
+lower-bound break-even volumes.
+
+Supplying verified target outcomes is optional. **Without them the tool states that measurement
+validity is not established** and no switch is ever labelled valid.
+
+## Input schemas
+
+`routed_log.csv` — one row per routed request:
+`request_id, request_type, model, score, request_cost_usd`
+(optional `timestamp, traffic_weight, incumbent`)
+
+`model_prices.csv` — `request_type, model, expected_cost_usd`, or `model, expected_cost_usd`
+if price does not vary by request type.
+
+`randomized_audit.csv` — `request_id, request_type, model, audit_score, audit_cost_usd`.
+Audit requests must have been sampled independently of the routed assignment.
+
+`verified_outcomes.csv` (optional) — `request_id, request_type, model, verified_outcome`
+(optional `verification_cost_usd`).
+
+`traffic.csv` (optional) — `request_type, traffic_share`, shares summing to 1. When absent,
+shares are derived from log frequencies and the report records that assumption.
+
+Templates are downloadable on the Data tab.
+
+## Privacy
+
+Upload only synthetic, anonymized, or non-sensitive data. Nothing is persisted, no secret is
+required, and the application makes no network calls. See `SECURITY.md`.
+
+## Running it
+
+```bash
+```bash
+pip install -r requirements.txt
+python examples/make_examples.py     # regenerate the synthetic example
+pytest -q                            # 39 tests
+python app.py                        # http://127.0.0.1:7860
+```
+
+As a library:
+
+```python
+import pandas as pd
+from routeraudit import AuditConfig, analyze_trace
+
+result = analyze_trace(
+    routed_log=pd.read_csv("routed_log.csv"),
+    model_prices=pd.read_csv("model_prices.csv"),
+    randomized_audit=pd.read_csv("randomized_audit.csv"),
+    config=AuditConfig(quality_tolerance=0.02, future_requests=100_000),
+)
+print(result.summary)
+for w in result.warnings:
+    print("warning:", w)
+```
+
+The package depends only on pandas, numpy and jinja2. The one place SciPy was used (an inverse
+normal CDF) is implemented directly, so there is no compiled dependency and the browser build
+stays small.
+
+## A note on hosting
+
+This app needs server-side Python. Hugging Face now requires a PRO subscription to host
+Gradio Spaces; only *static* Spaces are free. A browser-only build was attempted with
+[gradio-lite](https://www.gradio.app/guides/gradio-lite) (`build_static.py`, which flattens the
+package into one module and asserts the flattened build reproduces the installed package
+exactly). It does not currently work: every gradio-lite release from 5.34.2 to 5.45.0 fails to
+boot in Pyodide because `gradio` imports `gradio_client`, which imports `huggingface_hub`,
+which either cannot be resolved by micropip or needs `httpcore`, which Pyodide does not carry.
+The build script is kept because the failure is upstream and may be fixed; re-run it and test
+in a browser before relying on it.
+
+Until then, run the app locally, or deploy it anywhere that runs Python.
+
+## The bundled example
+
+`examples/` holds a synthetic three-model, three-request-type scenario built so that each
+request type exercises a different outcome: one where a cheaper model is genuinely good enough,
+one where the automatic judge overrates a cheaper model that is in fact outside tolerance, and
+one where no cheaper model is close. Every value is generated by `examples/make_examples.py`.
+No company data and no paper result is embedded in the shipped code; a test enforces this.
+
+## Scope and limits
+
+- Results describe the supplied trace, not future traffic.
+- The economic interval resamples request types, so with few request types it is wide, and the
+  report says so.
+- A randomized audit addresses selective assignment. It does not tell you whether the score
+  represents the outcome you care about; only verified outcomes can do that.
+- The tool proposes evidence to collect and reports uncertainty. It does not authorise a
+  production change.
+
+## Citation
+
+This demonstration accompanies a research paper on auditing model comparisons under selective
+routing and imperfect evaluation. See the source repository for the citation.
+
+Licensed under Apache-2.0.

@@ -1,0 +1,37 @@
+assignment,evaluator,condition,method,method_label,budget,mean,se,n_partitions
+A0,D0,(a) Comparable requests,trust,Trust routed log,0.15,0.02141123333333333,0.0024408520062702303,30
+A0,D0,(a) Comparable requests,trust,Trust routed log,0.25,0.02141123333333333,0.0024408520062702303,30
+A0,D0,(a) Comparable requests,trust,Trust routed log,0.35,0.02141123333333333,0.0024408520062702303,30
+A0,D0,(a) Comparable requests,uniform,Uniform randomized audit,0.15,0.043379738888888894,0.0028156241044828383,30
+A0,D0,(a) Comparable requests,uniform,Uniform randomized audit,0.25,0.04041912777777777,0.002163287373288766,30
+A0,D0,(a) Comparable requests,uniform,Uniform randomized audit,0.35,0.03375413333333333,0.0020532454176985585,30
+A0,D0,(a) Comparable requests,case,CASE,0.15,0.04211618333333334,0.0027641687385693667,30
+A0,D0,(a) Comparable requests,case,CASE,0.25,0.0362987388888889,0.0026769062712342757,30
+A0,D0,(a) Comparable requests,case,CASE,0.35,0.03212067777777778,0.002409441861424447,30
+A0,D0,(a) Comparable requests,oracle_sel,Perfect assignment repair,0.15,0.0,0.0,30
+A0,D0,(a) Comparable requests,oracle_sel,Perfect assignment repair,0.25,0.0,0.0,30
+A0,D0,(a) Comparable requests,oracle_sel,Perfect assignment repair,0.35,0.0,0.0,30
+A1,D0,(b) Selective routing,trust,Trust routed log,0.15,0.04985173333333334,0.0029507754534796845,30
+A1,D0,(b) Selective routing,trust,Trust routed log,0.25,0.04985173333333334,0.0029507754534796845,30
+A1,D0,(b) Selective routing,trust,Trust routed log,0.35,0.04985173333333334,0.0029507754534796845,30
+A1,D0,(b) Selective routing,uniform,Uniform randomized audit,0.15,0.05023873888888889,0.0031378289628918466,30
+A1,D0,(b) Selective routing,uniform,Uniform randomized audit,0.25,0.04761696666666667,0.0025762536631579714,30
+A1,D0,(b) Selective routing,uniform,Uniform randomized audit,0.35,0.04135233888888889,0.002225875947003446,30
+A1,D0,(b) Selective routing,case,CASE,0.15,0.04880077222222223,0.002694676863299995,30
+A1,D0,(b) Selective routing,case,CASE,0.25,0.04425133333333333,0.0023728501177600254,30
+A1,D0,(b) Selective routing,case,CASE,0.35,0.0337561,0.001971846369025638,30
+A1,D0,(b) Selective routing,oracle_sel,Perfect assignment repair,0.15,0.0,0.0,30
+A1,D0,(b) Selective routing,oracle_sel,Perfect assignment repair,0.25,0.0,0.0,30
+A1,D0,(b) Selective routing,oracle_sel,Perfect assignment repair,0.35,0.0,0.0,30
+A1,D1,(c) Selective + distorted,trust,Trust routed log,0.15,0.04685093333333333,0.002539577186699208,30
+A1,D1,(c) Selective + distorted,trust,Trust routed log,0.25,0.04685093333333333,0.002539577186699208,30
+A1,D1,(c) Selective + distorted,trust,Trust routed log,0.35,0.04685093333333333,0.002539577186699208,30
+A1,D1,(c) Selective + distorted,uniform,Uniform randomized audit,0.15,0.04997730000000001,0.0029294103722341033,30
+A1,D1,(c) Selective + distorted,uniform,Uniform randomized audit,0.25,0.047898361111111114,0.002538722159688249,30
+A1,D1,(c) Selective + distorted,uniform,Uniform randomized audit,0.35,0.041398300000000006,0.002259969615204485,30
+A1,D1,(c) Selective + distorted,case,CASE,0.15,0.04924152222222223,0.002774103467935742,30
+A1,D1,(c) Selective + distorted,case,CASE,0.25,0.041797149999999984,0.0023644288695997074,30
+A1,D1,(c) Selective + distorted,case,CASE,0.35,0.03384484444444445,0.0016911431581287412,30
+A1,D1,(c) Selective + distorted,oracle_sel,Perfect assignment repair,0.15,0.0029848000000000006,0.000636697265437894,30
+A1,D1,(c) Selective + distorted,oracle_sel,Perfect assignment repair,0.25,0.0029848000000000006,0.000636697265437894,30
+A1,D1,(c) Selective + distorted,oracle_sel,Perfect assignment repair,0.35,0.0029848000000000006,0.000636697265437894,30
