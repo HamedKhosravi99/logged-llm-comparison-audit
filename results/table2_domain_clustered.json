@@ -1,0 +1,75 @@
+{
+ "Confidence-gated IV CASE": {
+  "valid cost-saving": {
+   "unit50": [
+    0.064,
+    0.019,
+    0.118
+   ],
+   "domain_clustered": [
+    0.0213,
+    0.0,
+    0.064
+   ],
+   "by_domain": {
+    "airline": 0.0,
+    "retail": 0.0,
+    "telecom": 0.064
+   }
+  },
+  "quality-violating": {
+   "unit50": [
+    0.091,
+    0.042,
+    0.149
+   ],
+   "domain_clustered": [
+    0.0303,
+    0.018,
+    0.037
+   ],
+   "by_domain": {
+    "airline": 0.036,
+    "retail": 0.037,
+    "telecom": 0.018
+   }
+  }
+ },
+ "Raw-log downrouting": {
+  "valid cost-saving": {
+   "unit50": [
+    0.04,
+    0.0,
+    0.1
+   ],
+   "domain_clustered": [
+    0.0133,
+    0.0,
+    0.04
+   ],
+   "by_domain": {
+    "airline": 0.0,
+    "retail": 0.0,
+    "telecom": 0.04
+   }
+  },
+  "quality-violating": {
+   "unit50": [
+    0.54,
+    0.36,
+    0.76
+   ],
+   "domain_clustered": [
+    0.18,
+    0.04,
+    0.3
+   ],
+   "by_domain": {
+    "airline": 0.3,
+    "retail": 0.2,
+    "telecom": 0.04
+   }
+  }
+ },
+ "reading": "R1 predicted the valid-switch row would lose separation under domain clustering before the violation row did. Confirmed. Valid cost-saving switches occur ONLY in telecom (airline 0.000, retail 0.000, telecom 0.064), so the 50-unit interval [0.019, 0.118] becomes [0.000, 0.064] under a domain-clustered bootstrap and includes zero. The quality-violating reduction survives: it is present in all three domains (gated 0.036/0.037/0.018 against raw-log 0.300/0.200/0.040), so the -0.449 contrast is not a single-domain artifact."
+}

@@ -1,0 +1,48 @@
+{
+ "observed": {
+  "share_arm": 0.7957648128570202,
+  "share_ctx": 0.09124777317003731,
+  "share_resid": 0.11298741397294247
+ },
+ "n_rows": 253024,
+ "n_users": 9552,
+ "null": {
+  "n": 1000,
+  "mean": 0.05008239217383601,
+  "p05": 0.013789923485796942,
+  "median": 0.04403190064226417,
+  "p95": 0.10444718107414672,
+  "observed_percentile": 1.0
+ },
+ "positive_control": {
+  "injected": "context-varying (pure interaction)",
+  "share_arm": 0.5869431733028002,
+  "share_ctx": 0.07986857431561875,
+  "share_resid": 0.3331882523815816
+ },
+ "click_only": {
+  "share_arm": 0.7888153865256294,
+  "share_ctx": 0.11376603082742177,
+  "share_resid": 0.09741858264694889
+ },
+ "like_only": {
+  "share_arm": 0.1233639753011584,
+  "share_ctx": 0.5450825127060598,
+  "share_resid": 0.3315535119927821
+ },
+ "bootstrap": {
+  "n": 1000,
+  "mean": 0.691812589713183,
+  "lo": 0.5791436403018734,
+  "hi": 0.7824115850246988
+ },
+ "trigger_P01": "APPENDIX_ONLY",
+ "trigger_P02": "STANDS",
+ "pool": "scoring",
+ "verification": {
+  "reproduces_published": true,
+  "note": "Independent reimplementation of c_decomp reproduces the published shares exactly: 0.7958 vs the paper's 79.6% (scoring pool) and 0.8756 vs 87.6% (full stream). This is the second-path check required by the plan."
+ },
+ "bootstrap_bias_note": "The 95% CI [0.5791, 0.7824] does not bracket the plug-in point estimate 0.7958. This is the downward bias PREDECLARED in docs/PHASE0_ANALYSIS_PLAN.md: with one C value per cell the residual absorbs binomial noise, and the nonparametric bootstrap adds a second dose, shifting the resampling distribution below the plug-in value. The interval is conservative for the arm share and must not be read as if unbiased.",
+ "reading": "P0.2 STANDS: the arm structure is not a base-rate artifact - observed 0.7958 sits above every one of 1,000 permutations of arm labels within context (null median 0.0440, p95 0.1044). The positive control passes: injecting pure context-varying interaction raises the residual share from 0.1130 to 0.3332, so the estimator can resolve interaction at these cell sizes. BUT the diagnostic both R2 and R3 demanded shows the arm structure is overwhelmingly a property of the CLICK table (arm share 0.7888) and not the LIKE table (0.1234), so the finding is substantially a statement about the proxy's own heterogeneity across content arms. P0.1 APPENDIX_ONLY: the scoring-pool lower bound is 0.579, below the predeclared 0.60 threshold, so the number LEAVES THE ABSTRACT and is reported in App. I with its interval."
+}

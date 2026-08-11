@@ -1,0 +1,22 @@
+{
+ "routing_arm": {
+  "metric": "wrong-model rate (the paper's decision metric)",
+  "trust": 0.675,
+  "case": 0.5416666666666665,
+  "floor": 0.18333333333333332,
+  "audit_usd": 2.389608771017451,
+  "fraction_of_recoverable_gap_closed": 0.2711864406779665,
+  "per_dollar": 0.11348570693540781
+ },
+ "measurement_arm": {
+  "metric": "judge accuracy on validation (NOT the decision metric)",
+  "base": 0.4037403740374037,
+  "at_500": 0.3746149614961495,
+  "at_2500": 0.37035203520352045,
+  "n": 3636,
+  "note": "labels priced at 0.25/1/5/20 USD in the stored spec"
+ },
+ "verdict": "ARMS NOT COMMENSURABLE FROM STORED ARTIFACTS",
+ "reading": "The routing arm is scored in wrong-model rate and closes 27.1% of its recoverable gap (0.675 -> 0.542 against a 0.183 floor) for $2.39. The measurement arm is scored in judge accuracy and improves 0.404 -> 0.370 by 2,500 labels. R1 stated that judge-accuracy units do not count, and he is right: putting the measurement arm into wrong-model-rate units requires a mapping from evaluator error to identification error that the stored artifacts do not contain and that the paper never estimates. So the head-to-head S5 promises cannot be reported from what exists. Two honest options: (a) estimate the mapping and report it as an assumption-laden conversion, or (b) remove the promise from S5. The plan forbade (b) as an escape hatch, so (a) is the remaining work - and it is a new modelling step, not a scoring job as plan v3 assumed.",
+ "plan_correction": "Plan v3 P0.7 asserted this was 'a scoring/reporting job, not a new experiment' because code/joint_budget.py exists. That was wrong: the script computes each arm in its own units and never converts. The conversion is the missing work."
+}

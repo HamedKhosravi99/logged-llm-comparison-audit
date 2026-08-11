@@ -1,0 +1,41 @@
+{
+ "observed": {
+  "share_arm": 0.8756350507949623,
+  "share_ctx": 0.07479601665848427,
+  "share_resid": 0.04956893254655327
+ },
+ "n_rows": 716739,
+ "n_users": 27285,
+ "null": {
+  "n": 1000,
+  "mean": 0.033405503868252764,
+  "p05": 0.009618886119455699,
+  "median": 0.029621631477841564,
+  "p95": 0.07126719075579892,
+  "observed_percentile": 1.0
+ },
+ "positive_control": {
+  "injected": "context-varying (pure interaction)",
+  "share_arm": 0.6763626583380171,
+  "share_ctx": 0.0495613489185204,
+  "share_resid": 0.27407599274346295
+ },
+ "click_only": {
+  "share_arm": 0.862676208835008,
+  "share_ctx": 0.09103026859936501,
+  "share_resid": 0.04629352256562719
+ },
+ "like_only": {
+  "share_arm": 0.0958280230004414,
+  "share_ctx": 0.5172336927942912,
+  "share_resid": 0.38693828420526727
+ },
+ "bootstrap": {
+  "n": 1000,
+  "mean": 0.8267283749442854,
+  "lo": 0.7604031472283016,
+  "hi": 0.8777465216158461
+ },
+ "trigger_P01": "KEEP_IN_ABSTRACT",
+ "trigger_P02": "STANDS"
+}

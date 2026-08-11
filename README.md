@@ -1,9 +1,9 @@
 # Can We Trust Logs to Choose a Cheaper LLM? — reproducibility package
 
 Code, result files, figures and analysis plans for the workshop paper *Can We Trust Logs to Choose a
-Cheaper LLM? Auditing Selection and Measurement Validity in Multi-Model Routing*, targeted for the
-TAE workshop at NeurIPS 2026, *Can We Trust AI Evaluation? Robustness, Causality, and Risk in Modern
-AI Assessment* (<https://tai-eval.github.io/>).
+Cheaper LLM? Auditing Selection and Measurement Validity in Multi-Model Deployments*, targeted for
+the TAE workshop at NeurIPS 2026, *Can We Trust AI Evaluation? Robustness, Causality, and Risk in
+Modern AI Assessment* (<https://tai-eval.github.io/>).
 
 **TLDR.** A routed production log can support the wrong cheaper-model decision for two unrelated
 reasons, and a randomized audit repairs exactly one of them. This package runs the crossed experiment
@@ -62,16 +62,36 @@ roster, requests, contexts and log volume fixed.
 At a 35% randomized-cell budget on the primary corpus unless stated otherwise; `±` is a paired
 standard error over 30 partitions.
 
-* The free log names the wrong cheapest-good-enough model in **70.0%** of request types. The failure
-  is assignment, not sample size: at matched per-pair counts the selective log errs on 67.5%±2.4
-  against 39.6%±2.5 for a comparable-request log.
+**On a real production log (KuaiRand-Pure), repairing assignment made the decision worse.** The log
+carries a selectively assigned and a randomized stream over the same users and window, with the same
+cheap signal (`is_click`) and the same designated outcome (`is_like`) on every row, so all four
+validity cells exist with nothing simulated.
+
+* A **cellwise-perfect assignment repair leaves more loss (2.01) than trusting the log unrepaired
+  (1.76)**, and more than the audit protocol (1.57): the penalty is +0.44 [+0.32, +0.56] against
+  CASE and +0.26 [−0.02, +0.54] against trust-the-log, in `is_like` units ×10⁻³. Two biases were
+  partly cancelling, and removing one exposed the other.
+* Evaluator error against the platform's own designated outcome is **79.6%** arm main effects, 9.1%
+  request-type, 11.3% residual — exactly the audit-invisible form the theory predicts. A user-level
+  cluster bootstrap gives [57.9, 78.2]%; permuting arm labels within request type puts the observed
+  share above all 1,000 permutations.
+* Ranking arms by **traffic share** picks a target-best option in **none** of the eight request types.
+* On the Criteo encouragement RCT, **79%** of the measurement gap survives instrumenting.
+
+On the controlled corpora:
+
+* The routed log names the wrong cheapest-good-enough model in **70%** of request types. On the
+  stricter top-1 criterion the failure is mostly a sampling floor: at matched per-pair counts the
+  selective log errs on 67.5%±2.4 against 39.6%±2.5 for a comparable-request log.
 * Auditing repairs assignment where the log is imbalanced — target-value loss falls from
   0.0499±0.0030 to **0.0338±0.0020** — and *hurts* where it is not, raising loss by +0.0107.
 * No budget buys measurement validity: with selection removed exactly, the evaluator still picks the
   wrong model in **18.3%±2.7** of request types, and two real judges on the same battles agree with
   the human verdict on 0.444 and 0.300 with length preferences of **opposite sign**.
 * The binding limit is the correction family, not the budget: **68.4%±2.0** of the selection bias is
-  not row-constant.
+  not row-constant. The uncapped best fit in that family sits [−0.0030, +0.0070] from deployed CASE
+  — two one-sided tests do *not* establish equivalence (p = 0.11), so this is a tie the study is not
+  powered to resolve, not a demonstrated one.
 * Valid opportunities are rare. In the operational replay of 440 verified customer-service
   simulations, a quality-preserving cheaper alternative exists in only **6.7%** of decisions and 80%
   of runs contain none.
@@ -98,6 +118,14 @@ code/
   tau2_*.py               the 440-simulation customer-service replay
   lmarena_*.py, helpsteer_run.py
                           the measured-judge study on human-labelled battles
+  kuairand_download.py, run_kuairand_validity.py, run_kuairand_share_tests.py
+                          the production-log study: the protocol on real traffic, and the
+                          bootstrap / permutation tests behind the arm-level share
+  run_criteo_encouragement.py, verify_criteo_encouragement.py
+                          the encouragement design on a real randomized experiment
+  run_gate_vs_audit.py, run_kappa_transfer.py, run_label_resolution.py, verify_label_resolution.py
+                          the pre-registered Phase-0 checks (gate vs audit, diagnostic transfer,
+                          label resolution)
   router_audit.py         RouterAudit
   make_*.py               every figure and table in the paper, regenerated from result files
   data/                   where the two benchmark matrices go (see code/data/README.md)
@@ -106,6 +134,10 @@ figures/                  every figure in the paper
 docs/
   TAE_ANALYSIS_PLAN.md    design, outcomes and hypotheses fixed before the confirmatory runs
   ANALYSIS_PLAN.md        the same, for the economic revision
+  KUAIRAND_ANALYSIS_PLAN.md, CRITEO_ANALYSIS_PLAN.md, PHASE0_ANALYSIS_PLAN.md
+                          the same, each frozen before any outcome column was read
+  CRITEO_ENCOURAGEMENT_RESULTS.md
+                          what the encouragement study returned, against that frozen plan
   CLAIM_REGISTRY.md       every claim mapped to its artifact, result file, and the wording the
                           evidence does and does not support
   CLAIM_BOUNDARIES.md     the wordings the evidence forbids, and the required companions
@@ -135,7 +167,22 @@ python code/run_tae_intervals.py                                # ~15 min, boots
 python code/run_causal_feasibility_gate.py                      # propensities, before any estimator
 python code/run_causal_baselines.py --partitions 30             # ~40 s, IPW / DR / regression
 
+# the real-data studies (each needs its own public dataset; see the matching plan in docs/)
+python code/kuairand_download.py                                # KuaiRand-Pure, Zenodo 10439422
+python code/run_kuairand_validity.py --data code/data/kuairand  # the protocol on production traffic
+python code/run_kuairand_share_tests.py --data code/data/kuairand   # bootstrap + permutation null
+python code/run_criteo_encouragement.py --data <criteo-uplift>  # the encouragement design
+
+# pre-registered Phase-0 checks
+python code/run_gate_vs_audit.py
+python code/run_kappa_transfer.py
+python code/run_label_resolution.py
+
 python code/make_tae_artifacts.py                               # figures, tables, paper numbers
+python code/make_fig1_validity.py \
+  --validity results/tae_validity.json \
+  --paper-numbers results/tae_paper_numbers.json \
+  --output figures/fig1_validity.pdf
 ```
 
 Runs are deterministic given the partition and acquisition seeds, so a fresh run reproduces the
@@ -146,9 +193,19 @@ non-zero if one fails.
 
 ## Data and scope
 
-Neither routing corpus is redistributed here. Both experiments replay per-request outputs their
-authors already released: LLMRouterBench (11,289 requests scored by all five models used) and
-RouterBench (36,497 requests × 11 models). The synthetic evaluator distortion is a pre-specified
-stress test applied to those real outcomes, not a measurement of any deployed judge; the measured
-judge results come separately from human-labelled LMArena battles and HelpSteer2.
-`docs/CLAIM_REGISTRY.md` records that distinction alongside the wording it does and does not license.
+No dataset is redistributed here; every study replays data its authors already released, and each
+loader points at the public source.
+
+* **LLMRouterBench** (11,289 requests scored by all five models used) and **RouterBench** (36,497
+  requests × 11 models) — the controlled validity experiments. See `code/data/README.md`.
+* **KuaiRand-Pure** (Zenodo 10439422, CC BY 4.0) — the production log with a built-in randomized
+  arm. `code/kuairand_download.py` fetches it.
+* **Criteo-UPLIFT v2.1** — the randomized encouragement experiment.
+* **LMArena** battles and **HelpSteer2** — the measured-judge study, on human labels.
+
+The synthetic evaluator distortion is a pre-specified stress test applied to real outcomes, not a
+measurement of any deployed judge; the measured-judge results come separately from the human-labelled
+corpora above. On KuaiRand the designated outcome (`is_like`) is a platform-chosen target, not
+independent welfare, and there is no price column, so none of the paper's dollar results extend
+there. `docs/CLAIM_REGISTRY.md` records these distinctions alongside the wording each does and does
+not license, and `docs/CLAIM_BOUNDARIES.md` records the wordings the evidence forbids.

@@ -91,3 +91,37 @@ supports, and the wording it does not.
 **Enforcement.** `docs/CLAIM_BOUNDARIES.md` lists the forbidden wordings and the required
 companions. E3 is a required companion of E1 and E4; E5's second clause is a required companion of
 its first.
+
+---
+
+## K-family: the KuaiRand external-validity study (v3)
+
+Result file: `results/kuairand_validity.json` (30 user-partitions × 3 acquisition seeds; spec block
+inside). Script: `code/run_kuairand_validity.py`; data via `code/kuairand_download.py` (Zenodo
+10439422, CC BY 4.0, not redistributed). Plan frozen before outcomes: `docs/KUAIRAND_ANALYSIS_PLAN.md`
+(declared deviations recorded below its Results marker). Adversarial verification: three independent
+paths (code review, raw-data re-derivation, JSON recomputation), adjudicated in-session 2026-08-05.
+
+| # | Claim | Artifact | Value | Supported wording | Prohibited wording |
+|---|---|---|---|---|---|
+| K1 | The audit's benefit does not replicate on real traffic | App. I | CASE−trust A1/click/35%: −0.00018 [−0.00046,+0.00009]; selection gap +0.00027 [−0.00003,+0.00056] | "the predeclared primary contrast does not separate from zero; the selection gap it could repair is itself small" | "the audit fails"; "auditing is useless"; generalizing beyond this platform/outcome |
+| K2 | The measurement floor dwarfs the selection gap | App. I, tab:kuairand | perfect-click-repair loss 0.00201±0.00002 ≈ 7× selection gap ≈ 1/3 of mean like-rate 0.0059 | "on this log, measurement error is the binding failure; no audit budget touches it (n_read 30→300 moves CASE <1.6 paired SE)" | "click evaluation is worthless"; any dollar attribution |
+| K3 | Real evaluator error is predominantly the audit-invisible form | App. I | arm-main-effect share 79.6% (scoring pool, predeclared) / 87.6% (full stream, sensitivity); C grand 0.203 | "a descriptive two-way decomposition puts ~80% of C_kj variance in arm main effects — Cor. blindness's C_k form" | "proves judges are biased"; treating the descriptive shares as inferential; quoting 87.6% without the predeclared 79.6% |
+| K4 | Traffic share is the worst measured decision rule | App. I | picks most-exposed arm in 8/8 contexts, target-best in 0/8 (full data; loss 0.0025); per-partition wrong-arm 0.892 vs 0.722 trust; unweighted paired +0.00092 [+0.00060,+0.00125]; Spearman(exposure, target) mean −0.18 | "reading preference off traffic share misidentifies the target-best arm everywhere on this log" | "usage statistics are uninformative in general"; "users prefer bad content" |
+| K5 | Scope | App. I | — | mandatory companions: is_like is a designated platform outcome, not welfare; insertion probability withheld so true-propensity baselines cannot run; no price column so no economic claim extends; C2 (CASE below perfect click repair, −0.00044 [−0.00057,−0.00031]) holds under traffic weighting only (unweighted +0.00011, n.s.) | — | — |
+
+## K'-family: the Criteo encouragement study (App. J)
+
+Source: `results/criteo_encouragement.json`. Script `code/run_criteo_encouragement.py`; data via
+plan-documented download (Criteo-UPLIFT v2.1, CC BY-NC-SA 4.0, not redistributed). Plan frozen
+before outcomes: `docs/CRITEO_ANALYSIS_PLAN.md` (one dated deviation: the A1 anchor). Independent
+verification: `code/verify_criteo_encouragement.py` (numpy path, agreement <1e-9), one-sided
+compliance exact, per-cell ITT = first-stage x Wald identity.
+
+| # | Claim | Artifact | Value | Supported wording | Prohibited wording |
+|---|---|---|---|---|---|
+| K'1 | The log read carries selection bias the rate-instrument removes | App. J | naive − Wald on conversion +0.0091 [0.0054, 0.0127], 24/30 partitions; on visit +0.0496 [0.0366, 0.0626]; Wald effect 0.0209 [0.0172, 0.0245] | "the within-encouraged exposed-vs-unexposed contrast overstates the take-up effect on the target; the Wald arm removes this by construction" | "IV fixes the log" unqualified; any behavioral reading of visit-side magnitudes (mechanical delivery channel) |
+| K'2 | Measurement bias largely passes through the instrument | App. J | measurement gap 0.196 [0.193, 0.198] naive vs 0.155 [0.144, 0.167] Wald; ratio 0.79 [0.74, 0.85], 30/30 positive | "79% of the proxy-target gap survives instrumenting; the shrunk 21% is the non-constant component the corollary does not protect" | "the gap passes through untouched/undiminished" (it shrank 21%); "encouragement cannot help measurement" as a general law |
+| K'3 | Selection bias is mostly not cell-constant | App. J | one global offset explains 15.8% [10.6, 20.9] of held-out per-cell variance (25.6% full-data split) | "the row-constant working model leaves most of the structure on the table here too" | inferential framing of the descriptive share |
+| K'4 | Side-finding: published uplifts not reproducible from the release | App. J deviation | Table-1 68.7/37.2 vs computed ITT/control 27.1/59.4; rates 4.70/0.29 and ratio 0.85 reproduce exactly | "consistent with the authors' disclosed non-uniform privacy subsampling; we report contrasts and ratios only" | implying error by the dataset authors; quoting released marginal rates as production facts |
+| K'5 | Scope | App. J | — | mandatory companions: advertising not LLM serving (structural transfer only); no price column so no economic claims; exposure-visit has a partly mechanical channel | — |

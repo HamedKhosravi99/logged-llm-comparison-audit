@@ -55,7 +55,7 @@ too unstable to support a claim, so only the win-rate error is reported.
 Five methods, six label budgets, fit on calibration, selected on validation, then applied **once** to
 the frozen held-out split.
 
-- logistic correction: **0.5963 → 0.6296** on validation, within 0.002 of its ceiling by 500 labels
+- logistic correction: **0.5963 → 0.6296** on validation, within 0.005 of its ceiling by 500 labels
 - confirmatory pass: **0.5897 → 0.6170** on 7,005 unseen battles, replicating with mild attenuation
 - a per-model additive offset gives **nothing at all**
 - isotonic is **worse than no correction** below 500 labels

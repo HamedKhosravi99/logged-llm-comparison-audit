@@ -38,11 +38,11 @@ BUDGETS = [0.15, 0.25, 0.35]
 STYLE = {
     "trust":      dict(label="Trust the log", color="#2a78d6", marker="o", ls="-"),
     "uniform":    dict(label="Uniform randomized audit", color="#eb6834", marker="s", ls="--"),
-    "epig_obs":   dict(label="R-EPIG, observed surface", color="#4a3aa7", marker="^", ls="-."),
-    "case":       dict(label="CASE, deconfounded surface", color="#1baf7a", marker="D", ls="-"),
-    "epig_corr":  dict(label="R-EPIG, deconfounded surface", color="#eda100", marker="v",
+    "epig_obs":   dict(label="R-EPIG, logged scores", color="#4a3aa7", marker="^", ls="-."),
+    "case":       dict(label="CASE, routing-adjusted", color="#1baf7a", marker="D", ls="-"),
+    "epig_corr":  dict(label="R-EPIG, routing-adjusted", color="#eda100", marker="v",
                        ls=(0, (1.6, 1.4))),
-    "rawmargin":  dict(label="Raw margin, observed surface", color="#6b6b68", marker="v", ls=":"),
+    "rawmargin":  dict(label="Raw margin, logged scores", color="#6b6b68", marker="v", ls=":"),
     "oracle_sel": dict(label="Population-operational oracle", color="#6b6b68", marker=None, ls=(0, (4, 2))),
     "oracle_ref": dict(label="Reference-outcome oracle", color="#0b0b0b", marker=None, ls=":"),
 }
@@ -239,7 +239,7 @@ def figure2(F, out):
 def table_deployment(G, meta):
     arms = [("ungated", "CASE, ungated"),
             ("same_evaluator", "\\;$+$ same-evaluator check"),
-            ("reference_channel", "\\;$+$ reference-channel check")]
+            ("reference_channel", "\\;$+$ target-outcome check")]
     lines = []
     for cond, cname in [("D1", "A1--D1 (stable evaluator distortion)"),
                         ("D2", "Stream mismatch (evaluator differs between log and audit)")]:
@@ -273,9 +273,9 @@ def table_factorial(F):
     return "\n".join(out)
 
 
-SHORT = {"trust": "Trust log", "uniform": "Uniform audit",
-         "epig_obs": r"R-EPIG, obs.\ surface", "rawmargin": r"Raw margin, obs.\ surface",
-         "case": "CASE, deconf.\ surface", "epig_corr": r"R-EPIG, deconf.\ surface"}
+SHORT = {"trust": "Trust-the-log", "uniform": "Uniform audit",
+         "epig_obs": r"R-EPIG, logged scores", "rawmargin": r"Raw margin, logged scores",
+         "case": "CASE, routing-adjusted", "epig_corr": r"R-EPIG, routing-adjusted"}
 
 
 def table_slices(F):

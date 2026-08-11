@@ -74,3 +74,23 @@ notation.
 The symbols themselves stay as they are, because Table 1, the figures and the generated tables all
 depend on them and the notation audit already confirmed every symbol is defined at first mention.
 The substitutions apply to the prose gloss at first use only.
+
+## KuaiRand study boundaries (v3, K-family)
+
+Claims the KuaiRand evidence does **not** license:
+
+- "The audit protocol fails in production." One platform, one designated outcome, one arm
+  definition; the licensed statement is that the benefit does not separate from zero *here*, and
+  why (small selection gap, dominant measurement floor).
+- "Real evaluators are biased." The C_kj decomposition is descriptive (one observation per pair,
+  residual = interaction) and pool-sensitive: 79.6% (predeclared, scoring pool) vs 87.6% (full
+  stream). Both shares travel together or not at all.
+- "Usage statistics are generally worthless." Licensed: on this log, traffic share picks a
+  target-best arm in no context and anti-correlates with the target (mean Spearman −0.18).
+- Any dollar or price statement: the log has no cost column.
+- "CASE beats a perfect assignment repair." Weighted-metric-specific (unweighted flips sign,
+  n.s.); the licensed statement is that the full click repair never wins and its loss never
+  approaches zero.
+
+Mandatory companions wherever K-numbers appear: designated-target framing for `is_like`; the
+withheld insertion probability; the absent price column.

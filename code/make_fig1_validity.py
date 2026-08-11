@@ -33,15 +33,17 @@ BLUE = "#2a78d6"
 INK = "#1a1a1a"
 
 # (assignment, evaluator, panel title). Titles are two lines in every panel so the axes align.
-PANELS = [("A0", "D0", "(a) Comparable requests"),
-          ("A1", "D0", "(b) Selective routing"),
-          ("A1", "D1", "(c) Selective + distorted")]
+# Plotted panels. The A0/D0 cell is no longer drawn -- its content is one sentence of text
+# in RQ2 -- but it is still checked in ALL_CELLS below, so dropping it costs no verification.
+PANELS = [("A1", "D0", "(a) Selective routing"),
+          ("A1", "D1", "(b) Selective + distorted")]
+ALL_CELLS = [("A0", "D0"), ("A1", "D0"), ("A1", "D1")]
 
 # (method, label, colour, marker, linestyle)
 SERIES = [("trust", "Trust routed log", GREY, "o", "-"),
           ("uniform", "Uniform randomized audit", GREY, "^", ":"),
           ("case", "CASE", BLUE, "s", "-"),
-          ("oracle_sel", "Perfect assignment repair", INK, "D", "--")]
+          ("oracle_sel", "Cellwise-perfect assignment repair (unachievable)", INK, "D", "--")]
 
 
 def style():
@@ -114,8 +116,12 @@ def main():
             raise SystemExit(f"budget {b} missing from the source (found {budgets})")
     print(f"budgets on the x-axis: {budgets}")
 
+    # computed over ALL_CELLS, not just the plotted ones, so the assertions below and the
+    # exported _data.csv still cover the comparable-request cell that panel (a) used to show.
+    titles = {(a, e): t for a, e, t in PANELS}
     rec = []
-    for a, e, title in PANELS:
+    for a, e in ALL_CELLS:
+        title = titles.get((a, e), f"{a}/{e} (verified, not plotted)")
         for m, label, _, _, _ in SERIES:
             for b in budgets:
                 mu, se, n = cell(df, a, e, m, b)
@@ -140,14 +146,14 @@ def main():
         got = get(a, e, m, b)
         assert abs(got - want) < 5e-4, f"{a}/{e}/{m}@{b}: {got:.4f} != {want}"
     # the logged-only arm cannot move with the audit budget
-    for a, e in (("A0", "D0"), ("A1", "D0"), ("A1", "D1")):
+    for a, e in ALL_CELLS:
         vals = {get(a, e, "trust", b) for b in budgets}
         assert max(vals) - min(vals) < 1e-9, f"trust varies with budget in {a}/{e}"
     # the sign flip the figure exists to show
     assert get("A0", "D0", "case", 0.35) > get("A0", "D0", "trust", 0.35)
     assert get("A1", "D0", "case", 0.35) < get("A1", "D0", "trust", 0.35)
     # CASE improves monotonically with budget in every panel
-    for a, e, _ in PANELS:
+    for a, e in ALL_CELLS:
         seq = [get(a, e, "case", b) for b in budgets]
         assert all(x > y for x, y in zip(seq, seq[1:])), f"CASE not monotone in {a}/{e}"
 
@@ -164,7 +170,7 @@ def main():
         print(f"read {args.paper_numbers} (decomposition cross-check available)")
 
     # ---------------------------------------------------------------- draw
-    fig, axes = plt.subplots(1, 3, figsize=(6.75, 1.65), sharey=True)
+    fig, axes = plt.subplots(1, 2, figsize=(6.75, 1.35), sharey=True)
     xs = np.arange(len(budgets))
     handles = None
     for ax, (a, e, title) in zip(axes, PANELS):
@@ -184,16 +190,19 @@ def main():
         ax.set_xlabel("Randomized audit budget")
         ax.yaxis.grid(True, lw=0.4, color="#e6e6e6")
         ax.set_axisbelow(True)
-    axes[0].set_ylabel("Target-value loss\n(lower is better)")
+    # one line: a two-line rotated label is clipped at this panel height
+    axes[0].set_ylabel("Target-value loss")
     axes[0].set_ylim(bottom=-0.002)
+    # the panels are short, so matplotlib drops to two ticks; pin three so the scale stays readable
+    axes[0].set_yticks([0.00, 0.02, 0.04])
 
     sns.despine(fig=fig)
-    fig.tight_layout(pad=0.3, w_pad=0.9, rect=(0, 0.12, 1, 1))
+    fig.tight_layout(pad=0.3, w_pad=0.9, rect=(0, 0.20, 1, 1))
     # one shared legend below the panels, so no series is hidden behind a legend box
     handles, labels = axes[0].get_legend_handles_labels()
-    fig.legend(handles, labels, frameon=False, loc="lower center", ncol=len(SERIES),
+    fig.legend(handles, labels, frameon=False, loc="lower center", ncol=2,
                handlelength=1.8, handletextpad=0.4, columnspacing=1.4,
-               bbox_to_anchor=(0.5, -0.02))
+               bbox_to_anchor=(0.5, -0.03))
 
     # ---------------------------------------------------------------- write
     out = args.output

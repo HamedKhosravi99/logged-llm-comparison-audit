@@ -1,0 +1,13 @@
+{
+ "primary": {
+  "threshold": 1.1708956159404984,
+  "auc": 0.7877777777777778,
+  "accuracy": 0.75,
+  "stat_A0": 1.0587660522770739,
+  "stat_A1": 1.2847921228108343,
+  "n_seed_cells": "K per-action seeds only (5 of 13 cells at the 35% budget)"
+ },
+ "routerbench_keys_found": [],
+ "result": "NOT_COMPUTABLE_FROM_STORED_ARTIFACTS",
+ "reading": "results/tae_replication.json does not store the per-partition kappa statistics for RouterBench, so the transferred AUC/accuracy cannot be recovered without re-running the replication. The paper therefore reports no cross-corpus performance for kappa anywhere, while Alg. 1 calls it 'externally validated' and S5 says the threshold was 'applied unchanged to RouterBench'. Under the plan's decision rule this is the 'does not transfer' branch by default: the claim is unsupported by any stored artifact and must be removed from Alg. 1 unless the replication is re-run."
+}

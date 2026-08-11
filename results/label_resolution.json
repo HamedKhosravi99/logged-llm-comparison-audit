@@ -1,0 +1,231 @@
+{
+ "spec": {
+  "delta": 0.02,
+  "bootstrap": 1000,
+  "seed": 20260810,
+  "flip_threshold": 0.05,
+  "note": "a decision is indeterminate if its in-tolerance classification flips in >=5% of resamples"
+ },
+ "cells": [
+  {
+   "domain": "airline",
+   "model": "gpt-4.1-mini",
+   "n": 20,
+   "success": 0.5,
+   "ci_lo": 0.2992949144298199,
+   "ci_hi": 0.7007050855701801
+  },
+  {
+   "domain": "airline",
+   "model": "gpt-4.1-nano",
+   "n": 20,
+   "success": 0.175,
+   "ci_lo": 0.06610509740941087,
+   "ci_hi": 0.3886294841622956
+  },
+  {
+   "domain": "airline",
+   "model": "gpt-4o",
+   "n": 20,
+   "success": 0.55,
+   "ci_lo": 0.3420820083075997,
+   "ci_hi": 0.7418049791429071
+  },
+  {
+   "domain": "airline",
+   "model": "gpt-4o-mini",
+   "n": 20,
+   "success": 0.5083333333333333,
+   "ci_lo": 0.3063088821700277,
+   "ci_hi": 0.7076722824050568
+  },
+  {
+   "domain": "retail",
+   "model": "gpt-4.1-mini",
+   "n": 20,
+   "success": 0.45,
+   "ci_lo": 0.25819502085709295,
+   "ci_hi": 0.6579179916924003
+  },
+  {
+   "domain": "retail",
+   "model": "gpt-4.1-nano",
+   "n": 20,
+   "success": 0.3,
+   "ci_lo": 0.14547527396899385,
+   "ci_hi": 0.5189767762289793
+  },
+  {
+   "domain": "retail",
+   "model": "gpt-4o",
+   "n": 20,
+   "success": 0.625,
+   "ci_lo": 0.4094859016409731,
+   "ci_hi": 0.8002315669852935
+  },
+  {
+   "domain": "retail",
+   "model": "gpt-4o-mini",
+   "n": 20,
+   "success": 0.375,
+   "ci_lo": 0.1997684330147064,
+   "ci_hi": 0.5905140983590269
+  },
+  {
+   "domain": "telecom",
+   "model": "gpt-4.1-mini",
+   "n": 20,
+   "success": 0.6,
+   "ci_lo": 0.3865779423152061,
+   "ci_hi": 0.7811960325858074
+  },
+  {
+   "domain": "telecom",
+   "model": "gpt-4.1-nano",
+   "n": 19,
+   "success": 0.15789473684210525,
+   "ci_lo": 0.055203710399278266,
+   "ci_hi": 0.3756592764317668
+  },
+  {
+   "domain": "telecom",
+   "model": "gpt-4o",
+   "n": 20,
+   "success": 0.175,
+   "ci_lo": 0.06610509740941087,
+   "ci_hi": 0.3886294841622956
+  },
+  {
+   "domain": "telecom",
+   "model": "gpt-4o-mini",
+   "n": 20,
+   "success": 0.025,
+   "ci_lo": 0.002615477056236784,
+   "ci_hi": 0.20045814216394975
+  }
+ ],
+ "decisions": [
+  {
+   "domain": "airline",
+   "model": "gpt-4.1-mini",
+   "in_tolerance": false,
+   "flip_rate": 0.302,
+   "indeterminate": true
+  },
+  {
+   "domain": "airline",
+   "model": "gpt-4.1-nano",
+   "in_tolerance": false,
+   "flip_rate": 0.0,
+   "indeterminate": false
+  },
+  {
+   "domain": "airline",
+   "model": "gpt-4o",
+   "in_tolerance": true,
+   "flip_rate": 0.475,
+   "indeterminate": true
+  },
+  {
+   "domain": "airline",
+   "model": "gpt-4o-mini",
+   "in_tolerance": false,
+   "flip_rate": 0.36,
+   "indeterminate": true
+  },
+  {
+   "domain": "retail",
+   "model": "gpt-4.1-mini",
+   "in_tolerance": false,
+   "flip_rate": 0.082,
+   "indeterminate": true
+  },
+  {
+   "domain": "retail",
+   "model": "gpt-4.1-nano",
+   "in_tolerance": false,
+   "flip_rate": 0.001,
+   "indeterminate": false
+  },
+  {
+   "domain": "retail",
+   "model": "gpt-4o",
+   "in_tolerance": true,
+   "flip_rate": 0.064,
+   "indeterminate": true
+  },
+  {
+   "domain": "retail",
+   "model": "gpt-4o-mini",
+   "in_tolerance": false,
+   "flip_rate": 0.02,
+   "indeterminate": false
+  },
+  {
+   "domain": "telecom",
+   "model": "gpt-4.1-mini",
+   "in_tolerance": true,
+   "flip_rate": 0.0,
+   "indeterminate": false
+  },
+  {
+   "domain": "telecom",
+   "model": "gpt-4.1-nano",
+   "in_tolerance": false,
+   "flip_rate": 0.0,
+   "indeterminate": false
+  },
+  {
+   "domain": "telecom",
+   "model": "gpt-4o",
+   "in_tolerance": false,
+   "flip_rate": 0.0,
+   "indeterminate": false
+  },
+  {
+   "domain": "telecom",
+   "model": "gpt-4o-mini",
+   "in_tolerance": false,
+   "flip_rate": 0.0,
+   "indeterminate": false
+  }
+ ],
+ "summary": {
+  "n_domain_decisions": 12,
+  "n_indeterminate": 5,
+  "share_indeterminate": 0.4166666666666667,
+  "trigger": "INDICATIVE_ONLY"
+ },
+ "second_path_analytic": {
+  "method": "paired per-task difference vs the fixed domain argmax; indeterminate if the 95% CI straddles -delta",
+  "n_indeterminate": 3,
+  "share": 0.25,
+  "indeterminate": [
+   [
+    "airline",
+    "gpt-4.1-mini"
+   ],
+   [
+    "airline",
+    "gpt-4o-mini"
+   ],
+   [
+    "retail",
+    "gpt-4o-mini"
+   ]
+  ],
+  "note": "Disagrees with the bootstrap by design, not by error. The analytic method CONDITIONS on the argmax being correct, so it can never flag the argmax itself. The bootstrap re-estimates the argmax in every replicate and therefore also captures uncertainty about WHICH model is best - which is the dominant uncertainty in airline. The bootstrap is the faithful operationalization because the label depends on an estimated argmax; the analytic share (25%) is a lower bound."
+ },
+ "argmax_stability": {
+  "domain": "airline",
+  "bootstrap": 2000,
+  "p_is_argmax": {
+   "gpt-4o": 0.503,
+   "gpt-4o-mini": 0.27,
+   "gpt-4.1-mini": 0.227,
+   "gpt-4.1-nano": 0.0
+  },
+  "note": "the airline 'winner' is a coin flip; the paper's 'different models win different domains' is not resolved there"
+ },
+ "sample_size_note": "The paper reports 'every model-domain cell at n>=24', counting RAW simulations. Most tasks were run twice (181 of 239 triples have 2 runs), so the independent unit count is 19-20 TASKS per cell. Task-level clustering is the correct unit and is what these analyses use."
+}
