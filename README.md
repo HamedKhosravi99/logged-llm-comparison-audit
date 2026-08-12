@@ -116,8 +116,9 @@ code/
   econ_core.py, run_econ.py, free_stage1_*.py, free_stage2_*.py
                           the economic and operational analyses
   tau2_*.py               the 440-simulation customer-service replay
-  lmarena_*.py, helpsteer_run.py
-                          the measured-judge study on human-labelled battles
+  lmarena_*.py, helpsteer_run.py, run_lmarena_share_test.py
+                          the measured-judge study on human-labelled battles, and the arm-share
+                          decomposition on a balanced model-by-category grid
   kuairand_download.py, run_kuairand_validity.py, run_kuairand_share_tests.py
                           the production-log study: the protocol on real traffic, and the
                           bootstrap / permutation tests behind the arm-level share
@@ -126,6 +127,8 @@ code/
   run_gate_vs_audit.py, run_kappa_transfer.py, run_label_resolution.py, verify_label_resolution.py
                           the pre-registered Phase-0 checks (gate vs audit, diagnostic transfer,
                           label resolution)
+  verify_prop_idset.py    brute-force check of the point-identification proposition against the
+                          achievable winner sets, on a lattice that realizes boundary cases
   router_audit.py         RouterAudit
   make_*.py               every figure and table in the paper, regenerated from result files
   data/                   where the two benchmark matrices go (see code/data/README.md)

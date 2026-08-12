@@ -170,7 +170,7 @@ def main():
         print(f"read {args.paper_numbers} (decomposition cross-check available)")
 
     # ---------------------------------------------------------------- draw
-    fig, axes = plt.subplots(1, 2, figsize=(6.75, 1.35), sharey=True)
+    fig, axes = plt.subplots(1, 2, figsize=(6.75, 1.9), sharey=True)
     xs = np.arange(len(budgets))
     handles = None
     for ax, (a, e, title) in zip(axes, PANELS):
@@ -190,19 +190,19 @@ def main():
         ax.set_xlabel("Randomized audit budget")
         ax.yaxis.grid(True, lw=0.4, color="#e6e6e6")
         ax.set_axisbelow(True)
-    # one line: a two-line rotated label is clipped at this panel height
     axes[0].set_ylabel("Target-value loss")
     axes[0].set_ylim(bottom=-0.002)
-    # the panels are short, so matplotlib drops to two ticks; pin three so the scale stays readable
+    # pin the ticks so the scale is the same in both panels regardless of panel height
     axes[0].set_yticks([0.00, 0.02, 0.04])
 
     sns.despine(fig=fig)
-    fig.tight_layout(pad=0.3, w_pad=0.9, rect=(0, 0.20, 1, 1))
+    # reserve a band under the panels for the legend so it clears the x-axis labels
+    fig.tight_layout(pad=0.3, w_pad=0.9, rect=(0, 0.19, 1, 1))
     # one shared legend below the panels, so no series is hidden behind a legend box
     handles, labels = axes[0].get_legend_handles_labels()
     fig.legend(handles, labels, frameon=False, loc="lower center", ncol=2,
                handlelength=1.8, handletextpad=0.4, columnspacing=1.4,
-               bbox_to_anchor=(0.5, -0.03))
+               bbox_to_anchor=(0.5, 0.0))
 
     # ---------------------------------------------------------------- write
     out = args.output

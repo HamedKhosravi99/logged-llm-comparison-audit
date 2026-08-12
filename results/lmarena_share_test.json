@@ -1,0 +1,52 @@
+{
+  "n_battles": 4947,
+  "request_types": [
+    "code/cx/if+",
+    "code/cx/if-",
+    "code/simple/if+",
+    "code/simple/if-",
+    "text/cx/if+",
+    "text/cx/if-",
+    "text/simple/if+",
+    "text/simple/if-"
+  ],
+  "top_models": [
+    "claude-opus-4-20250514",
+    "gemini-2.5-flash",
+    "qwen3-235b-a22b-no-thinking",
+    "gemini-2.5-pro",
+    "mistral-medium-2505",
+    "o3-2025-04-16",
+    "claude-sonnet-4-20250514",
+    "chatgpt-4o-latest-20250326"
+  ],
+  "primary_balanced": {
+    "models": 8,
+    "types": 8,
+    "cells": 49,
+    "share_model": 0.5342477520367472,
+    "share_model_ci": [
+      0.23115429175803326,
+      0.5356414415688899
+    ],
+    "share_type": 0.08625415277572661,
+    "share_resid": 0.38306505733837126,
+    "permutation_null_median": 0.12984651369122124,
+    "injected_type_share": 0.25555075396883464
+  },
+  "sensitivity_unbalanced": {
+    "models": 52,
+    "types": 2,
+    "cells": 82,
+    "share_model": 0.7248420617506638,
+    "share_model_ci": [
+      0.5837793049878488,
+      0.7710503908684664
+    ],
+    "share_type": 0.00016087029960371347,
+    "share_resid": 0.275296902716889,
+    "permutation_null_median": 0.5408405552568569,
+    "injected_type_share": 0.04678412868102924
+  },
+  "human_majority_base_rate": 0.37719830200121285
+}
