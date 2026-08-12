@@ -4,7 +4,7 @@
 
 Reads  results/tae_validity.json, results/tae_validity_appendix.json
 Writes figures/tae_fig1.pdf, figures/tae_fig2.pdf
-       tae_tables.tex               (LaTeX fragments the paper \\input{}s)
+       tex/tae_tables.tex           (LaTeX fragments the paper \\input{}s)
        results/tae_paper_numbers.json (claim registry: every number quoted in the text)
 
 Aggregation rule (fixed in the analysis plan): acquisition seeds are averaged WITHIN a prompt-cohort
@@ -468,11 +468,13 @@ def main():
            "\\newcommand{\\TAEdeploymentrows}{%", table_deployment(G, D["meta"]), "}",
            "\\newcommand{\\TAEfactorialrows}{%", table_factorial(F), "}",
            "\\newcommand{\\TAEslicerows}{%", table_slices(F), "}"]
-    open(os.path.join(ROOT, "tae_tables.tex"), "w").write("\n".join(tex) + "\n")
+    tex_dir = os.path.join(ROOT, "tex")
+    os.makedirs(tex_dir, exist_ok=True)
+    open(os.path.join(tex_dir, "tae_tables.tex"), "w").write("\n".join(tex) + "\n")
 
     P = paper_numbers(D, A, F, G)
     json.dump(P, open(os.path.join(RES, "tae_paper_numbers.json"), "w"), indent=1, default=float)
-    print(f"wrote figures/tae_fig1.pdf, figures/tae_fig2.pdf, tae_tables.tex, "
+    print(f"wrote figures/tae_fig1.pdf, figures/tae_fig2.pdf, tex/tae_tables.tex, "
           f"results/tae_paper_numbers.json ({len(P)} registered numbers)")
 
 
