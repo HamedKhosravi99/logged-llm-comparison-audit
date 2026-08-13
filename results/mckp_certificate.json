@@ -1,0 +1,52 @@
+{
+ "claim": "xhat is optimal for every admissible coefficient table iff it is optimal for the single table that sets the incumbent cell to muhat-e and every other cell to muhat+e",
+ "total_instances": 31724,
+ "total_failures": 0,
+ "regimes": [
+  {
+   "regime": "lattice coefficients, J,K<=4",
+   "seed": 0,
+   "instances": 14759,
+   "skipped_infeasible": 5241,
+   "certified": 5205,
+   "certificate_vs_truth_mismatches": 0,
+   "sampled_violations": 0
+  },
+  {
+   "regime": "continuous coefficients, J,K<=4",
+   "seed": 1,
+   "instances": 5900,
+   "skipped_infeasible": 2100,
+   "certified": 2229,
+   "certificate_vs_truth_mismatches": 0,
+   "sampled_violations": 0
+  },
+  {
+   "regime": "continuous coefficients, J,K<=5",
+   "seed": 2,
+   "instances": 2274,
+   "skipped_infeasible": 726,
+   "certified": 161,
+   "certificate_vs_truth_mismatches": 0,
+   "sampled_violations": 0
+  },
+  {
+   "regime": "wide error bounds",
+   "seed": 3,
+   "instances": 5869,
+   "skipped_infeasible": 2131,
+   "certified": 1063,
+   "certificate_vs_truth_mismatches": 0,
+   "sampled_violations": 0
+  },
+  {
+   "regime": "exact coefficients (e=0), must always certify",
+   "seed": 9,
+   "instances": 2922,
+   "skipped_infeasible": 0,
+   "certified": 2922,
+   "certificate_vs_truth_mismatches": 0,
+   "sampled_violations": 0
+  }
+ ]
+}

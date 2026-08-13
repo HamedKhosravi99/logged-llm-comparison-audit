@@ -129,6 +129,9 @@ code/
                           label resolution)
   verify_prop_idset.py    brute-force check of the point-identification proposition against the
                           achievable winner sets, on a lattice that realizes boundary cases
+  verify_mckp_certificate.py
+                          brute-force check of the robust-optimality certificate for budgeted
+                          allocation, against rival-by-rival worst cases over the coefficient box
   router_audit.py         RouterAudit
   make_*.py               every figure and table in the paper, regenerated from result files
   data/                   where the two benchmark matrices go (see code/data/README.md)
