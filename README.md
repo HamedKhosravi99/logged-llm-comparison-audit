@@ -1,42 +1,15 @@
-# Can We Trust Logs to Choose a Cheaper LLM? — reproducibility package
+# Which LLM for Which Work? — reproducibility package
 
-Code, result files, figures and analysis plans for the workshop paper *Can We Trust Logs to Choose a
-Cheaper LLM? Auditing Selection and Measurement Validity in Multi-Model Deployments*, targeted for
-the TAE workshop at NeurIPS 2026, *Can We Trust AI Evaluation? Robustness, Causality, and Risk in
-Modern AI Assessment* (<https://tai-eval.github.io/>).
+Code, result files, figures and analysis plans for the workshop paper *Which LLM for Which Work?
+Budgeted Model Allocation under Uncertain Evaluation*, targeted for the TAE workshop at NeurIPS
+2026, *Can We Trust AI Evaluation? Robustness, Causality, and Risk in Modern AI Assessment*
+(<https://tai-eval.github.io/>).
 
-**TLDR.** A routed production log can support the wrong cheaper-model decision for two unrelated
-reasons, and a randomized audit repairs exactly one of them. This package runs the crossed experiment
-that separates the two, prices the decision in dollars, and releases the tool that applies it to your
-own traces.
-
----
-
-## RouterAudit — apply this to your own router
-
-**RouterAudit** is the tool the paper releases. Point it at a trace export from your own router and
-it returns a verdict on whether the log can support the decision, a corrected comparison, a list of
-the comparisons worth buying, and the traffic volume at which the evaluation pays for itself. It runs
-offline: it never calls a model API and never changes production routing.
-
-```bash
-python code/router_audit.py validate  traces.csv                     # can this log answer it at all?
-python code/router_audit.py diagnose  traces.csv                     # is it imbalanced enough to audit?
-python code/router_audit.py recommend traces.csv --budget-usd 500    # what to buy next
-python code/router_audit.py simulate  traces.csv --quality-tolerance 0.01
-python code/router_audit.py report    traces.csv --out report.md     # the decision record
-```
-
-Required columns are `request_type`, `candidate_model` and `automatic_score`; five optional columns
-(`inference_cost_usd`, `traffic_weight`, `target_score`, `selected_model`, `request_id`) each unlock
-more of the output, and an OpenTelemetry/Phoenix span export maps onto the schema directly.
-
-The step that saves money is `diagnose`: **auditing an already balanced log makes the decision
-worse**, and the tool will tell you to keep your money.
-
-**Full practitioner walkthrough — how to read the output, and what the tool refuses to do:
-[`docs/ROUTERAUDIT.md`](docs/ROUTERAUDIT.md).** A browser demo of the same tool is in
-[`routeraudit-space/`](routeraudit-space/).
+**TLDR.** A company with a fixed AI budget deciding which model handles each workload is solving a
+multiple-choice knapsack problem, and at organizational scale the optimization is the easy half. The
+hard half is the quality table it optimizes. This package runs the crossed experiment that separates
+the two ways that table can be wrong, shows that repeated scoring by the same evaluator cannot fix
+one of them, and prices what an accurate table is worth.
 
 ---
 
@@ -68,42 +41,78 @@ cheap signal (`is_click`) and the same designated outcome (`is_like`) on every r
 validity cells exist with nothing simulated.
 
 * A **cellwise-perfect assignment repair leaves more loss (2.01) than trusting the log unrepaired
-  (1.76)**, and more than the audit protocol (1.57): the penalty is +0.44 [+0.32, +0.56] against
-  CASE and +0.26 [−0.02, +0.54] against trust-the-log, in `is_like` units ×10⁻³. Two biases were
-  partly cancelling, and removing one exposed the other.
-* Evaluator error against the platform's own designated outcome is **79.6%** arm main effects, 9.1%
-  request-type, 11.3% residual — exactly the audit-invisible form the theory predicts. A user-level
-  cluster bootstrap gives [57.9, 78.2]%; permuting arm labels within request type puts the observed
-  share above all 1,000 permutations.
-* Ranking arms by **traffic share** picks a target-best option in **none** of the eight request types.
-* On the Criteo encouragement RCT, **79%** of the measurement gap survives instrumenting.
+  (1.76)**, and more than the audit protocol (1.57): the penalty is +0.44 [+0.31, +0.57] against
+  CASE, in `is_like` units ×10⁻³. Two biases were partly cancelling, and removing one exposed the
+  other.
+* Evaluator error against the platform's own designated outcome is **79.6%** model main effects,
+  9.1% workload, 11.3% residual — exactly the audit-invisible form the theory predicts. A user-level
+  cluster bootstrap gives [57.9, 78.2]%, below the plug-in estimate.
 
 On the controlled corpora:
 
-* The routed log names the wrong cheapest-good-enough model in **70%** of request types. On the
-  stricter top-1 criterion the failure is mostly a sampling floor: at matched per-pair counts the
-  selective log errs on 67.5%±2.4 against 39.6%±2.5 for a comparable-request log.
-* Auditing repairs assignment where the log is imbalanced — target-value loss falls from
-  0.0499±0.0030 to **0.0338±0.0020** — and *hurts* where it is not, raising loss by +0.0107.
-* No budget buys measurement validity: with selection removed exactly, the evaluator still picks the
-  wrong model in **18.3%±2.7** of request types, and two real judges on the same battles agree with
-  the human verdict on 0.444 and 0.300 with length preferences of **opposite sign**.
+* The logged comparison names the wrong cheapest-good-enough model in **70%** of workloads. On the
+  stricter top-1 criterion most of that is a sampling floor that survives without any routing.
+* Auditing repairs assignment where the log is imbalanced — target-value loss falls from 0.050 to
+  **0.034**, a paired −0.016 [−0.022, −0.010] — and *hurts* where it is not, raising loss by +0.011
+  [+0.007, +0.015].
+* **More randomized evidence does not remove measurement error.** With selection removed exactly the
+  distortion still picks the wrong model in **18.3%** of workloads, and a cellwise-perfect assignment
+  repair is stranded at 0.003 rather than reaching zero.
+* Real judges show the same failure. On LMArena, `gpt-4o-mini` agrees with the human verdict barely
+  above the corpus base rate, reverses on a third of battles when answers are swapped, and a local
+  Qwen judge has a length preference of **opposite sign** on the same battles. On a grid matched to
+  KuaiRand's, **53%** of judge error is model-level against a 13% permutation null (post hoc).
 * The binding limit is the correction family, not the budget: **68.4%±2.0** of the selection bias is
-  not row-constant. The uncapped best fit in that family sits [−0.0030, +0.0070] from deployed CASE
-  — two one-sided tests do *not* establish equivalence (p = 0.11), so this is a tie the study is not
-  powered to resolve, not a demonstrated one.
-* Valid opportunities are rare. In the operational replay of 440 verified customer-service
-  simulations, a quality-preserving cheaper alternative exists in only **6.7%** of decisions and 80%
-  of runs contain none.
-* The audit is cheap ($2.39±0.08 at released benchmark prices), but **auditing by itself raises
-  deployment spend**, from $3,358 to $5,891 per million: it moves traffic toward better and dearer
-  models. The quality *tolerance* is what saves. Together they save $1,579 per million
-  [1,019, 2,227], repaying the audit after **1,514 requests** [1,064, 2,368]. All dollar figures are
-  estimated counterfactual production costs computed from released benchmark prices, not any
-  company's observed spend.
+  not row-constant.
+
+**What an accurate quality table is worth.** Applying the same rule to three decision surfaces:
+deciding on the free log is wrong in **70.0%** of workloads at \$3,094 per million requests, and
+deciding on the target outcome is wrong in **7.9%** at \$7,169. Better decisions cost more.
+
+* On 150 SWE-Lancer managerial tasks, in expected total cost, re-allocating on the same observable
+  table is worth about **\$1,000** against the best single model, while the gap to an oracle on true
+  outcomes is about **\$35,000**. The second figure is a value-of-information gap, not savings this
+  method achieves.
+* On τ²-bench-verified, allocating per domain raises success from 0.517 to 0.592 but raises cost
+  from \$19.44 to \$39.72 per thousand tasks. Better allocation need not mean lower spending.
+* Valid cost-saving opportunities are rare. A quality-preserving cheaper alternative exists in only
+  **6.7%** of decisions and 80% of runs contain none.
+* The audit itself is cheap (\$2.39±0.08 at released benchmark prices), and the quality *tolerance*
+  is what saves: relaxing to a two-point tolerance is worth \$1,579 per million [1,019, 2,227],
+  repaying the audit after **1,514 requests** [1,064, 2,368]. All dollar figures are estimated
+  counterfactual production costs computed from released benchmark prices, not any company's
+  observed spend.
 
 Every number quoted in the paper is registered in `results/tae_paper_numbers.json` under a stable
 key, so any figure in the text can be checked without rerunning anything.
+
+## RouterAudit — apply the protocol to your own traces
+
+**RouterAudit** is the tool this package releases. It is not part of the paper's argument, which is
+about identification rather than tooling, but the protocol it implements is the one the paper
+evaluates. Point it at a trace export and it returns a verdict on whether the log can support the
+decision, a corrected comparison, a list of the comparisons worth buying, and the traffic volume at
+which the evaluation pays for itself. It runs offline: it never calls a model API and never changes
+production routing.
+
+```bash
+python code/router_audit.py validate  traces.csv                     # can this log answer it at all?
+python code/router_audit.py diagnose  traces.csv                     # is it imbalanced enough to audit?
+python code/router_audit.py recommend traces.csv --budget-usd 500    # what to buy next
+python code/router_audit.py simulate  traces.csv --quality-tolerance 0.01
+python code/router_audit.py report    traces.csv --out report.md     # the decision record
+```
+
+Required columns are `request_type`, `candidate_model` and `automatic_score` (the CSV schema
+predates the paper's move to the word *workload*, and is unchanged so existing exports keep working); five optional columns
+(`inference_cost_usd`, `traffic_weight`, `target_score`, `selected_model`, `request_id`) each unlock
+more of the output, and an OpenTelemetry/Phoenix span export maps onto the schema directly. The step
+that saves money is `diagnose`: **auditing an already balanced log makes the decision worse**, and
+the tool will tell you to keep your money.
+
+**Full walkthrough — how to read the output, and what the tool refuses to do:
+[`docs/ROUTERAUDIT.md`](docs/ROUTERAUDIT.md).** A browser demo is in
+[`routeraudit-space/`](routeraudit-space/).
 
 ## Layout
 
