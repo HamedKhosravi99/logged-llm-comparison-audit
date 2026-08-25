@@ -122,17 +122,18 @@ code/
   case_core.py            the audit protocol (correct, allocate, re-correct) and the baselines
   run_tae_*.py            the confirmatory replay, its replication, sweeps and intervals
   run_causal_*.py         propensity feasibility gate and the IPW / DR / regression baselines
-  econ_core.py, run_econ.py, free_stage1_*.py, free_stage2_*.py
-                          the economic and operational analyses
-  tau2_*.py               the 440-simulation customer-service replay
+  econ_core.py, run_econ_mckp.py  the economic analysis under the budgeted rule
+  mckp.py                 the exact multiple-choice knapsack solver and the settledness test
+  run_case_mckp.py, run_case_sat.py, run_section5_mckp.py
+                          the audit loop under Eq. (1) and Eq. (2), and the validity sweep
+  measure_eta.py, measure_eta_lmarena.py
+                          the evaluator band measured on KuaiRand and on LMArena
   lmarena_*.py, helpsteer_run.py, run_lmarena_share_test.py
                           the measured-judge study on human-labelled battles, and the arm-share
                           decomposition on a balanced model-by-category grid
   kuairand_download.py, run_kuairand_validity.py, run_kuairand_share_tests.py
                           the production-log study: the protocol on real traffic, and the
                           bootstrap / permutation tests behind the arm-level share
-  run_criteo_encouragement.py, verify_criteo_encouragement.py
-                          the encouragement design on a real randomized experiment
   run_gate_vs_audit.py, run_kappa_transfer.py, run_label_resolution.py, verify_label_resolution.py
                           the pre-registered Phase-0 checks (gate vs audit, diagnostic transfer,
                           label resolution)
@@ -146,13 +147,13 @@ code/
   data/                   where the two benchmark matrices go (see code/data/README.md)
 results/                  one file per experiment; every number in the paper reads from these
 figures/                  every figure in the paper
+source/budgeted_certificate/
+                          the budget sweep behind the decision-margin tables
 docs/
   TAE_ANALYSIS_PLAN.md    design, outcomes and hypotheses fixed before the confirmatory runs
   ANALYSIS_PLAN.md        the same, for the economic revision
-  KUAIRAND_ANALYSIS_PLAN.md, CRITEO_ANALYSIS_PLAN.md, PHASE0_ANALYSIS_PLAN.md
+  KUAIRAND_ANALYSIS_PLAN.md, PHASE0_ANALYSIS_PLAN.md
                           the same, each frozen before any outcome column was read
-  CRITEO_ENCOURAGEMENT_RESULTS.md
-                          what the encouragement study returned, against that frozen plan
   CLAIM_REGISTRY.md       every claim mapped to its artifact, result file, and the wording the
                           evidence does and does not support
   CLAIM_BOUNDARIES.md     the wordings the evidence forbids, and the required companions
@@ -186,7 +187,6 @@ python code/run_causal_baselines.py --partitions 30             # ~40 s, IPW / D
 python code/kuairand_download.py                                # KuaiRand-Pure, Zenodo 10439422
 python code/run_kuairand_validity.py --data code/data/kuairand  # the protocol on production traffic
 python code/run_kuairand_share_tests.py --data code/data/kuairand   # bootstrap + permutation null
-python code/run_criteo_encouragement.py --data <criteo-uplift>  # the encouragement design
 
 # pre-registered Phase-0 checks
 python code/run_gate_vs_audit.py
@@ -216,7 +216,6 @@ loader points at the public source.
   requests × 11 models) — the controlled validity experiments. See `code/data/README.md`.
 * **KuaiRand-Pure** (Zenodo 10439422, CC BY 4.0) — the production log with a built-in randomized
   arm. `code/kuairand_download.py` fetches it.
-* **Criteo-UPLIFT v2.1** — the randomized encouragement experiment.
 * **LMArena** battles and **HelpSteer2** — the measured-judge study, on human labels.
 
 The synthetic evaluator distortion is a pre-specified stress test applied to real outcomes, not a

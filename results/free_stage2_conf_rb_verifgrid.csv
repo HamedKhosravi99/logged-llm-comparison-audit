@@ -1,7 +1,0 @@
-verif_cost,total_audit,be_point,be_lb95,finite_lb
-0.0,7.080613132832,inf,inf,False
-0.1,778.180613132832,inf,inf,False
-0.25,1934.830613132832,inf,inf,False
-0.5,3862.580613132832,inf,inf,False
-1.0,7718.080613132832,inf,inf,False
-5.0,38562.080613132835,inf,inf,False

@@ -1,9 +1,0 @@
-domain,inc,opp_best,switch_rate,dq_inc,A,C,inferior
-arc-challenge,gpt-4-1106-preview,0.0,0.0,0.0,0.0,0.0,0.0
-chinese,gpt-4-1106-preview,0.0,0.0,0.0,0.0,0.0,0.0
-gsm,gpt-4-1106-preview,1.0,0.0,0.0,0.0,0.0,0.0
-hellaswag,gpt-4-1106-preview,0.0,0.0,0.0,0.0,0.0,0.0
-mbpp,gpt-4-1106-preview,0.0,0.0,0.0,0.0,0.0,0.0
-mmlu,gpt-4-1106-preview,0.0,0.0,0.0,0.0,0.0,0.0
-mtbench,gpt-4-1106-preview,0.0,0.0,0.0,0.0,0.0,0.0
-winogrande,gpt-4-1106-preview,0.0,0.0,0.0,0.0,0.0,0.0
