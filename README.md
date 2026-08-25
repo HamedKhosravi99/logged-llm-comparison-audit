@@ -134,9 +134,7 @@ code/
   kuairand_download.py, run_kuairand_validity.py, run_kuairand_share_tests.py
                           the production-log study: the protocol on real traffic, and the
                           bootstrap / permutation tests behind the arm-level share
-  run_gate_vs_audit.py, run_kappa_transfer.py, run_label_resolution.py, verify_label_resolution.py
-                          the pre-registered Phase-0 checks (gate vs audit, diagnostic transfer,
-                          label resolution)
+  run_kappa_transfer.py   the pre-registered diagnostic-transfer check
   verify_prop_idset.py    brute-force check of the point-identification proposition against the
                           achievable winner sets, on a lattice that realizes boundary cases
   verify_mckp_certificate.py
@@ -188,8 +186,6 @@ python code/kuairand_download.py                                # KuaiRand-Pure,
 python code/run_kuairand_validity.py --data code/data/kuairand  # the protocol on production traffic
 python code/run_kuairand_share_tests.py --data code/data/kuairand   # bootstrap + permutation null
 
-# pre-registered Phase-0 checks
-python code/run_gate_vs_audit.py
 python code/run_kappa_transfer.py
 python code/run_label_resolution.py
 
