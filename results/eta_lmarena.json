@@ -1,0 +1,32 @@
+{
+ "original (single order, what an operator logs)": {
+  "eta_by_workload": [
+   0.33822278911564624,
+   0.3328192228014661
+  ],
+  "eta_median": 0.33552100595855616
+ },
+ "order-averaged (position bias removed)": {
+  "eta_by_workload": [
+   0.32986716027874563,
+   0.3310609260334724
+  ],
+  "eta_median": 0.330464043156109
+ },
+ "pooled": {
+  "original (single order, what an operator logs)": {
+   "n_models": 48,
+   "C_min": -0.16885553470919323,
+   "C_max": 0.18421052631578955,
+   "eta": 0.3530660610249828,
+   "C_sd": 0.09108939302179675
+  },
+  "order-averaged (position bias removed)": {
+   "n_models": 48,
+   "C_min": -0.16557223264540336,
+   "C_max": 0.16081871345029247,
+   "eta": 0.32639094609569586,
+   "C_sd": 0.0895185575414606
+  }
+ }
+}

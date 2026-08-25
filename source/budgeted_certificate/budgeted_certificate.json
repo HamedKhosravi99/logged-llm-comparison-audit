@@ -1,0 +1,627 @@
+[
+ {
+  "gamma": 0.0005347152561837455,
+  "eta": 0.0,
+  "feasible": true,
+  "settled": true,
+  "n_feasible": 1,
+  "cost": 0.0005347152561837455,
+  "binds": true,
+  "quality": 0.4386042402826855,
+  "n_moved": 0,
+  "moved": []
+ },
+ {
+  "gamma": 0.0005347152561837455,
+  "eta": 0.005,
+  "feasible": true,
+  "settled": true,
+  "n_feasible": 1,
+  "cost": 0.0005347152561837455,
+  "binds": true,
+  "quality": 0.4386042402826855,
+  "n_moved": 0,
+  "moved": []
+ },
+ {
+  "gamma": 0.0005347152561837455,
+  "eta": 0.01,
+  "feasible": true,
+  "settled": true,
+  "n_feasible": 1,
+  "cost": 0.0005347152561837455,
+  "binds": true,
+  "quality": 0.4386042402826855,
+  "n_moved": 0,
+  "moved": []
+ },
+ {
+  "gamma": 0.0005347152561837455,
+  "eta": 0.02,
+  "feasible": true,
+  "settled": true,
+  "n_feasible": 1,
+  "cost": 0.0005347152561837455,
+  "binds": true,
+  "quality": 0.4386042402826855,
+  "n_moved": 0,
+  "moved": []
+ },
+ {
+  "gamma": 0.0005347152561837455,
+  "eta": 0.05,
+  "feasible": true,
+  "settled": true,
+  "n_feasible": 1,
+  "cost": 0.0005347152561837455,
+  "binds": true,
+  "quality": 0.4386042402826855,
+  "n_moved": 0,
+  "moved": []
+ },
+ {
+  "gamma": 0.0006683940702296819,
+  "eta": 0.0,
+  "feasible": true,
+  "settled": true,
+  "n_feasible": 37,
+  "cost": 0.0005819422813604239,
+  "binds": false,
+  "quality": 0.46068904593639576,
+  "n_moved": 0,
+  "moved": []
+ },
+ {
+  "gamma": 0.0006683940702296819,
+  "eta": 0.005,
+  "feasible": true,
+  "settled": false,
+  "n_feasible": 37,
+  "cost": 0.0005819422813604239,
+  "binds": false,
+  "quality": 0.46068904593639576,
+  "n_moved": 1,
+  "moved": [
+   1
+  ]
+ },
+ {
+  "gamma": 0.0006683940702296819,
+  "eta": 0.01,
+  "feasible": true,
+  "settled": false,
+  "n_feasible": 37,
+  "cost": 0.0005819422813604239,
+  "binds": false,
+  "quality": 0.46068904593639576,
+  "n_moved": 1,
+  "moved": [
+   1
+  ]
+ },
+ {
+  "gamma": 0.0006683940702296819,
+  "eta": 0.02,
+  "feasible": true,
+  "settled": false,
+  "n_feasible": 37,
+  "cost": 0.0005819422813604239,
+  "binds": false,
+  "quality": 0.46068904593639576,
+  "n_moved": 1,
+  "moved": [
+   1
+  ]
+ },
+ {
+  "gamma": 0.0006683940702296819,
+  "eta": 0.05,
+  "feasible": true,
+  "settled": false,
+  "n_feasible": 37,
+  "cost": 0.0005819422813604239,
+  "binds": false,
+  "quality": 0.46068904593639576,
+  "n_moved": 1,
+  "moved": [
+   1
+  ]
+ },
+ {
+  "gamma": 0.0008020728842756183,
+  "eta": 0.0,
+  "feasible": true,
+  "settled": true,
+  "n_feasible": 94,
+  "cost": 0.0007070341320671379,
+  "binds": false,
+  "quality": 0.463339222614841,
+  "n_moved": 0,
+  "moved": []
+ },
+ {
+  "gamma": 0.0008020728842756183,
+  "eta": 0.005,
+  "feasible": true,
+  "settled": false,
+  "n_feasible": 94,
+  "cost": 0.0007070341320671379,
+  "binds": false,
+  "quality": 0.463339222614841,
+  "n_moved": 3,
+  "moved": [
+   1,
+   4,
+   7
+  ]
+ },
+ {
+  "gamma": 0.0008020728842756183,
+  "eta": 0.01,
+  "feasible": true,
+  "settled": false,
+  "n_feasible": 94,
+  "cost": 0.0007070341320671379,
+  "binds": false,
+  "quality": 0.463339222614841,
+  "n_moved": 3,
+  "moved": [
+   1,
+   4,
+   7
+  ]
+ },
+ {
+  "gamma": 0.0008020728842756183,
+  "eta": 0.02,
+  "feasible": true,
+  "settled": false,
+  "n_feasible": 94,
+  "cost": 0.0007070341320671379,
+  "binds": false,
+  "quality": 0.463339222614841,
+  "n_moved": 3,
+  "moved": [
+   1,
+   4,
+   7
+  ]
+ },
+ {
+  "gamma": 0.0008020728842756183,
+  "eta": 0.05,
+  "feasible": true,
+  "settled": false,
+  "n_feasible": 94,
+  "cost": 0.0007070341320671379,
+  "binds": false,
+  "quality": 0.463339222614841,
+  "n_moved": 3,
+  "moved": [
+   1,
+   4,
+   7
+  ]
+ },
+ {
+  "gamma": 0.001069430512367491,
+  "eta": 0.0,
+  "feasible": true,
+  "settled": true,
+  "n_feasible": 251,
+  "cost": 0.0010109078621908126,
+  "binds": false,
+  "quality": 0.48895759717314485,
+  "n_moved": 0,
+  "moved": []
+ },
+ {
+  "gamma": 0.001069430512367491,
+  "eta": 0.005,
+  "feasible": true,
+  "settled": true,
+  "n_feasible": 251,
+  "cost": 0.0010109078621908126,
+  "binds": false,
+  "quality": 0.48895759717314485,
+  "n_moved": 0,
+  "moved": []
+ },
+ {
+  "gamma": 0.001069430512367491,
+  "eta": 0.01,
+  "feasible": true,
+  "settled": true,
+  "n_feasible": 251,
+  "cost": 0.0010109078621908126,
+  "binds": false,
+  "quality": 0.48895759717314485,
+  "n_moved": 0,
+  "moved": []
+ },
+ {
+  "gamma": 0.001069430512367491,
+  "eta": 0.02,
+  "feasible": true,
+  "settled": true,
+  "n_feasible": 251,
+  "cost": 0.0010109078621908126,
+  "binds": false,
+  "quality": 0.48895759717314485,
+  "n_moved": 0,
+  "moved": []
+ },
+ {
+  "gamma": 0.001069430512367491,
+  "eta": 0.05,
+  "feasible": true,
+  "settled": false,
+  "n_feasible": 251,
+  "cost": 0.0010109078621908126,
+  "binds": false,
+  "quality": 0.48895759717314485,
+  "n_moved": 4,
+  "moved": [
+   1,
+   2,
+   4,
+   7
+  ]
+ },
+ {
+  "gamma": 0.0016041457685512365,
+  "eta": 0.0,
+  "feasible": true,
+  "settled": true,
+  "n_feasible": 1482,
+  "cost": 0.0015941820627208478,
+  "binds": false,
+  "quality": 0.4986749116607774,
+  "n_moved": 0,
+  "moved": []
+ },
+ {
+  "gamma": 0.0016041457685512365,
+  "eta": 0.005,
+  "feasible": true,
+  "settled": true,
+  "n_feasible": 1482,
+  "cost": 0.0015941820627208478,
+  "binds": false,
+  "quality": 0.4986749116607774,
+  "n_moved": 0,
+  "moved": []
+ },
+ {
+  "gamma": 0.0016041457685512365,
+  "eta": 0.01,
+  "feasible": true,
+  "settled": true,
+  "n_feasible": 1482,
+  "cost": 0.0015941820627208478,
+  "binds": false,
+  "quality": 0.4986749116607774,
+  "n_moved": 0,
+  "moved": []
+ },
+ {
+  "gamma": 0.0016041457685512365,
+  "eta": 0.02,
+  "feasible": true,
+  "settled": true,
+  "n_feasible": 1482,
+  "cost": 0.0015941820627208478,
+  "binds": false,
+  "quality": 0.4986749116607774,
+  "n_moved": 0,
+  "moved": []
+ },
+ {
+  "gamma": 0.0016041457685512365,
+  "eta": 0.05,
+  "feasible": true,
+  "settled": false,
+  "n_feasible": 1482,
+  "cost": 0.0015941820627208478,
+  "binds": false,
+  "quality": 0.4986749116607774,
+  "n_moved": 3,
+  "moved": [
+   2,
+   4,
+   7
+  ]
+ },
+ {
+  "gamma": 0.0026735762809187275,
+  "eta": 0.0,
+  "feasible": true,
+  "settled": true,
+  "n_feasible": 17846,
+  "cost": 0.0026714773056537105,
+  "binds": false,
+  "quality": 0.5189929328621907,
+  "n_moved": 0,
+  "moved": []
+ },
+ {
+  "gamma": 0.0026735762809187275,
+  "eta": 0.005,
+  "feasible": true,
+  "settled": true,
+  "n_feasible": 17846,
+  "cost": 0.0026714773056537105,
+  "binds": false,
+  "quality": 0.5189929328621907,
+  "n_moved": 0,
+  "moved": []
+ },
+ {
+  "gamma": 0.0026735762809187275,
+  "eta": 0.01,
+  "feasible": true,
+  "settled": true,
+  "n_feasible": 17846,
+  "cost": 0.0026714773056537105,
+  "binds": false,
+  "quality": 0.5189929328621907,
+  "n_moved": 0,
+  "moved": []
+ },
+ {
+  "gamma": 0.0026735762809187275,
+  "eta": 0.02,
+  "feasible": true,
+  "settled": false,
+  "n_feasible": 17846,
+  "cost": 0.0026714773056537105,
+  "binds": false,
+  "quality": 0.5189929328621907,
+  "n_moved": 2,
+  "moved": [
+   2,
+   5
+  ]
+ },
+ {
+  "gamma": 0.0026735762809187275,
+  "eta": 0.05,
+  "feasible": true,
+  "settled": false,
+  "n_feasible": 17846,
+  "cost": 0.0026714773056537105,
+  "binds": false,
+  "quality": 0.5189929328621907,
+  "n_moved": 6,
+  "moved": [
+   1,
+   2,
+   4,
+   5,
+   6,
+   7
+  ]
+ },
+ {
+  "gamma": 0.005618061749116608,
+  "eta": 0.0,
+  "feasible": true,
+  "settled": true,
+  "n_feasible": 263243,
+  "cost": 0.005426441554770317,
+  "binds": false,
+  "quality": 0.5375441696113074,
+  "n_moved": 0,
+  "moved": []
+ },
+ {
+  "gamma": 0.005618061749116608,
+  "eta": 0.005,
+  "feasible": true,
+  "settled": true,
+  "n_feasible": 263243,
+  "cost": 0.005426441554770317,
+  "binds": false,
+  "quality": 0.5375441696113074,
+  "n_moved": 0,
+  "moved": []
+ },
+ {
+  "gamma": 0.005618061749116608,
+  "eta": 0.01,
+  "feasible": true,
+  "settled": false,
+  "n_feasible": 263243,
+  "cost": 0.005426441554770317,
+  "binds": false,
+  "quality": 0.5375441696113074,
+  "n_moved": 3,
+  "moved": [
+   0,
+   5,
+   6
+  ]
+ },
+ {
+  "gamma": 0.005618061749116608,
+  "eta": 0.02,
+  "feasible": true,
+  "settled": false,
+  "n_feasible": 263243,
+  "cost": 0.005426441554770317,
+  "binds": false,
+  "quality": 0.5375441696113074,
+  "n_moved": 3,
+  "moved": [
+   0,
+   5,
+   6
+  ]
+ },
+ {
+  "gamma": 0.005618061749116608,
+  "eta": 0.05,
+  "feasible": true,
+  "settled": false,
+  "n_feasible": 263243,
+  "cost": 0.005426441554770317,
+  "binds": false,
+  "quality": 0.5375441696113074,
+  "n_moved": 7,
+  "moved": [
+   0,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7
+  ]
+ },
+ {
+  "gamma": 0.008988898798586572,
+  "eta": 0.0,
+  "feasible": true,
+  "settled": true,
+  "n_feasible": 363818,
+  "cost": 0.007022665366607773,
+  "binds": false,
+  "quality": 0.5419611307420494,
+  "n_moved": 0,
+  "moved": []
+ },
+ {
+  "gamma": 0.008988898798586572,
+  "eta": 0.005,
+  "feasible": true,
+  "settled": true,
+  "n_feasible": 363818,
+  "cost": 0.007022665366607773,
+  "binds": false,
+  "quality": 0.5419611307420494,
+  "n_moved": 0,
+  "moved": []
+ },
+ {
+  "gamma": 0.008988898798586572,
+  "eta": 0.01,
+  "feasible": true,
+  "settled": false,
+  "n_feasible": 363818,
+  "cost": 0.007022665366607773,
+  "binds": false,
+  "quality": 0.5419611307420494,
+  "n_moved": 2,
+  "moved": [
+   0,
+   6
+  ]
+ },
+ {
+  "gamma": 0.008988898798586572,
+  "eta": 0.02,
+  "feasible": true,
+  "settled": false,
+  "n_feasible": 363818,
+  "cost": 0.007022665366607773,
+  "binds": false,
+  "quality": 0.5419611307420494,
+  "n_moved": 2,
+  "moved": [
+   0,
+   6
+  ]
+ },
+ {
+  "gamma": 0.008988898798586572,
+  "eta": 0.05,
+  "feasible": true,
+  "settled": false,
+  "n_feasible": 363818,
+  "cost": 0.007022665366607773,
+  "binds": false,
+  "quality": 0.5419611307420494,
+  "n_moved": 6,
+  "moved": [
+   0,
+   3,
+   4,
+   5,
+   6,
+   7
+  ]
+ },
+ {
+  "gamma": 0.011236123498233216,
+  "eta": 0.0,
+  "feasible": true,
+  "settled": true,
+  "n_feasible": 390625,
+  "cost": 0.007022665366607773,
+  "binds": false,
+  "quality": 0.5419611307420494,
+  "n_moved": 0,
+  "moved": []
+ },
+ {
+  "gamma": 0.011236123498233216,
+  "eta": 0.005,
+  "feasible": true,
+  "settled": true,
+  "n_feasible": 390625,
+  "cost": 0.007022665366607773,
+  "binds": false,
+  "quality": 0.5419611307420494,
+  "n_moved": 0,
+  "moved": []
+ },
+ {
+  "gamma": 0.011236123498233216,
+  "eta": 0.01,
+  "feasible": true,
+  "settled": false,
+  "n_feasible": 390625,
+  "cost": 0.007022665366607773,
+  "binds": false,
+  "quality": 0.5419611307420494,
+  "n_moved": 2,
+  "moved": [
+   0,
+   6
+  ]
+ },
+ {
+  "gamma": 0.011236123498233216,
+  "eta": 0.02,
+  "feasible": true,
+  "settled": false,
+  "n_feasible": 390625,
+  "cost": 0.007022665366607773,
+  "binds": false,
+  "quality": 0.5419611307420494,
+  "n_moved": 2,
+  "moved": [
+   0,
+   6
+  ]
+ },
+ {
+  "gamma": 0.011236123498233216,
+  "eta": 0.05,
+  "feasible": true,
+  "settled": false,
+  "n_feasible": 390625,
+  "cost": 0.007022665366607773,
+  "binds": false,
+  "quality": 0.5419611307420494,
+  "n_moved": 6,
+  "moved": [
+   0,
+   3,
+   4,
+   5,
+   6,
+   7
+  ]
+ }
+]
