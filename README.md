@@ -1,9 +1,7 @@
 # Which LLM for Which Work? — reproducibility package
 
-Code, result files, figures and analysis plans for the workshop paper *Which LLM for Which Work?
-Budgeted Model Allocation under Uncertain Evaluation*, targeted for the TAE workshop at NeurIPS
-2026, *Can We Trust AI Evaluation? Robustness, Causality, and Risk in Modern AI Assessment*
-(<https://tai-eval.github.io/>).
+Code, result files, figures and analysis plans for the paper *Which LLM for Which Work?
+Budgeted Model Allocation under Uncertain Evaluation*.
 
 **TLDR.** A company with a fixed AI budget deciding which model handles each workload is solving a
 multiple-choice knapsack problem, and at organizational scale the optimization is the easy half. The
