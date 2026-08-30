@@ -7,9 +7,7 @@ Budgeted Model Allocation under Uncertain Evaluation*, targeted for the TAE work
 
 **TLDR.** A company with a fixed AI budget deciding which model handles each workload is solving a
 multiple-choice knapsack problem, and at organizational scale the optimization is the easy half. The
-hard half is the quality table it optimizes. This package runs the crossed experiment that separates
-the two ways that table can be wrong, shows that repeated scoring by the same evaluator cannot fix
-one of them, and prices what an accurate table is worth.
+hard half is the quality table it optimizes. This package runs the crossed experiment that separates the two ways that table can be wrong, corrects the one that randomized re-evaluation can reach, certifies when the remaining uncertainty leaves the allocation unchanged, and prices what better evidence is worth.
 
 ---
 
@@ -35,53 +33,40 @@ roster, requests, contexts and log volume fixed.
 At a 35% randomized-cell budget on the primary corpus unless stated otherwise; `±` is a paired
 standard error over 30 partitions.
 
-**On a real production log (KuaiRand-Pure), repairing assignment made the decision worse.** The log
-carries a selectively assigned and a randomized stream over the same users and window, with the same
-cheap signal (`is_click`) and the same designated outcome (`is_like`) on every row, so all four
-validity cells exist with nothing simulated.
+**On a real production log (KuaiRand-Pure), repairing assignment alone made the decision worse.**
+The log carries a selectively assigned and a randomized stream over the same users and window, with
+the same cheap signal (`is_click`) and the same designated outcome (`is_like`) on every row, so all
+four validity cells exist with nothing simulated.
 
-* A **cellwise-perfect assignment repair leaves more loss (2.01) than trusting the log unrepaired
-  (1.76)**, and more than the audit protocol (1.57): the penalty is +0.44 [+0.31, +0.57] against
-  CASE, in `is_like` units ×10⁻³. Two biases were partly cancelling, and removing one exposed the
-  other.
-* Evaluator error against the platform's own designated outcome is **79.6%** model main effects,
-  9.1% workload, 11.3% residual — exactly the audit-invisible form the theory predicts. A user-level
-  cluster bootstrap gives [57.9, 78.2]%, below the plug-in estimate.
+* CASE gives up **1.57** of target value against **1.76** for trusting the log and **1.94** for a
+  traffic vote, in `is_like` units ×10⁻³. A **cellwise-perfect assignment repair leaves 2.01**, more
+  than the unrepaired log: the router's model preference and the click distortion were partly
+  cancelling, and removing one exposed the other.
 
 On the controlled corpora:
 
-* The logged comparison names the wrong cheapest-good-enough model in **70%** of workloads. On the
-  stricter top-1 criterion most of that is a sampling floor that survives without any routing.
-* Auditing repairs assignment where the log is imbalanced — target-value loss falls from 0.050 to
-  **0.034**, a paired −0.016 [−0.022, −0.010] — and *hurts* where it is not, raising loss by +0.011
-  [+0.007, +0.015].
-* **More randomized evidence does not remove measurement error.** With selection removed exactly the
-  distortion still picks the wrong model in **18.3%** of workloads, and a cellwise-perfect assignment
-  repair is stranded at 0.003 rather than reaching zero.
-* Real judges show the same failure. On LMArena, `gpt-4o-mini` agrees with the human verdict barely
-  above the corpus base rate, reverses on a third of battles when answers are swapped, and a local
-  Qwen judge has a length preference of **opposite sign** on the same battles. On a grid matched to
-  KuaiRand's, **53%** of judge error is model-level against a 13% permutation null (post hoc).
-* The binding limit is the correction family, not the budget: **68.4%±2.0** of the selection bias is
-  not row-constant.
+* Under faithful scoring on LLMRouterBench, CASE removes **32%** of the loss that trusting the log
+  incurs, which is **89%** of what the same correction reaches with unlimited audit information.
+  Under randomized assignment it no longer improves on trusting the log, so the imbalance is what
+  it repairs.
+* **More randomized evidence does not remove measurement error.** With selection removed exactly,
+  the distortion still leaves a wrong-model floor of **18.3%** of workloads, rising to 30.6% when
+  the distortion doubles, and a cellwise-perfect repair is stranded at 0.003 rather than reaching
+  zero.
+* The certificate is exact and costs one extra solve. At the evaluator bands measured against
+  human labels (0.095 to 0.173 across corpora, an order of magnitude above the 0.02 the replays
+  tolerate) it settles **1 of 210** instances; at a band of 0.02 it settles 21 of 30 partitions at
+  the tightest serving budget. The median tolerated spread falls from 0.0456 at 1.25× the cheapest
+  feasible spend to 0.0026 at 8×.
+* Exact-propensity reweighting matches CASE at zero audit spend where propensities exist (the
+  predeclared contrast is −0.0023 [−0.0100, +0.0055], unresolved). Estimated propensities do
+  worse, and no corpus in the study records them.
 
-**What an accurate quality table is worth.** Applying the same rule to three decision surfaces:
-deciding on the free log is wrong in **70.0%** of workloads at \$3,094 per million requests, and
-deciding on the target outcome is wrong in **7.9%** at \$7,169. Better decisions cost more.
-
-* On 150 SWE-Lancer managerial tasks, in expected total cost, re-allocating on the same observable
-  table is worth about **\$1,000** against the best single model, while the gap to an oracle on true
-  outcomes is about **\$35,000**. The second figure is a value-of-information gap, not savings this
-  method achieves.
-* On τ²-bench-verified, allocating per domain raises success from 0.517 to 0.592 but raises cost
-  from \$19.44 to \$39.72 per thousand tasks. Better allocation need not mean lower spending.
-* Valid cost-saving opportunities are rare. A quality-preserving cheaper alternative exists in only
-  **6.7%** of decisions and 80% of runs contain none.
-* The audit itself is cheap (\$2.39±0.08 at released benchmark prices), and the quality *tolerance*
-  is what saves: relaxing to a two-point tolerance is worth \$1,579 per million [1,019, 2,227],
-  repaying the audit after **1,514 requests** [1,064, 2,368]. All dollar figures are estimated
-  counterfactual production costs computed from released benchmark prices, not any company's
-  observed spend.
+**What better evidence is worth.** On 150 SWE-Lancer managerial tasks, re-allocating on the same
+observable table is worth about **$1,000** in expected total cost against the best single model,
+while the gap to an oracle on true outcomes is about **$35,000**. The second figure is a
+value-of-information gap, not savings this method achieves. On LLMRouterBench, better evidence is
+worth **0.046** of target quality per request at the tight serving budget.
 
 Every number quoted in the paper is registered in `results/tae_paper_numbers.json` under a stable
 key, so any figure in the text can be checked without rerunning anything.
@@ -135,8 +120,8 @@ code/
                           the production-log study: the protocol on real traffic, and the
                           bootstrap / permutation tests behind the arm-level share
   run_kappa_transfer.py   the pre-registered diagnostic-transfer check
-  verify_prop_idset.py    brute-force check of the point-identification proposition against the
-                          achievable winner sets, on a lattice that realizes boundary cases
+  verify_prop_idset.py    brute-force check over achievable winner sets, retained from an
+                          earlier draft's identification analysis
   verify_mckp_certificate.py
                           brute-force check of the robust-optimality certificate for budgeted
                           allocation, against rival-by-rival worst cases over the coefficient box
