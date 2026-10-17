@@ -204,3 +204,17 @@ corpora above. On KuaiRand the designated outcome (`is_like`) is a platform-chos
 independent welfare, and there is no price column, so none of the paper's dollar results extend
 there. `docs/CLAIM_REGISTRY.md` records these distinctions alongside the wording each does and does
 not license, and `docs/CLAIM_BOUNDARIES.md` records the wordings the evidence forbids.
+
+## Licence
+
+The code is released under the MIT License (see `LICENSE`). The corpora keep their own terms, and
+none is redistributed here.
+
+| Corpus | Source | Licence |
+|---|---|---|
+| KuaiRand-Pure | Zenodo 10439422 | CC BY 4.0 |
+| HelpSteer2 | `nvidia/HelpSteer2` | CC BY 4.0 |
+| LMArena battles | `lmarena-ai/arena-human-preference-100k` | prompts CC BY 4.0, model outputs under each provider's terms |
+| LLMRouterBench | `NPULH/LLMRouterBench` | no licence stated by the source |
+| RouterBench | `withmartian/routerbench` | no licence stated by the source |
+| SWE-Lancer | `openai/SWELancer-Benchmark` | no licence stated by the source |

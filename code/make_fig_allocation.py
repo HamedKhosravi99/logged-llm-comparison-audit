@@ -5,7 +5,7 @@ caption says so and the paper's empirical instances are in Sec. 5. This script e
 figure is reproducible and its numbers auditable, not because it reads any data.
 
 Panel (a) solves the multiple-choice knapsack of Eq. (1) on an estimated quality table. Panel
-(b) solves it on an admissible table that differs only by a model-level evaluator offset C on
+(b) solves it on another table consistent with the evidence, differing only by a model-level evaluator offset C on
 the "Small" model -- the form Thm. 3.3 shows no audit budget can rule out. Only the Small row
 changes numerically, yet the coding and drafting allocations both move, because the shared
 budget row couples workloads that the delta-satisficing rule of Eq. (2) would decide separately.
@@ -68,9 +68,9 @@ def main(outdir):
                          "text.color": "black", "axes.labelcolor": "black",
                          "xtick.color": "black", "ytick.color": "black",
                          "pdf.fonttype": 42, "ps.fonttype": 42})
-    fig, axes = plt.subplots(1, 2, figsize=(7.5, 1.80))
+    fig, axes = plt.subplots(1, 2, figsize=(6.6, 2.15))
     panels = [(axes[0], MU, xa, cost_a, q_a, "(a) Observed quality table"),
-              (axes[1], mu_b, xb, cost_b, q_b, "(b) Another admissible target table")]
+              (axes[1], mu_b, xb, cost_b, q_b, "(b) Another table consistent with the evidence")]
     for ax, mu, x, cost, quality, title in panels:
         # Pale ramp only: the numbers carry the exact values, the shading carries the ordering,
         # and every cell stays light enough for black text and for greyscale printing.
@@ -96,16 +96,16 @@ def main(outdir):
         ax.set_yticks(range(len(MODEL)))
         ax.set_xticklabels([f"{w}\n{v:.0f}k" for w, v in zip(WORKLOAD, VOLUME)], fontsize=8.4)
         ax.set_yticklabels([f"{m} \\${p:.0f}" for m, p in zip(MODEL, PRICE)], fontsize=8.4)
-        ax.set_title(title, fontsize=9.6, pad=6)
-        ax.set_xlabel(f"Spend \\${cost:,.0f} of \\${BUDGET:,.0f} · weighted quality "
-                      f"{quality:.3f}", fontsize=8.8, labelpad=3)
+        ax.set_title(title, fontsize=8.8, pad=6)
+        ax.set_xlabel(f"Spend \\${cost:,.0f} of \\${BUDGET:,.0f}, quality {quality:.3f}",
+                      fontsize=8.8, labelpad=3)
         ax.tick_params(length=0)
         for spine in ax.spines.values():
             spine.set_visible(False)
-    fig.tight_layout(pad=.35)
+    fig.tight_layout(pad=.35, w_pad=1.6)
     for ext, kw in (("pdf", {}), ("png", {"dpi": 210})):
         path = os.path.join(outdir, f"fig_allocation_illustrative.{ext}")
-        fig.savefig(path, facecolor="white", **kw)
+        fig.savefig(path, facecolor="white", bbox_inches="tight", pad_inches=0.03, **kw)
         print(f"wrote {path}")
 
 
