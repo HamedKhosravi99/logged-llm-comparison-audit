@@ -27,9 +27,8 @@ SRC = "source/budgeted_certificate/cert30_{}_row.json"
 PANELS = [("llmrouterbench", "(a) LLMRouterBench"), ("routerbench", "(b) RouterBench")]
 BLUE = "#2a78d6"
 ORANGE = "#e07b39"
-REFS = [(0.336, "LMArena judge", (0, (6, 2)), "#b8323a"),
-        (0.128, "KuaiRand", "-.", "#7b4fa8"),
-        (0.02, "replays", ":", "#2e8b57")]
+REF_GREY = "0.35"
+REFS = [(0.336, "LMArena judge", (0, (6, 2))), (0.128, "KuaiRand", "-."), (0.02, "replays", ":")]
 FLOOR = 1e-4
 
 
@@ -70,18 +69,18 @@ def main():
         q25 = np.maximum([np.percentile(b, 25) for b in box], FLOOR)
         q75 = [np.percentile(b, 75) for b in box]
         ax.fill_between(xs, q25, q75, color=BLUE, alpha=0.15, lw=0,
-                        label="middle half of partitions (box)")
+                        label="middle half of partitions")
         ax.plot(xs, np.maximum([np.median(b) for b in box], FLOOR), color=BLUE, ls="-",
-                marker="o", label="median margin, box")
+                marker="o", label="median, error per cell")
         ax.plot(xs, np.maximum([np.median(r) for r in row], FLOOR), color=ORANGE, ls="--",
-                marker="s", mfc="white", mew=1.2, label="median margin, model-level set")
+                marker="s", mfc="white", mew=1.2, label="median, one error per model")
         for m, b in zip(mults, box):
             print(f"{corpus:16}{m:>8g}{np.median(b):>9.4f}{(b >= 0.01).sum():>8}"
                   f"{(b >= 0.02).sum():>8}{(b >= 0.128).sum():>9}")
-        for eta, name, ls, colour in REFS:
-            ax.axhline(eta, color=colour, lw=0.9, ls=ls)
-            ax.text(len(mults) - 0.55, eta * 1.12, f"{name} {eta:g}", fontsize=7, color=colour,
-                    ha="right", va="bottom")
+        for eta, name, ls in REFS:
+            ax.axhline(eta, color=REF_GREY, lw=0.9, ls=ls)
+            ax.text(len(mults) - 0.55, eta * 1.12, f"{name} {eta:g}", fontsize=7,
+                    color=REF_GREY, ha="right", va="bottom")
         ax.set_xticks(xs)
         ax.set_xticklabels([f"{m:g}" for m in mults])
         ax.set_xlabel(r"serving budget $\Gamma$ ($\times$ cheapest feasible)")
