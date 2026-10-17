@@ -66,7 +66,8 @@ def main(outdir):
 
     plt.rcParams.update({"font.family": "serif", "font.serif": ["DejaVu Serif"],
                          "text.color": "black", "axes.labelcolor": "black",
-                         "xtick.color": "black", "ytick.color": "black"})
+                         "xtick.color": "black", "ytick.color": "black",
+                         "pdf.fonttype": 42, "ps.fonttype": 42})
     fig, axes = plt.subplots(1, 2, figsize=(7.5, 1.80))
     panels = [(axes[0], MU, xa, cost_a, q_a, "(a) Observed quality table"),
               (axes[1], mu_b, xb, cost_b, q_b, "(b) Another admissible target table")]
