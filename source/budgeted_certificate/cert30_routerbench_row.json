@@ -1,0 +1,1892 @@
+[
+ {
+  "corpus": "routerbench",
+  "seed": 0,
+  "mult": 1.25,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0017578124999999998,
+  "margin_row": 0.00234375
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 0,
+  "mult": 1.5,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00439453125,
+  "margin_row": 0.007910156249999998
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 0,
+  "mult": 2.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.007617187499999999,
+  "margin_row": 0.007617187499999999
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 0,
+  "mult": 3.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00556640625,
+  "margin_row": 0.0067382812499999995
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 0,
+  "mult": 5.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0017578124999999998,
+  "margin_row": 0.0017578124999999998
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 0,
+  "mult": 8.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.007910156249999998,
+  "margin_row": 0.007910156249999998
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 0,
+  "mult": 12.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.017578125,
+  "margin_row": 0.017578125
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 1,
+  "mult": 1.25,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.012890625,
+  "margin_row": 0.0228515625
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 1,
+  "mult": 1.5,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.01142578125,
+  "margin_row": 0.0169921875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 1,
+  "mult": 2.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.01142578125,
+  "margin_row": 0.0123046875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 1,
+  "mult": 3.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.007031249999999999,
+  "margin_row": 0.00849609375
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 1,
+  "mult": 5.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0020507812499999997,
+  "margin_row": 0.0029296875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 1,
+  "mult": 8.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0029296875,
+  "margin_row": 0.0029296875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 1,
+  "mult": 12.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.015820312499999996,
+  "margin_row": 0.015820312499999996
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 2,
+  "mult": 1.25,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.014062499999999999,
+  "margin_row": 0.0228515625
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 2,
+  "mult": 1.5,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00439453125,
+  "margin_row": 0.00556640625
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 2,
+  "mult": 2.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.019628906249999998,
+  "margin_row": 0.019628906249999998
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 2,
+  "mult": 3.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00322265625,
+  "margin_row": 0.00439453125
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 2,
+  "mult": 5.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0,
+  "margin_row": 0.0
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 2,
+  "mult": 8.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0035156249999999997,
+  "margin_row": 0.00615234375
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 2,
+  "mult": 12.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00234375,
+  "margin_row": 0.00234375
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 3,
+  "mult": 1.25,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.029296874999999997,
+  "margin_row": 0.03222656249999999
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 3,
+  "mult": 1.5,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00322265625,
+  "margin_row": 0.007031249999999999
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 3,
+  "mult": 2.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.019628906249999998,
+  "margin_row": 0.02607421875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 3,
+  "mult": 3.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.02109375,
+  "margin_row": 0.025488281249999998
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 3,
+  "mult": 5.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0017578124999999998,
+  "margin_row": 0.0017578124999999998
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 3,
+  "mult": 8.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0017578124999999998,
+  "margin_row": 0.0017578124999999998
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 3,
+  "mult": 12.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0046875,
+  "margin_row": 0.0052734375
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 4,
+  "mult": 1.25,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0205078125,
+  "margin_row": 0.03222656249999999
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 4,
+  "mult": 1.5,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00029296875,
+  "margin_row": 0.00029296875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 4,
+  "mult": 2.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0064453125,
+  "margin_row": 0.0099609375
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 4,
+  "mult": 3.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0,
+  "margin_row": 0.0
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 4,
+  "mult": 5.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0,
+  "margin_row": 0.0
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 4,
+  "mult": 8.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.01318359375,
+  "margin_row": 0.01318359375
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 4,
+  "mult": 12.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.001171875,
+  "margin_row": 0.001171875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 5,
+  "mult": 1.25,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0020507812499999997,
+  "margin_row": 0.0035156249999999997
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 5,
+  "mult": 1.5,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0,
+  "margin_row": 0.0
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 5,
+  "mult": 2.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0,
+  "margin_row": 0.0
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 5,
+  "mult": 3.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0,
+  "margin_row": 0.0
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 5,
+  "mult": 5.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0,
+  "margin_row": 0.0
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 5,
+  "mult": 8.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00322265625,
+  "margin_row": 0.00322265625
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 5,
+  "mult": 12.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00908203125,
+  "margin_row": 0.01171875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 6,
+  "mult": 1.25,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.02373046875,
+  "margin_row": 0.031054687499999994
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 6,
+  "mult": 1.5,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00908203125,
+  "margin_row": 0.00908203125
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 6,
+  "mult": 2.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00234375,
+  "margin_row": 0.00234375
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 6,
+  "mult": 3.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.001171875,
+  "margin_row": 0.00146484375
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 6,
+  "mult": 5.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0087890625,
+  "margin_row": 0.013476562499999999
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 6,
+  "mult": 8.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.004101562499999999,
+  "margin_row": 0.004101562499999999
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 6,
+  "mult": 12.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.004101562499999999,
+  "margin_row": 0.004101562499999999
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 7,
+  "mult": 1.25,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.017578125,
+  "margin_row": 0.029296874999999997
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 7,
+  "mult": 1.5,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00439453125,
+  "margin_row": 0.01201171875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 7,
+  "mult": 2.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0038085937499999995,
+  "margin_row": 0.010546875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 7,
+  "mult": 3.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.010546875,
+  "margin_row": 0.010546875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 7,
+  "mult": 5.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.004101562499999999,
+  "margin_row": 0.004101562499999999
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 7,
+  "mult": 8.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0005859375,
+  "margin_row": 0.001171875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 7,
+  "mult": 12.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.009667968749999999,
+  "margin_row": 0.009667968749999999
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 8,
+  "mult": 1.25,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.033984375,
+  "margin_row": 0.033984375
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 8,
+  "mult": 1.5,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0064453125,
+  "margin_row": 0.0169921875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 8,
+  "mult": 2.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00146484375,
+  "margin_row": 0.0017578124999999998
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 8,
+  "mult": 3.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.028124999999999997,
+  "margin_row": 0.028124999999999997
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 8,
+  "mult": 5.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.014941406249999997,
+  "margin_row": 0.014941406249999997
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 8,
+  "mult": 8.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0038085937499999995,
+  "margin_row": 0.004101562499999999
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 8,
+  "mult": 12.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.014941406249999997,
+  "margin_row": 0.014941406249999997
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 9,
+  "mult": 1.25,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0029296875,
+  "margin_row": 0.009667968749999999
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 9,
+  "mult": 1.5,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.008203124999999999,
+  "margin_row": 0.008203124999999999
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 9,
+  "mult": 2.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.04658203125,
+  "margin_row": 0.059179687499999994
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 9,
+  "mult": 3.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.007031249999999999,
+  "margin_row": 0.007031249999999999
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 9,
+  "mult": 5.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.001171875,
+  "margin_row": 0.001171875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 9,
+  "mult": 8.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00439453125,
+  "margin_row": 0.00439453125
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 9,
+  "mult": 12.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0287109375,
+  "margin_row": 0.029882812499999994
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 10,
+  "mult": 1.25,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0240234375,
+  "margin_row": 0.0240234375
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 10,
+  "mult": 1.5,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.01728515625,
+  "margin_row": 0.01728515625
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 10,
+  "mult": 2.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.03369140625,
+  "margin_row": 0.04951171875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 10,
+  "mult": 3.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.008203124999999999,
+  "margin_row": 0.009667968749999999
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 10,
+  "mult": 5.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00029296875,
+  "margin_row": 0.00029296875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 10,
+  "mult": 8.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0035156249999999997,
+  "margin_row": 0.00498046875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 10,
+  "mult": 12.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.016113281249999997,
+  "margin_row": 0.016113281249999997
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 11,
+  "mult": 1.25,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0035156249999999997,
+  "margin_row": 0.0035156249999999997
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 11,
+  "mult": 1.5,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0008789062499999999,
+  "margin_row": 0.0008789062499999999
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 11,
+  "mult": 2.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.02314453125,
+  "margin_row": 0.0287109375
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 11,
+  "mult": 3.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.01201171875,
+  "margin_row": 0.016406249999999997
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 11,
+  "mult": 5.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0008789062499999999,
+  "margin_row": 0.0017578124999999998
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 11,
+  "mult": 8.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.007910156249999998,
+  "margin_row": 0.01171875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 11,
+  "mult": 12.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0005859375,
+  "margin_row": 0.0008789062499999999
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 12,
+  "mult": 1.25,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.039257812499999996,
+  "margin_row": 0.039257812499999996
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 12,
+  "mult": 1.5,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00615234375,
+  "margin_row": 0.007617187499999999
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 12,
+  "mult": 2.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.019628906249999998,
+  "margin_row": 0.019628906249999998
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 12,
+  "mult": 3.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.017578125,
+  "margin_row": 0.017578125
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 12,
+  "mult": 5.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.015527343749999997,
+  "margin_row": 0.016406249999999997
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 12,
+  "mult": 8.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.02109375,
+  "margin_row": 0.02109375
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 12,
+  "mult": 12.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.015527343749999997,
+  "margin_row": 0.016406249999999997
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 13,
+  "mult": 1.25,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00146484375,
+  "margin_row": 0.00146484375
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 13,
+  "mult": 1.5,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.01025390625,
+  "margin_row": 0.0205078125
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 13,
+  "mult": 2.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0087890625,
+  "margin_row": 0.0087890625
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 13,
+  "mult": 3.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00029296875,
+  "margin_row": 0.00029296875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 13,
+  "mult": 5.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.001171875,
+  "margin_row": 0.001171875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 13,
+  "mult": 8.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0123046875,
+  "margin_row": 0.014648437499999998
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 13,
+  "mult": 12.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.016699218749999998,
+  "margin_row": 0.016699218749999998
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 14,
+  "mult": 1.25,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00234375,
+  "margin_row": 0.016113281249999997
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 14,
+  "mult": 1.5,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00029296875,
+  "margin_row": 0.00029296875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 14,
+  "mult": 2.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.02314453125,
+  "margin_row": 0.037207031249999994
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 14,
+  "mult": 3.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.013769531249999998,
+  "margin_row": 0.013769531249999998
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 14,
+  "mult": 5.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0029296875,
+  "margin_row": 0.0029296875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 14,
+  "mult": 8.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00615234375,
+  "margin_row": 0.00615234375
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 14,
+  "mult": 12.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.01845703125,
+  "margin_row": 0.01845703125
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 15,
+  "mult": 1.25,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.015820312499999996,
+  "margin_row": 0.025488281249999998
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 15,
+  "mult": 1.5,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0020507812499999997,
+  "margin_row": 0.0020507812499999997
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 15,
+  "mult": 2.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0234375,
+  "margin_row": 0.025488281249999998
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 15,
+  "mult": 3.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0052734375,
+  "margin_row": 0.0052734375
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 15,
+  "mult": 5.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0020507812499999997,
+  "margin_row": 0.0020507812499999997
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 15,
+  "mult": 8.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00615234375,
+  "margin_row": 0.00615234375
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 15,
+  "mult": 12.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00263671875,
+  "margin_row": 0.00263671875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 16,
+  "mult": 1.25,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0087890625,
+  "margin_row": 0.013769531249999998
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 16,
+  "mult": 1.5,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.007031249999999999,
+  "margin_row": 0.007031249999999999
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 16,
+  "mult": 2.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.02431640625,
+  "margin_row": 0.02431640625
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 16,
+  "mult": 3.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00029296875,
+  "margin_row": 0.00029296875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 16,
+  "mult": 5.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0008789062499999999,
+  "margin_row": 0.001171875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 16,
+  "mult": 8.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00234375,
+  "margin_row": 0.00234375
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 16,
+  "mult": 12.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.013476562499999999,
+  "margin_row": 0.013476562499999999
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 17,
+  "mult": 1.25,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.007324218749999999,
+  "margin_row": 0.010839843750000001
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 17,
+  "mult": 1.5,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0020507812499999997,
+  "margin_row": 0.0020507812499999997
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 17,
+  "mult": 2.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.007031249999999999,
+  "margin_row": 0.007031249999999999
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 17,
+  "mult": 3.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0,
+  "margin_row": 0.0
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 17,
+  "mult": 5.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00234375,
+  "margin_row": 0.00263671875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 17,
+  "mult": 8.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00146484375,
+  "margin_row": 0.0020507812499999997
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 17,
+  "mult": 12.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.01845703125,
+  "margin_row": 0.01845703125
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 18,
+  "mult": 1.25,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.013769531249999998,
+  "margin_row": 0.013769531249999998
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 18,
+  "mult": 1.5,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00263671875,
+  "margin_row": 0.00263671875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 18,
+  "mult": 2.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.016113281249999997,
+  "margin_row": 0.01728515625
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 18,
+  "mult": 3.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00263671875,
+  "margin_row": 0.00263671875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 18,
+  "mult": 5.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0046875,
+  "margin_row": 0.00556640625
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 18,
+  "mult": 8.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00234375,
+  "margin_row": 0.00439453125
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 18,
+  "mult": 12.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0064453125,
+  "margin_row": 0.01318359375
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 19,
+  "mult": 1.25,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.021679687500000003,
+  "margin_row": 0.021679687500000003
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 19,
+  "mult": 1.5,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.014648437499999998,
+  "margin_row": 0.014648437499999998
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 19,
+  "mult": 2.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0029296875,
+  "margin_row": 0.00322265625
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 19,
+  "mult": 3.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0029296875,
+  "margin_row": 0.00439453125
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 19,
+  "mult": 5.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.013476562499999999,
+  "margin_row": 0.013476562499999999
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 19,
+  "mult": 8.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0111328125,
+  "margin_row": 0.013476562499999999
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 19,
+  "mult": 12.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00234375,
+  "margin_row": 0.00234375
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 20,
+  "mult": 1.25,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.04306640625000001,
+  "margin_row": 0.05712890625
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 20,
+  "mult": 1.5,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.007324218749999999,
+  "margin_row": 0.00849609375
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 20,
+  "mult": 2.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.027539062499999996,
+  "margin_row": 0.04130859375
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 20,
+  "mult": 3.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.01025390625,
+  "margin_row": 0.01025390625
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 20,
+  "mult": 5.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0064453125,
+  "margin_row": 0.0099609375
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 20,
+  "mult": 8.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0017578124999999998,
+  "margin_row": 0.007324218749999999
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 20,
+  "mult": 12.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.007617187499999999,
+  "margin_row": 0.007617187499999999
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 21,
+  "mult": 1.25,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00556640625,
+  "margin_row": 0.010546875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 21,
+  "mult": 1.5,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0,
+  "margin_row": 0.0
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 21,
+  "mult": 2.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00498046875,
+  "margin_row": 0.007031249999999999
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 21,
+  "mult": 3.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0046875,
+  "margin_row": 0.0046875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 21,
+  "mult": 5.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00263671875,
+  "margin_row": 0.00263671875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 21,
+  "mult": 8.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00263671875,
+  "margin_row": 0.00263671875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 21,
+  "mult": 12.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.01025390625,
+  "margin_row": 0.012890625
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 22,
+  "mult": 1.25,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.013476562499999999,
+  "margin_row": 0.015234374999999998
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 22,
+  "mult": 1.5,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00146484375,
+  "margin_row": 0.00146484375
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 22,
+  "mult": 2.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0205078125,
+  "margin_row": 0.0357421875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 22,
+  "mult": 3.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00146484375,
+  "margin_row": 0.0017578124999999998
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 22,
+  "mult": 5.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0017578124999999998,
+  "margin_row": 0.0029296875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 22,
+  "mult": 8.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00498046875,
+  "margin_row": 0.00849609375
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 22,
+  "mult": 12.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.021386718750000002,
+  "margin_row": 0.02314453125
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 23,
+  "mult": 1.25,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0008789062499999999,
+  "margin_row": 0.001171875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 23,
+  "mult": 1.5,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.001171875,
+  "margin_row": 0.001171875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 23,
+  "mult": 2.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.001171875,
+  "margin_row": 0.001171875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 23,
+  "mult": 3.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00439453125,
+  "margin_row": 0.00439453125
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 23,
+  "mult": 5.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.01171875,
+  "margin_row": 0.0123046875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 23,
+  "mult": 8.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0035156249999999997,
+  "margin_row": 0.0035156249999999997
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 23,
+  "mult": 12.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.02490234375,
+  "margin_row": 0.02490234375
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 24,
+  "mult": 1.25,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.042773437500000004,
+  "margin_row": 0.042773437500000004
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 24,
+  "mult": 1.5,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0017578124999999998,
+  "margin_row": 0.0017578124999999998
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 24,
+  "mult": 2.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0017578124999999998,
+  "margin_row": 0.0017578124999999998
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 24,
+  "mult": 3.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.019335937499999997,
+  "margin_row": 0.019335937499999997
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 24,
+  "mult": 5.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00322265625,
+  "margin_row": 0.00498046875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 24,
+  "mult": 8.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0029296875,
+  "margin_row": 0.0029296875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 24,
+  "mult": 12.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0029296875,
+  "margin_row": 0.0029296875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 25,
+  "mult": 1.25,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.007031249999999999,
+  "margin_row": 0.007031249999999999
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 25,
+  "mult": 1.5,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0,
+  "margin_row": 0.0
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 25,
+  "mult": 2.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.010546875,
+  "margin_row": 0.0169921875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 25,
+  "mult": 3.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.022265625,
+  "margin_row": 0.022265625
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 25,
+  "mult": 5.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0052734375,
+  "margin_row": 0.0052734375
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 25,
+  "mult": 8.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0052734375,
+  "margin_row": 0.0052734375
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 25,
+  "mult": 12.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0017578124999999998,
+  "margin_row": 0.0017578124999999998
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 26,
+  "mult": 1.25,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.001171875,
+  "margin_row": 0.00146484375
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 26,
+  "mult": 1.5,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0234375,
+  "margin_row": 0.0234375
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 26,
+  "mult": 2.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.010839843750000001,
+  "margin_row": 0.010839843750000001
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 26,
+  "mult": 3.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0205078125,
+  "margin_row": 0.0234375
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 26,
+  "mult": 5.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00234375,
+  "margin_row": 0.0035156249999999997
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 26,
+  "mult": 8.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.01318359375,
+  "margin_row": 0.01318359375
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 26,
+  "mult": 12.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.02431640625,
+  "margin_row": 0.02431640625
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 27,
+  "mult": 1.25,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.009667968749999999,
+  "margin_row": 0.01318359375
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 27,
+  "mult": 1.5,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0205078125,
+  "margin_row": 0.03486328125
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 27,
+  "mult": 2.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.015234374999999998,
+  "margin_row": 0.01728515625
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 27,
+  "mult": 3.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.005859375,
+  "margin_row": 0.005859375
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 27,
+  "mult": 5.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00029296875,
+  "margin_row": 0.00029296875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 27,
+  "mult": 8.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00263671875,
+  "margin_row": 0.0035156249999999997
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 27,
+  "mult": 12.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0099609375,
+  "margin_row": 0.0099609375
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 28,
+  "mult": 1.25,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.007910156249999998,
+  "margin_row": 0.00908203125
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 28,
+  "mult": 1.5,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0234375,
+  "margin_row": 0.025195312499999997
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 28,
+  "mult": 2.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.02109375,
+  "margin_row": 0.026660156249999997
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 28,
+  "mult": 3.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.034277343749999994,
+  "margin_row": 0.034277343749999994
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 28,
+  "mult": 5.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.01318359375,
+  "margin_row": 0.014062499999999999
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 28,
+  "mult": 8.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.01201171875,
+  "margin_row": 0.013476562499999999
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 28,
+  "mult": 12.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.013476562499999999,
+  "margin_row": 0.013476562499999999
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 29,
+  "mult": 1.25,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.03779296875,
+  "margin_row": 0.04365234375
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 29,
+  "mult": 1.5,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0038085937499999995,
+  "margin_row": 0.0038085937499999995
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 29,
+  "mult": 2.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.019335937499999997,
+  "margin_row": 0.030468749999999996
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 29,
+  "mult": 3.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00498046875,
+  "margin_row": 0.00498046875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 29,
+  "mult": 5.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00498046875,
+  "margin_row": 0.00498046875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 29,
+  "mult": 8.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.00263671875,
+  "margin_row": 0.00263671875
+ },
+ {
+  "corpus": "routerbench",
+  "seed": 29,
+  "mult": 12.0,
+  "K": 11,
+  "J": 8,
+  "margin_box": 0.0020507812499999997,
+  "margin_row": 0.00234375
+ }
+]

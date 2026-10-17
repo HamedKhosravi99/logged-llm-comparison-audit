@@ -178,6 +178,7 @@ python code/make_fig1_validity.py \
   --paper-numbers results/tae_paper_numbers.json \
   --output figures/fig1_validity.pdf
 python code/make_fig_allocation.py --outdir figures            # the illustrative allocation figure
+python code/make_fig_eta_sensitivity.py --output figures/fig_eta_sensitivity.pdf   # settled share against eta
 ```
 
 Runs are deterministic given the partition and acquisition seeds, so a fresh run reproduces the
